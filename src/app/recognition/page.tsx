@@ -3,156 +3,186 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { TextReveal } from "@/components/motion/TextReveal";
+import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Recognition & Accreditations",
+  title: "Recognition & Certifications | KLEE Technologies",
   description:
-    "Explore KLEE Technologies' institutional recognitions, government startup certifications, and ecosystem partnerships.",
+    "Explore KLEE Technologies' startup recognition, MSME certification, ISO certification, AICTE recognition and technology achievements.",
 };
 
-interface RecognitionItem {
-  title: string;
-  authority: string;
-  description: string;
-  logoSrc?: string;
-  logoAlt?: string;
-  logoWidth?: number;
-  logoHeight?: number;
-  badge?: string;
-}
-
-const RECOGNITIONS: RecognitionItem[] = [
+const CERTIFICATIONS = [
   {
-    title: "DPIIT Recognized Startup",
-    authority: "Department for Promotion of Industry and Internal Trade",
-    description:
-      "Officially recognized by the Ministry of Commerce & Industry, Government of India, for technology innovation, digital engineering, and intellectual capability.",
-    logoSrc: "/logos/dpiit.png",
-    logoAlt: "DPIIT Government of India Recognition",
-    logoWidth: 220,
-    logoHeight: 52,
-    badge: "Government of India",
+    id: "dpiit",
+    title: "DPIIT STARTUP RECOGNITION",
+    heading: "Recognised as a Startup by DPIIT",
+    body: (
+      <>
+        <p className="mb-4">KLEE Technologies was recognised by the Department for Promotion of Industry and Internal Trade (DPIIT), Government of India, in 2019.</p>
+        <p className="font-medium text-[var(--color-foreground)]">2019 — DPIIT Startup Recognition</p>
+        <p className="text-sm mt-1">A milestone that reflects KLEE's journey within India's startup ecosystem.</p>
+      </>
+    ),
+    logo: "/logos/dpiit.png",
+    width: 180,
+    height: 44,
   },
   {
-    title: "MSME Registered Enterprise",
-    authority: "Ministry of Micro, Small and Medium Enterprises",
-    description:
-      "Compliant enterprise delivering institutional technology, software development, and digital services to corporate and government sectors.",
-    logoSrc: "/logos/msme.png",
-    logoAlt: "MSME India Certification",
-    logoWidth: 140,
-    logoHeight: 50,
-    badge: "Ministry of MSME",
+    id: "msme",
+    title: "MSME",
+    heading: "MSME Certified",
+    body: (
+      <p>KLEE Technologies is MSME certified, strengthening its position as a recognised Indian business entity.</p>
+    ),
+    logo: "/logos/msme.png",
+    width: 120,
+    height: 40,
   },
   {
-    title: "ISO 9001 Quality Framework",
-    authority: "International Organization for Standardization",
-    description:
-      "Software delivery, design systems, and digital product workflows structured strictly in alignment with global ISO quality management benchmarks.",
-    logoSrc: "/logos/iso9001.png",
-    logoAlt: "ISO 9001 Quality Standards",
-    logoWidth: 72,
-    logoHeight: 72,
-    badge: "Global Standard",
+    id: "iso",
+    title: "ISO",
+    heading: "ISO Certified",
+    body: (
+      <>
+        <p>KLEE Technologies is ISO 9001 certified, reflecting its commitment to structured processes and professional standards.</p>
+      </>
+    ),
+    logo: "/logos/iso9001.png",
+    width: 64,
+    height: 64,
+    isSquare: true,
   },
   {
-    title: "AICTE Aligned Mentorship",
-    authority: "All India Council for Technical Education Alignment",
-    description:
-      "Over 500+ engineering students and developers trained across live client projects adhering strictly to national technical education standards.",
-    logoSrc: "/logos/aicte.png",
-    logoAlt: "AICTE Education Alignment",
-    logoWidth: 64,
-    logoHeight: 64,
-    badge: "Institutional Linkage",
-  },
-  {
-    title: "T-Hub Ecosystem Incubated",
-    authority: "T-Hub Phase 2, Hyderabad",
-    description:
-      "Headquartered and operating within India's premier innovation ecosystem, leveraging world-class technology infrastructure and strategic enterprise networks.",
-    badge: "Innovation Hub HQ",
-  },
+    id: "aicte",
+    title: "AICTE",
+    heading: "AICTE Recognised",
+    body: (
+      <p>KLEE Technologies is AICTE recognised, supporting its engagement with students and industry-oriented learning initiatives.</p>
+    ),
+    logo: "/logos/aicte.png",
+    width: 64,
+    height: 64,
+    isSquare: true,
+  }
 ];
 
 export default function RecognitionPage() {
   return (
     <>
+      {/* Recognition Hero */}
       <Section spacing="hero" background="default">
         <Container size="default">
+          <div className="max-w-4xl">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">RECOGNITION</span>
+            </Reveal>
+            <TextReveal as="h1" className="type-display text-[var(--color-foreground)] font-medium mb-6 text-balance">
+              Recognition That Reflects the Journey.
+            </TextReveal>
+            <Reveal variant="slide-up" delay={0.1}>
+              <p className="type-body-large text-[var(--color-muted)] max-w-3xl leading-relaxed text-balance">
+                From startup recognition to industry certifications and institutional projects, KLEE Technologies continues to build credibility through <strong>technology, execution and impact</strong>.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Certifications Grid */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {CERTIFICATIONS.map((cert, i) => (
+              <Reveal key={cert.id} variant="slide-up" delay={i * 0.1}>
+                <div className="p-8 md:p-10 bg-[var(--color-background-primary)] border border-[var(--color-border-subtle)] rounded-2xl h-full flex flex-col justify-between">
+                  <div>
+                    <span className="type-eyebrow text-[var(--color-accent)] mb-6 block">{cert.title}</span>
+                    <h3 className="text-2xl font-medium text-[var(--color-foreground)] mb-4">{cert.heading}</h3>
+                    <div className="type-body text-[var(--color-muted)] leading-relaxed mb-10">
+                      {cert.body}
+                    </div>
+                  </div>
+                  
+                  <div className={`flex items-center justify-center p-6 bg-white border border-[var(--color-border-subtle)] rounded-xl mt-auto w-fit ${cert.isSquare ? 'aspect-square' : ''}`}>
+                    <Image
+                      src={cert.logo}
+                      alt={cert.heading}
+                      width={cert.width}
+                      height={cert.height}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Impact Milestones */}
+      <Section spacing="default" background="default" borderTop>
+        <Container size="default">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">GOVERNMENT PROJECT</span>
+              <h3 className="type-h3 text-[var(--color-foreground)] font-medium mb-4">Technology Built for Public Impact</h3>
+              <div className="type-body text-[var(--color-muted)] leading-relaxed space-y-4">
+                <p>
+                  KLEE Technologies developed the <strong>KSDC application for the Telangana Government</strong> under a skill development program.
+                </p>
+                <p>
+                  This project stands as an important milestone in KLEE's technology journey.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal variant="slide-up" delay={0.1}>
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">INTERNSHIP IMPACT</span>
+              <h3 className="type-h3 text-[var(--color-foreground)] font-medium mb-4">500+ Students. Real-World Exposure.</h3>
+              <div className="type-body text-[var(--color-muted)] leading-relaxed space-y-4">
+                <p>
+                  More than <strong>500 students have completed internships</strong> with KLEE Technologies, gaining exposure to practical projects and industry-oriented technology.
+                </p>
+                <p className="font-medium text-[var(--color-foreground)] border-l-2 border-[var(--color-accent)] pl-4 py-1">
+                  Because the future of technology needs builders—not just learners.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Global Project Delivery */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default">
           <Reveal variant="slide-up">
-            <SectionHeading
-              isHero
-              eyebrow="Accreditation & Trust"
-              title="Recognized standards. Validated execution."
-              description="Our commitment to engineering excellence, governance compliance, and talent mentorship is recognized across national government, global quality, and institutional bodies."
-            />
+            <div className="max-w-3xl">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">GLOBAL PROJECT DELIVERY</span>
+              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-6">
+                200+ Projects Delivered Worldwide
+              </h2>
+              <p className="type-body-large text-[var(--color-muted)] leading-relaxed">
+                KLEE Technologies has delivered <strong>200+ client projects across the world</strong>, bringing together technology, design and digital expertise for businesses and organisations.
+              </p>
+            </div>
           </Reveal>
         </Container>
       </Section>
 
-      <Section spacing="default" background="secondary" borderTop>
-        <Container size="default">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {RECOGNITIONS.map((item, index) => (
-              <Reveal
-                key={item.title}
-                variant="slide-up"
-                delay={index * 0.08}
-                className="h-full"
-              >
-                <SpotlightCard className="h-full p-8 bg-white flex flex-col justify-between">
-                  <div>
-                    {/* Logo / Badge Header */}
-                    <div className="flex items-center justify-between gap-4 mb-6 min-h-[56px]">
-                      {item.logoSrc ? (
-                        <div className="h-12 flex items-center justify-start max-w-[190px]">
-                          <Image
-                            src={item.logoSrc}
-                            alt={item.logoAlt || item.title}
-                            width={item.logoWidth || 120}
-                            height={item.logoHeight || 48}
-                            className="max-h-12 w-auto object-contain"
-                          />
-                        </div>
-                      ) : (
-                        <div className="w-12 h-12 rounded-xl bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20 text-[var(--color-accent)] flex items-center justify-center font-bold text-sm">
-                          T-Hub
-                        </div>
-                      )}
-
-                      {item.badge && (
-                        <span className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded bg-[var(--color-surface-muted)] text-[var(--color-muted)] border border-[var(--color-border-subtle)]">
-                          {item.badge}
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className="type-h3 font-medium text-[var(--color-foreground)] mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)] mb-4">
-                      {item.authority}
-                    </p>
-                    <p className="type-body text-sm text-[var(--color-muted)] leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-[var(--color-border-subtle)] flex items-center justify-between text-xs text-[var(--color-muted)]">
-                    <span>Verified Credential</span>
-                    <span className="inline-flex items-center gap-1.5 text-[var(--color-foreground)] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
-                      Active
-                    </span>
-                  </div>
-                </SpotlightCard>
-              </Reveal>
-            ))}
-          </div>
+      {/* Recognition CTA */}
+      <Section spacing="default" background="default" borderTop>
+        <Container size="default" className="text-center max-w-2xl mx-auto">
+          <Reveal variant="slide-up">
+            <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">Built With Purpose. Recognised Through Progress.</h2>
+            <p className="type-body-large text-[var(--color-muted)] mb-8">
+              Our journey continues.
+            </p>
+            <Button href="/contact" variant="primary" size="lg" showArrow>
+              Work With KLEE
+            </Button>
+          </Reveal>
         </Container>
       </Section>
     </>

@@ -1,250 +1,254 @@
 import React from "react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
-import { MediaPlaceholder } from "@/components/ui/MediaPlaceholder";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { TextReveal } from "@/components/motion/TextReveal";
+import { ClientsShowcase } from "@/components/ui/ClientsShowcase";
+import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About KLEE Technologies | Technology & Digital Solutions Company",
   description:
-    "Learn about KLEE Technologies — Established in 2018 at T-Hub Hyderabad. Pioneering design, technology, and digital growth.",
+    "Learn about KLEE Technologies, established in 2018 in Hyderabad. Explore our technology, design, SaaS, digital marketing, branding and innovation journey.",
 };
-
-interface TeamMember {
-  name: string;
-  role: string;
-  discipline: string;
-  bio: string;
-  tags: string[];
-  initials: string;
-  accent: string;
-}
-
-const TEAM_MEMBERS: TeamMember[] = [
-  {
-    name: "Aditya Narayan",
-    role: "Founder & Managing Director",
-    discipline: "Enterprise Systems & Strategy",
-    bio: "Founded KLEE Technologies in 2018 at T-Hub Hyderabad. Directing enterprise architecture, institutional platforms, and digital growth strategies across 200+ global deployments.",
-    tags: ["Systems Architecture", "SaaS Engineering", "Executive Leadership"],
-    initials: "AN",
-    accent: "var(--color-accent)",
-  },
-  {
-    name: "Head of Product Design",
-    role: "VP of UI/UX & Creative Direction",
-    discipline: "Human-Centric Experience Design",
-    bio: "Spearheading brand design systems, high-craft editorial typography, and enterprise user interfaces that convert complex business logic into effortless human experiences.",
-    tags: ["Design Systems", "UI/UX Architecture", "Creative Direction"],
-    initials: "UX",
-    accent: "#00c982",
-  },
-  {
-    name: "Head of Technology & Growth",
-    role: "VP of Engineering & Academy",
-    discipline: "Cloud Infrastructure & Mentorship",
-    bio: "Orchestrating scalable microservices, resilient cloud deployments, and heading KLEE's flagship 500+ student live internship and technical talent incubator.",
-    tags: ["Cloud Infra", "Full-Stack Dev", "Talent Mentorship"],
-    initials: "TG",
-    accent: "var(--color-foreground)",
-  },
-];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero Section */}
+      {/* About KLEE Hero */}
       <Section spacing="hero" background="default">
         <Container size="default">
-          <Reveal variant="slide-up">
-            <SectionHeading
-              isHero
-              eyebrow="About KLEE Technologies"
-              title="A creative technology studio rooted in innovation and craft."
-              description="Founded in 2018 at T-Hub Hyderabad, KLEE Technologies is an integrated team of software engineers, product designers, and digital growth specialists."
-            />
-          </Reveal>
-
-          <Reveal variant="scale" delay={0.1}>
-            <div className="mt-8">
-              <MediaPlaceholder
-                aspectRatio="wide"
-                label="Studio & Team Story Placeholder"
-                sublabel="Images and editorial video of T-Hub headquarters will be placed here"
-              />
-            </div>
-          </Reveal>
-        </Container>
-      </Section>
-
-      {/* Heritage & Ecosystem Badges Section */}
-      <Section spacing="default" background="secondary" borderTop>
-        <Container size="default">
-          <SectionHeading
-            eyebrow="Our Heritage"
-            title="Pioneering digital evolution since 2018."
-            description="From incubating at T-Hub to delivering over 200+ global projects and mentoring 500+ professionals through live industry initiatives."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            <Reveal variant="slide-up" delay={0.05}>
-              <SpotlightCard className="p-8 rounded-xl bg-white border border-[var(--color-border-subtle)] h-full">
-                <span className="text-xs font-bold tracking-widest text-[var(--color-accent)] uppercase">
-                  Pillar 01
-                </span>
-                <h3 className="type-h3 font-medium text-[var(--color-foreground)] mt-3 mb-3">
-                  Enterprise Pedigree
-                </h3>
-                <p className="type-body text-sm text-[var(--color-muted)] leading-relaxed">
-                  Extensive experience delivering scalable platforms for corporate enterprises, emerging startups, and institutional technology initiatives.
-                </p>
-              </SpotlightCard>
+          <div className="max-w-4xl">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">ABOUT KLEE</span>
             </Reveal>
-
-            <Reveal variant="slide-up" delay={0.12}>
-              <SpotlightCard className="p-8 rounded-xl bg-white border border-[var(--color-border-subtle)] h-full flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-3 mb-4 opacity-90">
-                    <Image
-                      src="/logos/dpiit.png"
-                      alt="DPIIT"
-                      width={80}
-                      height={20}
-                      className="h-5 w-auto object-contain"
-                    />
-                    <Image
-                      src="/logos/msme.png"
-                      alt="MSME"
-                      width={50}
-                      height={18}
-                      className="h-5 w-auto object-contain"
-                    />
-                    <Image
-                      src="/logos/iso9001.png"
-                      alt="ISO 9001"
-                      width={22}
-                      height={22}
-                      className="h-5 w-auto object-contain"
-                    />
-                    <Image
-                      src="/logos/aicte.png"
-                      alt="AICTE"
-                      width={22}
-                      height={22}
-                      className="h-5 w-auto object-contain"
-                    />
-                  </div>
-                  <h3 className="type-h3 font-medium text-[var(--color-foreground)] mb-3">
-                    Recognized Ecosystem
-                  </h3>
-                  <p className="type-body text-sm text-[var(--color-muted)] leading-relaxed">
-                    DPIIT recognized startup, aligned with MSME, ISO, and AICTE industry benchmarks, headquartered inside T-Hub, Madhapur, Hyderabad.
-                  </p>
-                </div>
-              </SpotlightCard>
-            </Reveal>
-
-            <Reveal variant="slide-up" delay={0.19}>
-              <SpotlightCard className="p-8 rounded-xl bg-white border border-[var(--color-border-subtle)] h-full">
-                <span className="text-xs font-bold tracking-widest text-[var(--color-accent)] uppercase">
-                  Pillar 03
-                </span>
-                <h3 className="type-h3 font-medium text-[var(--color-foreground)] mt-3 mb-3">
-                  Talent Mentorship
-                </h3>
-                <p className="type-body text-sm text-[var(--color-muted)] leading-relaxed">
-                  Over 500+ students and aspiring engineers trained through rigorous live industry projects bridging academia and high-tech industry demands.
+            <TextReveal as="h1" className="type-display text-[var(--color-foreground)] font-medium mb-6 text-balance">
+              We Build What Moves Ideas Forward.
+            </TextReveal>
+            <Reveal variant="slide-up" delay={0.1}>
+              <div className="space-y-4 type-body-large text-[var(--color-muted)] max-w-3xl leading-relaxed">
+                <p>
+                  Established on <strong>6 April 2018</strong>, KLEE TECHNOLOGIES PRIVATE LIMITED has evolved into a multidisciplinary technology and digital solutions company serving clients across the world.
                 </p>
-              </SpotlightCard>
+                <p>
+                  Our capabilities span <strong>software development, AI enterprise integration, SaaS development, mobile and web UI/UX, digital marketing, graphic design and branding</strong>.
+                </p>
+                <p className="pt-4 font-medium text-[var(--color-foreground)] text-xl">
+                  We believe technology should not simply function.<br />It should create an experience.
+                </p>
+              </div>
             </Reveal>
           </div>
         </Container>
       </Section>
 
-      {/* Leadership & Core Team Section (3 Members) */}
+      {/* Our Story */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default">
+          <div className="max-w-3xl">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">OUR STORY</span>
+              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-6">
+                Started in 2018. Built for What's Next.
+              </h2>
+              <div className="space-y-4 type-body text-[var(--color-muted)] leading-relaxed">
+                <p>
+                  KLEE began with a simple ambition: to create meaningful technology and digital experiences that solve real problems.
+                </p>
+                <p>
+                  Over time, our capabilities expanded across technology, design, marketing and brand communication.
+                </p>
+                <p>
+                  Today, KLEE operates from <strong>T-Hub, Hyderabad</strong>, bringing together technology, creativity and entrepreneurial thinking in one ecosystem.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Our Approach */}
       <Section spacing="default" background="default" borderTop>
         <Container size="default">
-          <SectionHeading
-            eyebrow="Leadership & Vision"
-            title="The minds driving design, technology & growth."
-            description="An integrated leadership team combining enterprise systems engineering, high-craft brand design, and strategic growth architecture."
-          />
+          <div className="mb-12">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">OUR APPROACH</span>
+              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
+                Technology Without the Silos.
+              </h2>
+              <p className="type-body text-[var(--color-muted)]">
+                Traditional projects often separate strategy, design, development and marketing into disconnected stages. We believe they should work together.
+              </p>
+            </Reveal>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {TEAM_MEMBERS.map((member, index) => (
-              <Reveal key={member.name} variant="slide-up" delay={index * 0.1}>
-                <SpotlightCard className="p-0 overflow-hidden bg-white border border-[var(--color-border-subtle)] hover:border-[var(--color-border)] flex flex-col h-full group">
-                  {/* Portrait Media Frame */}
-                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-[var(--color-background-subtle)] border-b border-[var(--color-border-subtle)] flex flex-col items-center justify-center p-8 select-none">
-                    {/* Background Graphic Grid */}
-                    <div
-                      className="absolute inset-0 opacity-[0.04] pointer-events-none"
-                      style={{
-                        backgroundImage:
-                          "radial-gradient(var(--color-foreground) 1px, transparent 1px)",
-                        backgroundSize: "20px 20px",
-                      }}
-                    />
-
-                    {/* Stylized Minimal Studio Monogram Avatar */}
-                    <div className="relative z-10 w-24 h-24 rounded-2xl bg-white border border-[var(--color-border)] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300 ease-out">
-                      <span className="text-2xl font-bold tracking-tight text-[var(--color-foreground)]">
-                        {member.initials}
-                      </span>
-                      <span
-                        className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-white"
-                        style={{ backgroundColor: member.accent }}
-                      />
-                    </div>
-
-                    <div className="relative z-10 mt-6 text-center">
-                      <span className="text-xs uppercase tracking-[0.16em] font-semibold text-[var(--color-muted)]">
-                        {member.discipline}
-                      </span>
-                    </div>
-
-                    {/* Floating Role Badge */}
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                      <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-xs border border-[var(--color-border-subtle)] text-[var(--color-foreground)]">
-                        {member.role}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Bio & Details Area */}
-                  <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
-                    <div>
-                      <h3 className="type-h3 font-medium text-[var(--color-foreground)] mb-1 group-hover:text-[var(--color-accent)] transition-colors">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider mb-4">
-                        {member.role}
-                      </p>
-                      <p className="type-body text-sm text-[var(--color-muted)] leading-relaxed mb-6">
-                        {member.bio}
-                      </p>
-                    </div>
-
-                    {/* Specialization Tags */}
-                    <div className="pt-4 border-t border-[var(--color-border-subtle)] flex flex-wrap gap-1.5">
-                      {member.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[11px] font-medium px-2 py-0.5 rounded bg-[var(--color-surface-muted)] text-[var(--color-muted)]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </SpotlightCard>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Discover", desc: "Understand the challenge." },
+              { title: "Define", desc: "Identify the opportunity." },
+              { title: "Design", desc: "Create the experience." },
+              { title: "Develop", desc: "Engineer the solution." },
+              { title: "Deliver", desc: "Launch with precision." },
+              { title: "Grow", desc: "Improve, scale and evolve." }
+            ].map((step, i) => (
+              <Reveal key={step.title} variant="slide-up" delay={i * 0.05}>
+                <div className="p-6 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-xl">
+                  <h3 className="text-lg font-medium text-[var(--color-foreground)] mb-2">{step.title}</h3>
+                  <p className="text-sm text-[var(--color-muted)]">{step.desc}</p>
+                </div>
               </Reveal>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      {/* Our Belief */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-5">
+              <Reveal variant="slide-up">
+                <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">OUR BELIEF</span>
+                <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
+                  Good Technology Solves Problems. Great Technology Changes Possibilities.
+                </h2>
+                <p className="type-body text-[var(--color-muted)]">We combine:</p>
+              </Reveal>
+            </div>
+            
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {[
+                { title: "Technology & AI", desc: "Engineering products and intelligent workflows that work." },
+                { title: "Design", desc: "Creating experiences people enjoy using." },
+                { title: "Business Thinking", desc: "Building around actual objectives." },
+                { title: "Creativity", desc: "Making ideas distinctive." },
+                { title: "Digital Growth", desc: "Helping brands reach the right audience." }
+              ].map((belief, i) => (
+                <Reveal key={belief.title} variant="slide-up" delay={i * 0.1}>
+                  <div>
+                    <h3 className="text-lg font-medium text-[var(--color-foreground)] mb-2">{belief.title}</h3>
+                    <p className="text-sm text-[var(--color-muted)]">{belief.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Leadership Team */}
+      <Section spacing="default" background="default" borderTop>
+        <Container size="default">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="max-w-2xl">
+              <Reveal variant="slide-up">
+                <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">LEADERSHIP</span>
+              </Reveal>
+              <TextReveal as="h2" className="type-h2 text-[var(--color-foreground)] font-medium text-balance">
+                The Team Driving the Vision
+              </TextReveal>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[
+              { name: "G Satyanarayana", role: "Founder & CEO", image: "/people/g-satyanarayana-real.png", link: "https://linkedin.com" },
+              { name: "BS Anuhya", role: "Director", image: "/people/bs-anuhya-real.png", link: "https://linkedin.com" },
+              { name: "Nikhil Mungilwar", role: "Business Head", image: "/people/nikhil-mungilwar-real.png", link: "https://linkedin.com" }
+            ].map((person, i) => (
+              <Reveal key={person.name} variant="slide-up" delay={i * 0.1}>
+                <a href={person.link} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between p-2 pr-6 sm:pr-8 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] hover:border-blue-500 hover:shadow-md transition-all duration-300">
+                  <div className="flex items-center gap-4 sm:gap-6">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[var(--color-background-secondary)] shrink-0 border border-[var(--color-border-subtle)]">
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        width={80}
+                        height={80}
+                        className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-medium text-[var(--color-foreground)] mb-0.5">{person.name}</h3>
+                      <p className="text-sm text-[var(--color-muted)] font-medium">{person.role}</p>
+                    </div>
+                  </div>
+                  <div className="text-[var(--color-muted)] group-hover:text-blue-500 transition-colors flex items-center gap-1 sm:gap-2 shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 group-hover:translate-y-[-2px] duration-300 hidden sm:block">
+                      <line x1="7" y1="17" x2="17" y2="7"></line>
+                      <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                  </div>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Clients Section */}
+      <Section spacing="default" background="default" borderTop>
+        <Container size="default">
+          <ClientsShowcase />
+        </Container>
+      </Section>
+
+      {/* Global Experience, Education & Location */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <Reveal variant="slide-up" delay={0.1}>
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">GLOBAL EXPERIENCE</span>
+              <h3 className="text-2xl font-medium text-[var(--color-foreground)] mb-4">200+ Projects. Clients Across the World.</h3>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">
+                From startups and growing businesses to institutional initiatives, KLEE Technologies has delivered 200+ client projects across the world.
+              </p>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed">
+                Every project adds another perspective, another challenge and another opportunity to build better.
+              </p>
+            </Reveal>
+
+            <Reveal variant="slide-up" delay={0.2}>
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">EDUCATION & INDUSTRY</span>
+              <h3 className="text-2xl font-medium text-[var(--color-foreground)] mb-4">Creating Opportunities for the Next Generation</h3>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">
+                Technology grows faster when knowledge moves with it. Through our Live Internship Projects, students gain practical exposure to real-world projects, technologies and professional workflows.
+              </p>
+              <p className="text-sm font-medium text-[var(--color-foreground)] leading-relaxed">
+                500+ students have completed internships with KLEE Technologies.
+              </p>
+            </Reveal>
+
+            <Reveal variant="slide-up" delay={0.3}>
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">OUR LOCATION</span>
+              <h3 className="text-2xl font-medium text-[var(--color-foreground)] mb-4">Inside India's Startup & Innovation Ecosystem</h3>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed">
+                KLEE Technologies is currently located at <strong>T-Hub, Hyderabad</strong>, placing the company within one of India's prominent startup and innovation ecosystems.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* About CTA */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default" className="text-center max-w-2xl mx-auto">
+          <Reveal variant="slide-up">
+            <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">Let's Build Something Meaningful.</h2>
+            <p className="type-body-large text-[var(--color-muted)] mb-8">
+              Whether you're starting from an idea or scaling an existing digital product, KLEE Technologies is ready to build with you.
+            </p>
+            <Button href="/contact" variant="primary" size="lg" showArrow>
+              Start a Conversation
+            </Button>
+          </Reveal>
         </Container>
       </Section>
     </>

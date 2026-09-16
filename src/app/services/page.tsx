@@ -5,133 +5,229 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { Button } from "@/components/ui/Button";
-import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 export const metadata: Metadata = {
-  title: "Services & Capabilities",
+  title: "Services | Software, SaaS, UI/UX, Digital Marketing & Branding | KLEE",
   description:
-    "Explore KLEE Technologies' multidisciplinary services: Software Development, SaaS, UI/UX Design, Digital Marketing, Branding, and Live Internships.",
+    "Explore KLEE Technologies services including software development, SaaS development, UI/UX design, digital marketing, graphic design, branding and live internship projects.",
 };
 
 const SERVICES = [
   {
-    id: "software-development",
-    title: "Software Development",
-    eyebrow: "Core Engineering",
-    description:
-      "Enterprise software, custom API architectures, high-performance web applications, and resilient cloud-native infrastructures.",
-  },
-  {
-    id: "saas-development",
-    title: "SaaS Development",
-    eyebrow: "Product Engineering",
-    description:
-      "End-to-end multi-tenant SaaS engineering, subscription workflows, analytics integration, and scalable microservices architectures.",
-  },
-  {
-    id: "ui-ux",
-    title: "UI/UX Design & Development",
-    eyebrow: "Experience Design",
-    description:
-      "User research, intuitive interface architecture, design systems, and frontend implementation with modern frameworks.",
-  },
-  {
     id: "digital-marketing",
-    title: "Digital Marketing",
-    eyebrow: "Growth & Acquisition",
-    description:
-      "Performance marketing, search engine optimization (SEO), omnichannel campaigns, conversion rate optimization, and brand visibility.",
+    num: "01",
+    title: "DIGITAL MARKETING",
+    heading: "Don't Just Get Seen. Get Remembered.",
+    desc: "We create digital marketing strategies designed to connect brands with the right audiences.",
+    capabilities: [
+      "Digital Marketing Strategy",
+      "Social Media Marketing",
+      "Campaign Design",
+      "Creative Content",
+      "Digital Brand Communication",
+      "Lead Generation",
+      "Online Brand Promotion"
+    ],
+    oneliner: "Attention is valuable. We help turn it into opportunity."
   },
   {
     id: "graphic-design",
-    title: "Graphic Design",
-    eyebrow: "Visual Arts",
-    description:
-      "High-impact visual assets, marketing collateral, corporate presentation systems, vector typography, and digital publication design.",
+    num: "02",
+    title: "GRAPHIC DESIGN",
+    heading: "Make Your Brand Look Like It Means Business.",
+    desc: "We create visual communication systems that make brands consistent, memorable and professional.",
+    capabilities: [
+      "Logo Design",
+      "Marketing Collateral",
+      "Space Branding",
+      "Pitch Deck Design",
+      "Company Profile Design"
+    ],
+    oneliner: "Every visual is an opportunity to make an impression."
+  },
+  {
+    id: "ui-ux",
+    num: "03",
+    title: "UI/UX DESIGN & DEVELOPMENT",
+    heading: "Beautiful Interfaces. Effortless Experiences.",
+    desc: "We design and develop intuitive mobile and web experiences built around users and business objectives.",
+    capabilities: [
+      "UX Research",
+      "Information Architecture",
+      "User Flows",
+      "Wireframes",
+      "UI Design",
+      "Design Systems",
+      "Responsive Web Design",
+      "Mobile App UI/UX",
+      "Front-End Development"
+    ],
+    oneliner: "We design digital experiences people don't need instructions to use."
+  },
+  {
+    id: "software-development",
+    num: "04",
+    title: "SOFTWARE DEVELOPMENT",
+    heading: "Engineering Built Around Your Business.",
+    desc: "Custom software should fit the business—not force the business to fit the software. We develop solutions tailored to specific operational and business requirements.",
+    capabilities: [
+      "Custom Software",
+      "Web Applications",
+      "Business Applications",
+      "Application Development",
+      "API & System Integration",
+      "Database-Driven Platforms",
+      "Custom Digital Platforms"
+    ],
+    oneliner: "Your business is unique. Your software should be too."
+  },
+  {
+    id: "saas-development",
+    num: "05",
+    title: "SAAS DEVELOPMENT",
+    heading: "Build Once. Scale Intelligently.",
+    desc: "We help transform software ideas into scalable SaaS products.",
+    capabilities: [
+      "SaaS Product Strategy",
+      "Product Architecture",
+      "UI/UX",
+      "Multi-user Platforms",
+      "Subscription-based Products",
+      "Cloud-ready Applications",
+      "Product Development",
+      "Scalability Planning"
+    ],
+    oneliner: "From product idea to scalable digital business."
+  },
+  {
+    id: "ai-integration",
+    num: "06",
+    title: "AI-FIRST ENTERPRISE INTEGRATED SOLUTIONS",
+    heading: "Intelligence at the core. Integration across the enterprise.",
+    desc: "KLEE Technologies helps businesses embed AI into their existing technology ecosystem—connecting enterprise applications, data, workflows, automation, software, SaaS platforms and business operations into intelligent, connected solutions.",
+    capabilities: [
+      "AI-powered enterprise applications",
+      "Intelligent workflow automation",
+      "AI-integrated SaaS platforms",
+      "Enterprise AI assistants & copilots",
+      "Data & knowledge intelligence",
+      "AI-enabled customer experiences",
+      "AI + software integration",
+      "Business process intelligence",
+      "Custom AI solutions",
+      "Enterprise system integration"
+    ],
+    oneliner: "Don't simply add AI to your business. Build your business around intelligence."
   },
   {
     id: "branding",
-    title: "Branding",
-    eyebrow: "Identity & Positioning",
-    description:
-      "Strategic brand positioning, corporate identities, brand guidelines, typography standards, and tone-of-voice formulation.",
+    num: "07",
+    title: "BRANDING",
+    heading: "Build a Brand People Recognise Before They Read the Name.",
+    desc: "Branding is more than a logo. We create cohesive brand identities that connect visual language, communication and customer perception.",
+    capabilities: [
+      "Brand Identity",
+      "Logo Systems",
+      "Brand Visual Language",
+      "Brand Communication",
+      "Marketing Assets",
+      "Corporate Identity",
+      "Digital Brand Presence"
+    ],
+    oneliner: "We don't just design brands. We design recognition."
   },
   {
     id: "internship-projects",
-    title: "Live Internship Projects",
-    eyebrow: "Academy & Talent",
-    description:
-      "Immersive industry project internships preparing developers and designers with real client deliverables, live codebases, and mentorship.",
-  },
+    num: "08",
+    title: "LIVE INTERNSHIP PROJECTS",
+    heading: "Learn Technology by Building It.",
+    desc: "KLEE Technologies provides students with exposure to live, industry-oriented projects, helping bridge the gap between academic learning and practical experience.",
+    capabilities: [
+      "Software Development",
+      "Web Development",
+      "Mobile Development",
+      "UI/UX",
+      "Digital Marketing",
+      "Graphic Design",
+      "SaaS Projects"
+    ],
+    oneliner: "Don't just learn the technology. Build with it."
+  }
 ];
 
 export default function ServicesPage() {
   return (
     <>
+      {/* Services Hero */}
       <Section spacing="hero" background="default">
         <Container size="default">
           <div className="max-w-4xl">
             <Reveal variant="slide-up">
-              <span className="type-eyebrow inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent-subtle)] text-[var(--color-accent)] border border-[var(--color-accent)]/10 font-medium mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
-                Capabilities & Solutions
-              </span>
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">SERVICES</span>
             </Reveal>
-
-            <TextReveal
-              as="h1"
-              className="type-display text-[var(--color-foreground)] font-medium tracking-tight text-balance mb-6"
-            >
-              Full-spectrum design, technology, and market execution.
+            <TextReveal as="h1" className="type-display text-[var(--color-foreground)] font-medium mb-6 text-balance">
+              One Digital Partner. Multiple Possibilities.
             </TextReveal>
-
-            <Reveal variant="slide-up" delay={0.2}>
-              <p className="type-body-large text-[var(--color-muted)] max-w-2xl leading-relaxed text-balance mb-8">
-                We partner with modern enterprises to build resilient software,
-                craft distinctive digital brands, and execute high-performance
-                digital campaigns.
+            <Reveal variant="slide-up" delay={0.1}>
+              <p className="type-body-large text-[var(--color-muted)] max-w-3xl leading-relaxed">
+                From brand identity to enterprise software, KLEE brings <strong>design, technology and digital growth</strong> together.
               </p>
-
-              <Button href="/contact" variant="primary" size="lg" showArrow>
-                Discuss Your Requirements
-              </Button>
             </Reveal>
           </div>
         </Container>
       </Section>
 
-      <Section spacing="default" background="secondary" borderTop>
-        <Container size="default">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service, index) => (
-              <Reveal key={service.id} variant="slide-up" delay={index * 0.05}>
-                <SpotlightCard className="h-full flex flex-col justify-between p-8 bg-white">
-                  <div>
-                    <span className="type-eyebrow text-xs text-[var(--color-accent)] font-semibold uppercase tracking-wider">
-                      {service.eyebrow}
-                    </span>
-                    <h2 className="type-h3 font-medium text-[var(--color-foreground)] mt-3 mb-3">
-                      {service.title}
+      {/* Services List */}
+      <div className="bg-[var(--color-background-primary)]">
+        {SERVICES.map((srv, index) => (
+          <Section key={srv.id} id={srv.id} spacing="default" borderTop background={index % 2 === 0 ? "secondary" : "default"}>
+            <Container size="default">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div className="lg:col-span-5">
+                  <Reveal variant="slide-up">
+                    <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">{srv.num} — {srv.title}</span>
+                    <h2 className="text-3xl lg:text-4xl text-[var(--color-foreground)] font-medium mb-6 tracking-tight text-balance">
+                      {srv.heading}
                     </h2>
-                    <p className="type-body text-sm text-[var(--color-muted)] leading-relaxed">
-                      {service.description}
+                    <p className="type-body text-[var(--color-muted)] mb-8 max-w-md">
+                      {srv.desc}
                     </p>
-                  </div>
+                    <div className="p-5 bg-[var(--color-foreground)] text-[var(--color-background-primary)] rounded-lg font-medium text-lg text-balance">
+                      "{srv.oneliner}"
+                    </div>
+                  </Reveal>
+                </div>
+                
+                <div className="lg:col-span-7">
+                  <Reveal variant="slide-up" delay={0.1}>
+                    <h3 className="text-sm font-semibold tracking-wider text-[var(--color-foreground)] uppercase mb-6">Capabilities / Focus Areas</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {srv.capabilities.map((cap) => (
+                        <div key={cap} className="flex items-center gap-3">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shrink-0" />
+                          <span className="text-base text-[var(--color-muted)]">{cap}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </Reveal>
+                </div>
+              </div>
+            </Container>
+          </Section>
+        ))}
+      </div>
 
-                  <div className="mt-8 pt-4 border-t border-[var(--color-border-subtle)]">
-                    <Button
-                      href={`/contact?service=${encodeURIComponent(service.title)}`}
-                      variant="text-arrow"
-                      showArrow
-                      arrowDirection="up-right"
-                    >
-                      Engage Service
-                    </Button>
-                  </div>
-                </SpotlightCard>
-              </Reveal>
-            ))}
-          </div>
+      {/* Services CTA */}
+      <Section spacing="default" background="default" borderTop>
+        <Container size="default" className="text-center max-w-2xl mx-auto">
+          <Reveal variant="slide-up">
+            <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">Have a challenge that needs technology, design or digital expertise?</h2>
+            <div className="mt-8">
+              <Button href="/contact" variant="primary" size="lg" showArrow>
+                Let's Build It
+              </Button>
+            </div>
+          </Reveal>
         </Container>
       </Section>
     </>

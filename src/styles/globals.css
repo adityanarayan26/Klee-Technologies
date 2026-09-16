@@ -62,6 +62,7 @@
 
 @theme inline {
   --color-background: var(--bg-primary);
+  --color-background-primary: var(--bg-primary);
   --color-background-secondary: var(--bg-secondary);
   --color-background-subtle: var(--bg-subtle);
   --color-background-contrast: var(--bg-contrast);
@@ -255,6 +256,29 @@ html.lenis, html.lenis body {
 
 .animate-marquee-reverse {
   animation: marquee-reverse linear infinite;
+}
+
+@keyframes pdf-scroll {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    /* Translate half the height since we duplicate the content */
+    transform: translateY(-50%);
+  }
+}
+
+.animate-pdf-scroll {
+  animation: pdf-scroll linear infinite;
+}
+
+/* Hide scrollbar for PDF viewers but keep functionality */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.custom-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* -------------------------------------------------------------------------- */

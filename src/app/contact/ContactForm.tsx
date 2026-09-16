@@ -2,183 +2,173 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { CheckIcon } from "@/components/svg/Icons";
 
 const SERVICE_OPTIONS = [
   "Software Development",
   "SaaS Development",
-  "UI/UX Design & Development",
+  "AI & Enterprise Integration",
+  "Mobile App",
+  "Web Development",
+  "UI/UX Design",
   "Digital Marketing",
   "Graphic Design",
   "Branding",
-  "Live Internship Projects",
-  "Enterprise Consultancy",
+  "Internship",
+  "Other"
 ];
 
 export function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const toggleService = (service: string) => {
+    setSelectedServices(prev => 
+      prev.includes(service) 
+        ? prev.filter(s => s !== service)
+        : [...prev, service]
+    );
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Visual-only simulation per project requirements (no backend/API route)
+    setIsSubmitting(true);
+    
+    // Simulate network request
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <div className="p-8 md:p-12 rounded-2xl bg-[var(--color-accent-subtle)] border border-[var(--color-accent)]/20 text-center">
-        <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] text-white mx-auto flex items-center justify-center mb-4">
-          <CheckIcon size={24} />
+      <div className="flex flex-col items-center justify-center py-12 text-center">
+        <div className="w-16 h-16 bg-[var(--color-accent-subtle)] text-[var(--color-accent)] rounded-full flex items-center justify-center mb-6">
+          <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
         </div>
-        <h3 className="type-h3 font-medium text-[var(--color-foreground)] mb-2">
-          Enquiry Received
-        </h3>
-        <p className="type-body text-sm text-[var(--color-muted)] max-w-md mx-auto mb-6">
-          Thank you for reaching out to KLEE Technologies. A member of our design and engineering team will review your project requirements and respond within 24 hours.
+        <h3 className="text-2xl font-medium text-[var(--color-foreground)] mb-3">Enquiry Sent Successfully</h3>
+        <p className="text-[var(--color-muted)] mb-8 max-w-sm">
+          Thank you for reaching out. A team member will get back to you shortly to discuss your project.
         </p>
-        <button
-          type="button"
+        <Button 
+          variant="outline" 
           onClick={() => setSubmitted(false)}
-          className="text-xs font-semibold text-[var(--color-accent)] hover:underline"
         >
-          Send another enquiry
-        </button>
+          Send Another Enquiry
+        </Button>
       </div>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="p-8 md:p-10 rounded-2xl bg-white border border-[var(--color-border-subtle)] shadow-xs flex flex-col gap-6"
-    >
+    <form onSubmit={handleSubmit} className="space-y-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {/* Name */}
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor="name"
-            className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]"
-          >
-            Name <span className="text-[var(--color-accent)]">*</span>
+        <div className="space-y-2">
+          <label htmlFor="name" className="text-sm font-medium text-[var(--color-foreground)] block">
+            Name
           </label>
           <input
+            type="text"
             id="name"
             name="name"
-            type="text"
             required
-            placeholder="Jane Doe"
-            className="w-full px-4 py-3 text-sm rounded-lg border border-[var(--color-border)] bg-transparent text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] focus:border-[var(--color-foreground)] focus:outline-none transition-colors"
+            placeholder="Your name"
+            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
           />
         </div>
 
-        {/* Company */}
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor="company"
-            className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]"
-          >
+        <div className="space-y-2">
+          <label htmlFor="company" className="text-sm font-medium text-[var(--color-foreground)] block">
             Company
           </label>
           <input
+            type="text"
             id="company"
             name="company"
-            type="text"
-            placeholder="Acme Corp"
-            className="w-full px-4 py-3 text-sm rounded-lg border border-[var(--color-border)] bg-transparent text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] focus:border-[var(--color-foreground)] focus:outline-none transition-colors"
+            placeholder="Your company"
+            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
           />
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {/* Email */}
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor="email"
-            className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]"
-          >
-            Email <span className="text-[var(--color-accent)]">*</span>
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-sm font-medium text-[var(--color-foreground)] block">
+            Email
           </label>
           <input
+            type="email"
             id="email"
             name="email"
-            type="email"
             required
-            placeholder="jane@company.com"
-            className="w-full px-4 py-3 text-sm rounded-lg border border-[var(--color-border)] bg-transparent text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] focus:border-[var(--color-foreground)] focus:outline-none transition-colors"
+            placeholder="Your business email"
+            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
           />
         </div>
 
-        {/* Phone */}
-        <div className="flex flex-col gap-2">
-          <label
-            htmlFor="phone"
-            className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]"
-          >
+        <div className="space-y-2">
+          <label htmlFor="phone" className="text-sm font-medium text-[var(--color-foreground)] block">
             Phone
           </label>
           <input
+            type="tel"
             id="phone"
             name="phone"
-            type="tel"
-            placeholder="+91 98765 43210"
-            className="w-full px-4 py-3 text-sm rounded-lg border border-[var(--color-border)] bg-transparent text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] focus:border-[var(--color-foreground)] focus:outline-none transition-colors"
+            placeholder="Your contact number"
+            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
           />
         </div>
       </div>
 
-      {/* Service Selection */}
-      <div className="flex flex-col gap-2">
-        <label
-          htmlFor="service"
-          className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]"
-        >
-          Service Required
+      <div className="space-y-4">
+        <label className="text-sm font-medium text-[var(--color-foreground)] block">
+          What do you need?
         </label>
-        <select
-          id="service"
-          name="service"
-          defaultValue="Software Development"
-          className="w-full px-4 py-3 text-sm rounded-lg border border-[var(--color-border)] bg-white text-[var(--color-foreground)] focus:border-[var(--color-foreground)] focus:outline-none transition-colors"
-        >
-          {SERVICE_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+        <div className="flex flex-wrap gap-3">
+          {SERVICE_OPTIONS.map((service) => {
+            const isSelected = selectedServices.includes(service);
+            return (
+              <button
+                key={service}
+                type="button"
+                onClick={() => toggleService(service)}
+                className={`px-4 py-2 text-sm rounded-full border transition-all ${
+                  isSelected 
+                    ? "bg-[var(--color-foreground)] border-[var(--color-foreground)] text-[var(--color-background-primary)]" 
+                    : "bg-transparent border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-foreground)] hover:text-[var(--color-foreground)]"
+                }`}
+              >
+                {service}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Project Description */}
-      <div className="flex flex-col gap-2">
-        <label
-          htmlFor="description"
-          className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]"
-        >
-          Project Description <span className="text-[var(--color-accent)]">*</span>
+      <div className="space-y-2">
+        <label htmlFor="message" className="text-sm font-medium text-[var(--color-foreground)] block">
+          Tell us about your project.
         </label>
         <textarea
-          id="description"
-          name="description"
-          rows={5}
+          id="message"
+          name="message"
           required
-          placeholder="Tell us about your project goals, timelines, and technical requirements..."
-          className="w-full px-4 py-3 text-sm rounded-lg border border-[var(--color-border)] bg-transparent text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] focus:border-[var(--color-foreground)] focus:outline-none transition-colors resize-y"
+          rows={5}
+          placeholder="What are you looking to build?"
+          className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all resize-none"
         />
       </div>
 
-      {/* Submit Button */}
-      <div className="pt-2">
-        <Button
-          type="submit"
-          variant="primary"
-          size="lg"
-          showArrow
-          arrowDirection="right"
-          className="w-full sm:w-auto"
-        >
-          Send Enquiry
-        </Button>
-      </div>
+      <Button
+        type="submit"
+        variant="primary"
+        size="lg"
+        className="w-full sm:w-auto"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? "Sending..." : "Send Enquiry"}
+      </Button>
     </form>
   );
 }

@@ -2,70 +2,76 @@ import React from "react";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { TextReveal } from "@/components/motion/TextReveal";
 import { ContactForm } from "./ContactForm";
-import { BRAND_INFO } from "@/data/navigation";
 
 export const metadata: Metadata = {
-  title: "Contact & Start a Project",
+  title: "Contact KLEE Technologies | Start Your Digital Project",
   description:
-    "Get in touch with KLEE Technologies. Start a software, design, or growth project with our engineering and design team at T-Hub Hyderabad.",
+    "Contact KLEE Technologies in Hyderabad for software development, SaaS, UI/UX, digital marketing, branding, graphic design and technology solutions.",
 };
 
 export default function ContactPage() {
   return (
     <>
-      <Section spacing="hero" background="default">
+      <Section spacing="hero" background="default" className="min-h-screen">
         <Container size="default">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left Context Column (5 cols) */}
-            <div className="lg:col-span-5">
-              <Reveal variant="slide-up">
-                <SectionHeading
-                  isHero
-                  eyebrow="Initiate Project"
-                  title="Let's build something extraordinary together."
-                  description="Whether you are architecting a new software platform, elevating your brand system, or accelerating digital growth, we are prepared to engineer the solution."
-                />
-              </Reveal>
-
-              <Reveal variant="slide-up" delay={0.15}>
-                <div className="mt-8 pt-8 border-t border-[var(--color-border-subtle)] flex flex-col gap-6">
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-foreground)] mb-1">
-                      Headquarters
-                    </h3>
-                    <p className="text-sm text-[var(--color-muted)] leading-relaxed">
-                      {BRAND_INFO.contact.location}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            {/* Contact Hero & Intro */}
+            <div className="lg:col-span-5 flex flex-col justify-between">
+              <div>
+                <Reveal variant="slide-up">
+                  <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">CONTACT</span>
+                </Reveal>
+                <TextReveal as="h1" className="type-display text-[var(--color-foreground)] font-medium mb-6 text-balance">
+                  Let's Build What's Next.
+                </TextReveal>
+                <Reveal variant="slide-up" delay={0.1}>
+                  <p className="type-body-large text-[var(--color-foreground)] font-medium mb-4">
+                    Have an idea, project or business challenge?
+                    <br />
+                    Start the conversation with KLEE Technologies.
+                  </p>
+                </Reveal>
+                
+                <Reveal variant="slide-up" delay={0.2}>
+                  <div className="mt-12 pt-8 border-t border-[var(--color-border-subtle)]">
+                    <h2 className="type-h3 text-[var(--color-foreground)] font-medium mb-4">Tell us what you're trying to build.</h2>
+                    <p className="type-body text-[var(--color-muted)] leading-relaxed">
+                      Whether you need a new digital product, software platform, SaaS application, brand identity, UI/UX experience or digital growth strategy, our team can help turn your requirement into a clear path forward.
                     </p>
                   </div>
+                </Reveal>
+              </div>
 
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-foreground)] mb-1">
-                      Direct Email
-                    </h3>
-                    <p className="text-sm text-[var(--color-muted)] font-mono">
-                      {BRAND_INFO.contact.email}
+              {/* Office Info */}
+              <div className="mt-12 lg:mt-24 pt-8 border-t border-[var(--color-border-subtle)]">
+                <Reveal variant="slide-up" delay={0.3}>
+                  <h3 className="type-eyebrow text-[var(--color-accent)] mb-4 block">OFFICE</h3>
+                  <p className="text-xl font-medium text-[var(--color-foreground)] mb-6">Visit KLEE Technologies</p>
+                  <address className="type-body text-[var(--color-muted)] not-italic space-y-1">
+                    <p className="font-medium text-[var(--color-foreground)]">KLEE TECHNOLOGIES PRIVATE LIMITED</p>
+                    <p>1/C, Plot No: 25, T-Hub, 4th Floor</p>
+                    <p>Sy No 83/1, Knowledge City Rd, panmaktha</p>
+                    <p>Rai Durg, Hyderabad, Telangana 500032</p>
+                    <p className="mt-4 pt-4 border-t border-[var(--color-border-subtle)]">
+                      <a href="mailto:info@kleetechnologies.com" className="hover:text-[var(--color-accent)] transition-colors">
+                        info@kleetechnologies.com
+                      </a>
                     </p>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-foreground)] mb-1">
-                      Response SLA
-                    </h3>
-                    <p className="text-sm text-[var(--color-muted)]">
-                      Direct partner response within 24 business hours.
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
+                  </address>
+                </Reveal>
+              </div>
             </div>
 
-            {/* Right Form Column (7 cols) */}
-            <div className="lg:col-span-7">
-              <Reveal variant="slide-up" delay={0.1}>
-                <ContactForm />
+            {/* Contact Form */}
+            <div className="lg:col-span-7 mt-8 lg:mt-0">
+              <Reveal variant="slide-up" delay={0.2}>
+                <div className="bg-[var(--color-background-primary)] p-6 sm:p-10 border border-[var(--color-border-subtle)] rounded-2xl shadow-sm">
+                  <h2 className="text-2xl font-medium text-[var(--color-foreground)] mb-8">Start a Project</h2>
+                  <ContactForm />
+                </div>
               </Reveal>
             </div>
           </div>

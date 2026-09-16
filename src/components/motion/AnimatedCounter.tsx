@@ -11,6 +11,7 @@ interface AnimatedCounterProps {
   duration?: number;
   decimals?: number;
   className?: string;
+  format?: boolean;
 }
 
 /**
@@ -26,16 +27,22 @@ export function AnimatedCounter({
   duration = 1.8,
   decimals = 0,
   className = "",
+  format = true,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    const formatNumber = (val: number | string) => {
+      const num = Number(val);
+      return format ? num.toLocaleString() : num.toString();
+    };
+
     const node = ref.current;
     if (!node || !isInView || shouldReduceMotion) {
       if (node && shouldReduceMotion) {
-        node.textContent = `${prefix}${value.toLocaleString()}${suffix}`;
+        node.textContent = `${prefix}${formatNumber(value)}${suffix}`;
       }
       return;
     }
@@ -55,13 +62,16 @@ export function AnimatedCounter({
       const easedProgress = easeOutExpo(progress);
 
       const current = startValue + (endValue - startValue) * easedProgress;
-      const formatted = Number(current.toFixed(decimals)).toLocaleString();
+      const formatted = format 
+        ? Number(current.toFixed(decimals)).toLocaleString()
+        : current.toFixed(decimals);
+        
       node.textContent = `${prefix}${formatted}${suffix}`;
 
       if (progress < 1) {
         animationFrameId = requestAnimationFrame(step);
       } else {
-        node.textContent = `${prefix}${endValue.toLocaleString()}${suffix}`;
+        node.textContent = `${prefix}${formatNumber(endValue)}${suffix}`;
       }
     };
 
@@ -73,7 +83,9 @@ export function AnimatedCounter({
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {shouldReduceMotion ? value.toLocaleString() : from.toLocaleString()}
+      {shouldReduceMotion 
+        ? (format ? value.toLocaleString() : value.toString()) 
+        : (format ? from.toLocaleString() : from.toString())}
       {suffix}
     </span>
   );

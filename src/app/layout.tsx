@@ -5,7 +5,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { PageTransition } from "@/components/layout/PageTransition";
-import { StudioCursor } from "@/components/ui/StudioCursor";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -46,7 +45,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} font-sans antialiased`}>
       <body className="min-h-screen flex flex-col bg-[var(--color-background)] text-[var(--color-foreground)]">
-        <StudioCursor />
         <SmoothScrollProvider>
           <Header />
           <main id="main-content" className="flex-1 flex flex-col">

@@ -15,9 +15,10 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
 export const SERVICES_NAV_ITEMS: NavItem[] = [
   { label: "Digital Marketing", href: "/services#digital-marketing" },
   { label: "Graphic Design", href: "/services#graphic-design" },
-  { label: "UI/UX Design & Development", href: "/services#ui-ux" },
+  { label: "UI/UX Design", href: "/services#ui-ux" },
   { label: "Software Development", href: "/services#software-development" },
   { label: "SaaS Development", href: "/services#saas-development" },
+  { label: "AI & Enterprise Integration", href: "/services#ai-integration" },
   { label: "Branding", href: "/services#branding" },
   { label: "Live Internship Projects", href: "/services#internship-projects" },
 ];
@@ -67,10 +68,11 @@ export const ACCREDITATIONS = [
 
 export const BRAND_INFO = {
   name: "KLEE Technologies",
-  tagline: "DESIGN. TECHNOLOGY. GROWTH.",
+  tagline: "DESIGN. TECHNOLOGY. AI. GROWTH.",
   statement: "Technology. Design. Digital Growth.",
+  description: "Building intelligent digital products, enterprise solutions and brands for what's next.",
   establishedYear: 2018,
-  headquarters: "T-Hub, Hyderabad, India",
+  headquarters: "Hyderabad, India",
   highlights: [
     "200+ Global Client Projects Delivered",
     "500+ Students Mentored via Live Internships",
