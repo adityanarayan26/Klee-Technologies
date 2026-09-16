@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -16,19 +17,6 @@ export const metadata: Metadata = {
   description:
     "Creative Technology and Design Studio combining Software Engineering, UI/UX Design, SaaS, and Digital Growth.",
 };
-
-const ECOSYSTEM_MARQUEE = [
-  "T-Hub Hyderabad HQ",
-  "DPIIT Recognized Startup",
-  "MSME Certified Enterprise",
-  "ISO Quality Aligned",
-  "AICTE Linked Mentorship",
-  "Enterprise Software Architecture",
-  "Scalable SaaS Platforms",
-  "Human-Centric UI/UX Design",
-  "Digital Growth Engineering",
-  "200+ Global Client Deployments",
-];
 
 export default function HomePage() {
   return (
@@ -145,18 +133,80 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Smooth Infinite Marquee Ticker */}
-      <div className="py-4 border-b border-[var(--color-border-subtle)] bg-white overflow-hidden">
+      {/* Smooth Infinite Marquee Ticker with Official Badges & Capabilities */}
+      <div className="py-5 border-b border-[var(--color-border-subtle)] bg-white overflow-hidden">
         <Marquee speed={32} pauseOnHover>
-          {ECOSYSTEM_MARQUEE.map((item) => (
-            <div
-              key={item}
-              className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.14em] font-semibold text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]/60" />
-              <span>{item}</span>
+          <div className="flex items-center gap-10 sm:gap-14 px-4">
+            <div className="flex items-center gap-2 opacity-85 hover:opacity-100 transition-opacity">
+              <Image
+                src="/logos/dpiit.png"
+                alt="DPIIT Recognized Startup"
+                width={140}
+                height={34}
+                className="h-7 w-auto object-contain"
+              />
             </div>
-          ))}
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+
+            <div className="flex items-center gap-2 opacity-85 hover:opacity-100 transition-opacity">
+              <Image
+                src="/logos/msme.png"
+                alt="MSME Certified Enterprise"
+                width={85}
+                height={30}
+                className="h-6 w-auto object-contain"
+              />
+            </div>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+
+            <div className="flex items-center gap-2 opacity-85 hover:opacity-100 transition-opacity">
+              <Image
+                src="/logos/iso9001.png"
+                alt="ISO 9001 Quality Certified"
+                width={32}
+                height={32}
+                className="h-7 w-auto object-contain"
+              />
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]">
+                ISO 9001
+              </span>
+            </div>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+
+            <div className="flex items-center gap-2 opacity-85 hover:opacity-100 transition-opacity">
+              <Image
+                src="/logos/aicte.png"
+                alt="AICTE Aligned Mentorship"
+                width={32}
+                height={32}
+                className="h-7 w-auto object-contain"
+              />
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-foreground)]">
+                AICTE Aligned
+              </span>
+            </div>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+
+            <span className="text-xs uppercase tracking-[0.14em] font-semibold text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">
+              T-Hub Hyderabad HQ
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+
+            <span className="text-xs uppercase tracking-[0.14em] font-semibold text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">
+              Enterprise Software Architecture
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+
+            <span className="text-xs uppercase tracking-[0.14em] font-semibold text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">
+              Scalable SaaS Platforms
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+
+            <span className="text-xs uppercase tracking-[0.14em] font-semibold text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors">
+              Bespoke UI/UX Engineering
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-border)]" />
+          </div>
         </Marquee>
       </div>
 

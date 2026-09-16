@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Logo } from "@/components/svg/Logo";
 import { Container } from "@/components/ui/Container";
 import {
@@ -30,25 +31,67 @@ export function Footer() {
                 {BRAND_INFO.statement}
               </p>
 
-              <p className="text-sm text-[var(--color-muted)] leading-relaxed max-w-md">
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed max-w-md mb-6">
                 KLEE Technologies is a creative technology and design studio
                 founded in 2018. Based at T-Hub Hyderabad, we build transformative
                 software, digital products, and brand systems for forward-thinking
                 enterprises.
               </p>
+
+              {/* Contact Quick Info */}
+              <div className="flex flex-col gap-1 text-xs text-[var(--color-muted)] mb-6">
+                <span className="font-medium text-[var(--color-foreground)]">Headquarters:</span>
+                <span className="max-w-sm leading-relaxed">{BRAND_INFO.contact.location}</span>
+                <span className="mt-2 font-medium text-[var(--color-foreground)]">Direct Mail:</span>
+                <a
+                  href={`mailto:${BRAND_INFO.contact.email}`}
+                  className="font-mono text-[var(--color-accent)] hover:underline w-fit"
+                >
+                  {BRAND_INFO.contact.email}
+                </a>
+              </div>
             </div>
 
-            {/* Studio Badges */}
-            <div className="mt-8 pt-6 border-t border-[var(--color-border-subtle)] flex flex-wrap gap-2 text-xs text-[var(--color-muted)]">
-              <span className="px-2.5 py-1 rounded bg-white border border-[var(--color-border-subtle)] font-medium">
-                DPIIT Recognized Startup
-              </span>
-              <span className="px-2.5 py-1 rounded bg-white border border-[var(--color-border-subtle)] font-medium">
-                T-Hub, Hyderabad
-              </span>
-              <span className="px-2.5 py-1 rounded bg-white border border-[var(--color-border-subtle)] font-medium">
-                Est. 2018
-              </span>
+            {/* Official Accreditation Badges */}
+            <div className="mt-4 pt-6 border-t border-[var(--color-border-subtle)] flex flex-wrap items-center gap-4">
+              <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
+                <Image
+                  src="/logos/dpiit.png"
+                  alt="DPIIT"
+                  width={75}
+                  height={18}
+                  className="h-4 w-auto object-contain"
+                />
+              </div>
+              <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
+                <Image
+                  src="/logos/msme.png"
+                  alt="MSME"
+                  width={48}
+                  height={16}
+                  className="h-4 w-auto object-contain"
+                />
+              </div>
+              <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
+                <Image
+                  src="/logos/iso9001.png"
+                  alt="ISO 9001"
+                  width={20}
+                  height={20}
+                  className="h-5 w-auto object-contain"
+                />
+                <span className="text-[10px] font-semibold text-[var(--color-foreground)]">ISO 9001</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
+                <Image
+                  src="/logos/aicte.png"
+                  alt="AICTE"
+                  width={20}
+                  height={20}
+                  className="h-5 w-auto object-contain"
+                />
+                <span className="text-[10px] font-semibold text-[var(--color-foreground)]">AICTE</span>
+              </div>
             </div>
           </div>
 
@@ -98,7 +141,13 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-muted)]">
           <p>© {currentYear} KLEE Technologies. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span>{BRAND_INFO.headquarters}</span>
+            <span>T-Hub Phase 2, Rai Durg, Hyderabad</span>
+            <a
+              href={`mailto:${BRAND_INFO.contact.email}`}
+              className="text-[var(--color-accent)] hover:underline font-mono"
+            >
+              {BRAND_INFO.contact.email}
+            </a>
           </div>
         </div>
       </Container>

@@ -30,6 +30,41 @@ export const COMPANY_NAV_ITEMS: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+export const ACCREDITATIONS = [
+  {
+    id: "dpiit",
+    name: "DPIIT",
+    fullName: "Department for Promotion of Industry and Internal Trade",
+    src: "/logos/dpiit.png",
+    alt: "DPIIT Recognized Startup",
+    aspectRatio: "wide",
+  },
+  {
+    id: "msme",
+    name: "MSME",
+    fullName: "Ministry of Micro, Small and Medium Enterprises",
+    src: "/logos/msme.png",
+    alt: "MSME Registered Enterprise",
+    aspectRatio: "wide",
+  },
+  {
+    id: "iso",
+    name: "ISO 9001",
+    fullName: "International Organization for Standardization",
+    src: "/logos/iso9001.png",
+    alt: "ISO 9001 Quality Certified",
+    aspectRatio: "square",
+  },
+  {
+    id: "aicte",
+    name: "AICTE",
+    fullName: "All India Council for Technical Education Alignment",
+    src: "/logos/aicte.png",
+    alt: "AICTE Aligned Mentorship",
+    aspectRatio: "square",
+  },
+] as const;
+
 export const BRAND_INFO = {
   name: "KLEE Technologies",
   tagline: "DESIGN. TECHNOLOGY. GROWTH.",
@@ -44,7 +79,8 @@ export const BRAND_INFO = {
     "Institutional & Enterprise Technology Experience",
   ],
   contact: {
-    email: "contact@klee.tech",
-    location: "T-Hub Phase 2, Madhapur, Hyderabad, Telangana 500081",
+    email: "info@kleetechnologies.com",
+    location:
+      "1/C, Plot No: 25, T-Hub, 4th Floor, Sy No 83/1, Knowledge City Rd, panmaktha, Rai Durg, Hyderabad, Telangana 500032",
   },
 } as const;
