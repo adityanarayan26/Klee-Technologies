@@ -154,39 +154,59 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
-              { name: "G Satyanarayana", role: "Founder & CEO", image: "/people/g-satyanarayana-real.png", link: "https://linkedin.com" },
-              { name: "BS Anuhya", role: "Director", image: "/people/bs-anuhya-real.png", link: "https://linkedin.com" },
-              { name: "Nikhil Mungilwar", role: "Business Head", image: "/people/nikhil-mungilwar-real.png", link: "https://linkedin.com" }
+              { name: "G Satyanarayana", role: "Founder & CEO", image: "/people/g-satyanarayana-real.png", link: "https://www.linkedin.com/in/satyanarayanakleetechnologiesceo/" },
+              { name: "BS Anuhya", role: "Director", image: "/people/bs-anuhya-real.png", link: "" },
+              { name: "Nikhil Mungilwar", role: "Business Head", image: "/people/nikhil-mungilwar-real.png", link: "" }
             ].map((person, i) => (
               <Reveal key={person.name} variant="slide-up" delay={i * 0.1}>
-                <a href={person.link} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between p-2 pr-6 sm:pr-8 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] hover:border-blue-500 hover:shadow-md transition-all duration-300">
-                  <div className="flex items-center gap-4 sm:gap-6">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[var(--color-background-secondary)] shrink-0 border border-[var(--color-border-subtle)]">
-                      <Image
-                        src={person.image}
-                        alt={person.name}
-                        width={80}
-                        height={80}
-                        className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                      />
+                {person.link ? (
+                  <a href={person.link} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between p-2 pr-6 sm:pr-8 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] hover:border-blue-500 hover:shadow-md transition-all duration-300">
+                    <div className="flex items-center gap-4 sm:gap-6">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[var(--color-background-secondary)] shrink-0 border border-[var(--color-border-subtle)]">
+                        <Image
+                          src={person.image}
+                          alt={person.name}
+                          width={80}
+                          height={80}
+                          className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-medium text-[var(--color-foreground)] mb-0.5">{person.name}</h3>
+                        <p className="text-sm text-[var(--color-muted)] font-medium">{person.role}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-medium text-[var(--color-foreground)] mb-0.5">{person.name}</h3>
-                      <p className="text-sm text-[var(--color-muted)] font-medium">{person.role}</p>
+                    <div className="text-[var(--color-muted)] group-hover:text-blue-500 transition-colors flex items-center gap-1 sm:gap-2 shrink-0">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 group-hover:translate-y-[-2px] duration-300 hidden sm:block">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="group flex items-center justify-between p-2 pr-6 sm:pr-8 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] transition-all duration-300">
+                    <div className="flex items-center gap-4 sm:gap-6">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[var(--color-background-secondary)] shrink-0 border border-[var(--color-border-subtle)]">
+                        <Image
+                          src={person.image}
+                          alt={person.name}
+                          width={80}
+                          height={80}
+                          className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-medium text-[var(--color-foreground)] mb-0.5">{person.name}</h3>
+                        <p className="text-sm text-[var(--color-muted)] font-medium">{person.role}</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="text-[var(--color-muted)] group-hover:text-blue-500 transition-colors flex items-center gap-1 sm:gap-2 shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect x="2" y="9" width="4" height="12"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 group-hover:translate-y-[-2px] duration-300 hidden sm:block">
-                      <line x1="7" y1="17" x2="17" y2="7"></line>
-                      <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                  </div>
-                </a>
+                )}
               </Reveal>
             ))}
           </div>
