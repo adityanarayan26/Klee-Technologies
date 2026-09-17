@@ -48,10 +48,8 @@ export function Header() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-40 w-full transition-all duration-200",
-          isScrolled
-            ? "bg-white/90 backdrop-blur-md border-b border-[var(--color-border-subtle)] py-3 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.03)]"
-            : "bg-white/80 backdrop-blur-sm border-b border-transparent py-3.5 sm:py-4"
+          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+          isScrolled ? "py-4" : "py-6"
         )}
       >
         <div className="w-full max-w-[1420px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 flex items-center justify-between">
@@ -68,7 +66,7 @@ export function Header() {
           <nav
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredPath(null)}
-            className="hidden md:flex items-center gap-1 lg:gap-1.5 px-2.5 py-1.5 rounded-full bg-[var(--color-surface-muted)]/80 border border-[var(--color-border-subtle)]"
+            className="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-2 rounded-full bg-white/70 backdrop-blur-md shadow-[0_2px_15px_-5px_rgba(0,0,0,0.05)] border border-[var(--color-border-subtle)]/60"
           >
             {MAIN_NAV_ITEMS.map((item) => {
               const isActive =
@@ -84,7 +82,7 @@ export function Header() {
                   href={item.href}
                   onMouseEnter={() => setHoveredPath(item.href)}
                   className={cn(
-                    "relative px-3.5 py-1.5 text-xs lg:text-sm font-medium transition-colors duration-150 rounded-full select-none",
+                    "relative px-4 py-2 text-xs lg:text-sm font-medium transition-colors duration-150 rounded-full select-none",
                     isActive
                       ? "text-[var(--color-foreground)] font-semibold"
                       : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
@@ -94,7 +92,7 @@ export function Header() {
                     <motion.div
                       layoutId="nav-pill"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      className="absolute inset-0 bg-white rounded-full shadow-xs border border-[var(--color-border-subtle)]"
+                      className="absolute inset-0 bg-white rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-[var(--color-border-subtle)]"
                     />
                   )}
                   <span className="relative z-10">{item.label}</span>
@@ -111,7 +109,7 @@ export function Header() {
               size="sm"
               showArrow
               arrowDirection="right"
-              className="hidden sm:inline-flex"
+              className="hidden sm:inline-flex bg-gray-950 hover:bg-black text-white border-transparent shadow-md rounded-full px-5 py-2.5"
             >
               START A PROJECT
             </Button>
@@ -120,21 +118,15 @@ export function Header() {
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               type="button"
-              className="md:hidden p-2.5 rounded-lg text-[var(--color-foreground)] hover:bg-[var(--color-surface-hover)] border border-[var(--color-border-subtle)] focus-visible:outline-2 transition-colors"
+              className="p-2.5 rounded-full bg-white/70 backdrop-blur-md shadow-[0_2px_10px_rgba(0,0,0,0.03)] text-[var(--color-foreground)] hover:bg-white border border-[var(--color-border-subtle)]/60 focus-visible:outline-2 transition-colors md:hidden"
               aria-label="Open mobile navigation"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation"
             >
-              <MenuIcon size={22} />
+              <MenuIcon size={20} />
             </button>
           </div>
         </div>
-
-        {/* Header Scroll Progress Bar */}
-        <motion.div
-          style={{ scaleX }}
-          className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[var(--color-accent)] origin-left pointer-events-none"
-        />
       </header>
 
       {/* Mobile Drawer */}

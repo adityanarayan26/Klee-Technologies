@@ -21,70 +21,75 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <Section spacing="none" background="default" className="overflow-visible min-h-[calc(100svh-var(--header-height))] flex items-center py-6 sm:py-8 lg:py-4">
-        <Container size="default" className="w-full">
-          <div className="grid w-full items-center gap-6 lg:grid-cols-[minmax(0,1.22fr)_minmax(0,0.78fr)] lg:gap-10">
+      <Section spacing="none" className="relative min-h-[100svh] w-full overflow-hidden bg-white flex items-center pt-32 lg:pt-16 pb-12">
+        
+        {/* Background Elements */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          
+          {/* Cyan/Blue Glowing Orbs */}
+          <div className="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-cyan-200/40 blur-[100px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-100/40 blur-[120px]" />
+          <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-teal-100/30 blur-[80px]" />
+        </div>
+
+        <Container size="default" className="relative z-10 w-full h-full flex flex-col justify-center min-h-[calc(100svh-5rem)]">
+          <div className="grid w-full items-center gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 h-full py-8 lg:py-12">
+            
+            {/* Left Content */}
             <div className="flex flex-col justify-center">
               <Reveal variant="slide-up">
-                <div className="mb-3">
-                  <span className="type-eyebrow inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/15 bg-[var(--color-accent-subtle)] px-3 py-1 text-xs font-medium text-[var(--color-accent)]">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--color-accent)]" />
-                    WE DESIGN. WE BUILD. WE GROW.
-                  </span>
-                </div>
+                <h1 className="type-h1 leading-[0.95] tracking-tighter text-balance text-gray-900 mb-6 font-semibold">
+                  Building <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400">intelligent digital products</span>, enterprise solutions and brands for what's next.
+                </h1>
               </Reveal>
 
-              <TextReveal
-                as="h1"
-                className="text-[1.95rem] sm:text-[2.5rem] md:text-[2.75rem] lg:text-[2.65rem] xl:text-[3.1rem] leading-[1.1] font-medium tracking-tight text-balance text-[var(--color-foreground)] mb-3"
-              >
-                Building intelligent digital products, enterprise solutions and brands for what's next.
-              </TextReveal>
-
               <Reveal variant="slide-up" delay={0.15}>
-                <p className="mb-3 max-w-xl text-sm sm:text-[15px] leading-relaxed text-[var(--color-muted)]">
-                  KLEE Technologies combines <strong>software development, AI integration, SaaS, UI/UX, digital marketing, and creative design</strong> to transform ideas into meaningful digital products and measurable business outcomes.
+                <p className="mb-10 max-w-[500px] text-base lg:text-[1.1rem] leading-[1.65] text-gray-500">
+                  Klee Technologies partners with businesses to design, develop and scale digital experiences powered by technology, creativity and purpose.
                 </p>
 
-                <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-[var(--color-foreground)]">
-                  <span className="inline-flex items-center gap-1.5 text-[var(--color-accent)] font-semibold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
-                    Since 2018
-                  </span>
-                  <span className="text-[var(--color-border-strong)]">•</span>
-                  <span>200+ Global Client Projects</span>
-                  <span className="text-[var(--color-border-strong)]">•</span>
-                  <span>500+ Students Trained</span>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <Button href="/contact" variant="primary" size="md" showArrow>
-                    Start a Project
-                  </Button>
-                  <Button href="/portfolio" variant="outline" size="md" showArrow arrowDirection="up-right">
-                    Explore Our Work
+                <div className="flex flex-wrap items-center gap-6">
+                  <Button href="/contact" variant="primary" size="lg" showArrow className="bg-gray-950 hover:bg-black text-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] rounded-full px-8 py-3.5 border-transparent">
+                    START A PROJECT
                   </Button>
                 </div>
               </Reveal>
             </div>
 
-            <Reveal variant="slide-up" delay={0.2} className="flex items-center justify-center">
-              <div className="relative mx-auto flex w-full max-w-[460px] items-center justify-center">
-                <div className="pointer-events-none absolute -left-6 -top-6 h-40 w-40 rounded-full bg-blue-400/25 blur-3xl" />
-                <div className="pointer-events-none absolute -bottom-6 -right-4 h-48 w-48 rounded-full bg-cyan-300/30 blur-3xl" />
-                <div className="pointer-events-none absolute right-6 top-1/3 h-28 w-28 rounded-full bg-indigo-300/20 blur-2xl" />
+            {/* Right Content - 3D Illustration */}
+            <Reveal variant="slide-up" delay={0.2} className="relative flex items-center justify-center h-full min-h-[40vh] lg:min-h-0 w-full">
+              <div className="relative w-full max-w-[450px] xl:max-w-[580px] z-10">
                 <Image
                   src="/hero/intelligent-digital-products-illustration.png"
-                  alt="Illustration of connected AI, SaaS, design and digital product modules"
+                  alt="3D Glassmorphic App Development Concept"
                   width={1227}
                   height={1282}
                   priority
-                  className="relative z-10 h-auto w-full max-h-[38svh] lg:max-h-[44svh] xl:max-h-[48svh] object-contain drop-shadow-[0_20px_30px_rgba(14,118,188,0.16)]"
+                  className="relative z-10 w-full h-auto object-contain drop-shadow-[0_25px_40px_rgba(0,0,0,0.1)]"
                 />
               </div>
+
             </Reveal>
           </div>
+
+          {/* Bottom Logos */}
+          <div className="w-full mt-auto pt-10 pb-6 flex flex-col items-start border-t border-gray-200/60 relative z-20 overflow-hidden">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">TRUSTED BY VISIONARY TEAMS</span>
+            <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+              <LogoMarquee className="py-2" />
+            </div>
+          </div>
         </Container>
+
+        {/* Scroll To Explore - Right Edge */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4 z-20">
+          <span className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.3em] [writing-mode:vertical-rl] rotate-180 mb-2">SCROLL TO EXPLORE</span>
+          <div className="w-1 h-1 rounded-full bg-gray-400" />
+          <div className="w-[1px] h-12 bg-gray-300 relative">
+            <div className="absolute top-0 w-full h-1/3 bg-gray-600 rounded-full" />
+          </div>
+          <div className="w-2 h-2 rounded-full border-[1.5px] border-gray-400 mt-2" />
+        </div>
       </Section>
 
       {/* Full Bleed Hero Video */}
@@ -125,10 +130,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Client Logos Marquee */}
-      <LogoMarquee />
-
-      {/* WHY KLEE */}
+      {/* Introduction */}
       <Section spacing="default" background="default" borderTop>
         <Container size="default">
           <div className="mb-12">
@@ -163,8 +165,9 @@ export default function HomePage() {
       </Section>
 
       {/* Key Numbers */}
-      <Section spacing="compact" background="secondary" borderTop borderBottom>
-        <Container size="default">
+      <Section spacing="compact" background="secondary" borderTop borderBottom className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-accent-subtle)_0%,transparent_100%)] opacity-50" />
+        <Container size="default" className="relative z-10">
           <Reveal variant="slide-up">
             <div className="mb-10 text-center">
               <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">KEY NUMBERS</span>
@@ -204,21 +207,24 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { title: "Digital Marketing", desc: "Turn attention into meaningful engagement, qualified opportunities and sustainable digital growth." },
-              { title: "Graphic Design", desc: "Create visual identities and communication systems that make brands impossible to overlook. (Logo Design • Marketing Collateral • Space Branding • Pitch Decks • Company Profiles)" },
-              { title: "UI/UX Design & Development", desc: "Design digital experiences that look exceptional, feel effortless and work beautifully." },
+              { title: "Graphic Design", desc: "Create visual identities and communication systems that make brands impossible to overlook." },
+              { title: "UI/UX Design & Dev", desc: "Design digital experiences that look exceptional, feel effortless and work beautifully." },
               { title: "Software Development", desc: "From business applications to custom platforms, we engineer software around your objectives." },
               { title: "SaaS Development", desc: "Build scalable digital products designed for recurring value, performance and growth." },
-              { title: "AI-First Enterprise Integrated Solutions", desc: "Intelligence at the core. Embed AI into your existing technology ecosystem, data, and workflows." },
+              { title: "AI-First Solutions", desc: "Intelligence at the core. Embed AI into your existing technology ecosystem, data, and workflows." },
               { title: "Branding", desc: "Build a brand that communicates who you are before you say a word." },
-              { title: "Live Internship Projects", desc: "Give students practical exposure by working on real-world projects and industry-oriented technologies." }
+              { title: "Live Internships", desc: "Give students practical exposure by working on real-world projects and industry-oriented tech." }
             ].map((srv, i) => (
               <Reveal key={srv.title} variant="slide-up" delay={i * 0.05}>
-                <div className="h-full pb-6 border-b border-[var(--color-border-subtle)]">
-                  <h3 className="text-xl font-medium text-[var(--color-foreground)] mb-3">{srv.title}</h3>
-                  <p className="text-sm text-[var(--color-muted)] leading-relaxed">{srv.desc}</p>
+                <div className="group h-full p-5 sm:p-6 rounded-2xl bg-[var(--color-background-secondary)]/40 border border-[var(--color-border-subtle)] hover:bg-white hover:border-[var(--color-accent)]/30 hover:shadow-[0_12px_40px_-15px_rgba(14,118,188,0.15)] transition-all duration-300 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 text-[var(--color-accent)]">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  </div>
+                  <h3 className="text-base font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors mb-2.5 pr-6">{srv.title}</h3>
+                  <p className="text-[13px] text-[var(--color-muted)] leading-relaxed">{srv.desc}</p>
                 </div>
               </Reveal>
             ))}

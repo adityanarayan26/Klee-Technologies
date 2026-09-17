@@ -39,7 +39,10 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
       <div className="columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-6 space-y-6">
         {filteredAssets.map((asset, i) => (
           <Reveal key={asset.src + i} variant="slide-up" delay={(i % 10) * 0.05}>
-            <div className="break-inside-avoid mb-6 overflow-hidden rounded-2xl bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] group">
+            <div 
+              data-cursor="expand"
+              className="break-inside-avoid mb-6 overflow-hidden rounded-2xl bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] group hover:cursor-none"
+            >
               {asset.type === "video" ? (
                 <video
                   src={asset.src}

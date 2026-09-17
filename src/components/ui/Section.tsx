@@ -24,13 +24,13 @@ export function Section({
   children,
   ...props
 }: SectionProps) {
-  const spacingClasses = {
-    none: "py-0",
-    compact: "py-6 md:py-8 lg:py-10",
-    default: "py-8 md:py-10 lg:py-14",
-    spacious: "py-10 md:py-14 lg:py-18",
-    hero: "pt-4 pb-8 md:pt-6 md:pb-10 lg:pt-8 lg:pb-14",
-  };
+    const spacingClasses = {
+      none: "py-0",
+      compact: "py-6 md:py-8 lg:py-10",
+      default: "py-8 md:py-10 lg:py-14",
+      spacious: "py-10 md:py-14 lg:py-18",
+      hero: "pt-28 pb-8 md:pt-32 md:pb-10 lg:pt-40 lg:pb-14",
+    };
 
   const bgClasses = {
     default: "bg-[var(--color-background)] text-[var(--color-foreground)]",

@@ -5,6 +5,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { FloatingActions } from "@/components/ui/FloatingActions";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -51,6 +53,8 @@ export default function RootLayout({
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <FloatingActions />
+          <CustomCursor />
         </SmoothScrollProvider>
       </body>
     </html>

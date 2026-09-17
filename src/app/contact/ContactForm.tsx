@@ -160,7 +160,7 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="flex items-center justify-between pt-1">
+      <div className="flex items-center pt-1">
         <Button
           type="submit"
           variant="primary"
@@ -170,9 +170,6 @@ export function ContactForm() {
         >
           {isSubmitting ? "Sending..." : "Send Project Enquiry"}
         </Button>
-        <span className="text-[11px] text-[var(--color-muted)] hidden sm:inline-block">
-          🔒 Strict NDA & confidentiality assured
-        </span>
       </div>
     </form>
   );

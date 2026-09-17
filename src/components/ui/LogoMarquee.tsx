@@ -1,7 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useMotionValue,
+  useVelocity,
+  useAnimationFrame
+} from "motion/react";
+
+const wrap = (min: number, max: number, v: number) => {
+  const rangeSize = max - min;
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
 
 export const CLIENT_LOGOS = [
   { name: "Akshara Finserv", src: "/clients/akshara-finserv.png" },
@@ -25,23 +39,47 @@ export const CLIENT_LOGOS = [
   { name: "VKIAS", src: "/clients/vkias.png" },
 ];
 
-export function LogoMarquee() {
-  // Seamless loop with 2 sets of items
-  const marqueeItems = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
+export function LogoMarquee({ 
+  className, 
+  baseVelocity = 40, // Represents duration in seconds now
+  items = CLIENT_LOGOS,
+  reverse = false,
+  colored = false,
+}: { 
+  className?: string; 
+  baseVelocity?: number;
+  items?: { name: string; src: string }[];
+  reverse?: boolean;
+  colored?: boolean;
+}) {
+  // Duplicate the array to create a seamless infinite loop.
+  // We use 4 sets. Moving to -50% means we move exactly 2 sets over, perfectly looping.
+  const marqueeItems = [
+    ...items,
+    ...items,
+    ...items,
+    ...items
+  ];
+
+
 
   return (
-    <div className="relative flex w-full overflow-hidden bg-[var(--color-background-secondary)]/50 py-7 border-y border-[var(--color-border-subtle)]">
+    <div className={`relative flex w-full overflow-hidden ${className || "bg-background-secondary/50 py-7 border-y border-(--color-border-subtle)"}`}>
       {/* Left Gradient Fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[var(--color-background)] to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-(--color-background) to-transparent z-10 pointer-events-none" />
       
       {/* Right Gradient Fade */}
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[var(--color-background)] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-(--color-background) to-transparent z-10 pointer-events-none" />
 
-      <div className="flex w-fit animate-marquee items-center hover:[animation-play-state:paused]" style={{ animationDuration: '45s' }}>
+      <motion.div 
+        className="flex w-max items-center hover:[animation-play-state:paused]" 
+        animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
+        transition={{ ease: "linear", duration: baseVelocity, repeat: Infinity }}
+      >
         {marqueeItems.map((client, index) => (
           <div 
             key={`${client.name}-${index}`} 
-            className="flex-shrink-0 mx-3 sm:mx-4 flex items-center justify-center px-5 py-2.5 rounded-xl bg-white border border-[var(--color-border-subtle)] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-[var(--color-accent)]/30 hover:-translate-y-0.5 transition-all duration-200 group"
+            className="shrink-0 mx-3 sm:mx-4 flex items-center justify-center px-5 py-2.5 rounded-xl bg-white border border-(--color-border-subtle) shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-200 group"
           >
             <div className="relative w-28 sm:w-32 h-10 sm:h-12 flex items-center justify-center">
               <Image
@@ -49,12 +87,16 @@ export function LogoMarquee() {
                 alt={`${client.name} logo`}
                 fill
                 sizes="140px"
-                className="object-contain transition-transform duration-200 group-hover:scale-105"
+                className={`object-contain transition-all duration-300 group-hover:scale-105 ${
+                  colored 
+                    ? "" 
+                    : "filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100"
+                }`}
               />
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

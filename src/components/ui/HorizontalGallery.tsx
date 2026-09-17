@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { PortfolioAsset } from "@/data/portfolioAssets";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Lightbox, LightboxAsset } from "./Lightbox";
 
 interface HorizontalGalleryProps {
   assets: PortfolioAsset[];
@@ -20,6 +21,7 @@ export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
   const startXRef = useRef(0);
   const scrollLeftStartRef = useRef(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [activeAsset, setActiveAsset] = useState<LightboxAsset | null>(null);
 
   // Auto-scroll loop with turn-around pause & hover stop
   useEffect(() => {
@@ -145,7 +147,11 @@ export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
         {assets.map((asset, i) => (
           <div
             key={`${asset.src}-${i}`}
-            className="shrink-0 w-[270px] sm:w-[320px] md:w-[380px] h-[220px] sm:h-[260px] md:h-[280px] rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] shadow-xs hover:shadow-lg hover:border-[var(--color-accent)]/40 hover:-translate-y-1 transition-all duration-300 relative group/card"
+            data-cursor="expand"
+            onClick={() => {
+              if (!isDraggingRef.current) setActiveAsset(asset);
+            }}
+            className="shrink-0 w-[270px] sm:w-[320px] md:w-[380px] h-[220px] sm:h-[260px] md:h-[280px] rounded-2xl overflow-hidden border border-(--color-border-subtle) bg-(--color-background-secondary) shadow-xs hover:shadow-lg hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 relative group/card hover:cursor-none"
           >
             {asset.type === "video" ? (
               <video
@@ -205,6 +211,8 @@ export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
           </div>
         )}
       </div>
+
+      <Lightbox asset={activeAsset} onClose={() => setActiveAsset(null)} />
     </div>
   );
 }
