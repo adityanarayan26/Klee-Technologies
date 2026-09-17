@@ -62,14 +62,14 @@ export default function HomePage() {
 
         {/* Full Bleed Hero Video */}
         <Reveal variant="slide-up" delay={0.4}>
-          <div className="mt-16 sm:mt-24 w-full relative aspect-video bg-white">
+          <div className="mt-8 sm:mt-12 w-full relative aspect-[21/9] lg:aspect-[2.35/1] bg-white overflow-hidden">
             <video 
               src="/videos/hero-video.mp4" 
               autoPlay 
               loop 
               muted 
               playsInline
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-[1.02]"
             />
           </div>
         </Reveal>
