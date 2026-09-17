@@ -8,6 +8,7 @@ import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { LogoMarquee } from "@/components/ui/LogoMarquee";
+import { Lightbulb, PenTool, Blocks, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "KLEE Technologies | Software, SaaS, UI/UX, Digital Marketing & Branding",
@@ -119,13 +120,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { num: "01", title: "Think", desc: "We understand the business, the audience and the opportunity before designing the solution." },
-              { num: "02", title: "Design", desc: "We transform ideas into intuitive interfaces, powerful identities and meaningful experiences." },
-              { num: "03", title: "Build", desc: "Our development capabilities turn concepts into reliable digital products and platforms." },
-              { num: "04", title: "Grow", desc: "We connect products and brands with the right audiences through digital marketing and strategic communication." }
+              { num: "01", title: "Think", desc: "We understand the business, the audience and the opportunity before designing the solution.", icon: <Lightbulb className="w-8 h-8 text-[var(--color-accent)] mb-4" strokeWidth={1.5} /> },
+              { num: "02", title: "Design", desc: "We transform ideas into intuitive interfaces, powerful identities and meaningful experiences.", icon: <PenTool className="w-8 h-8 text-[var(--color-accent)] mb-4" strokeWidth={1.5} /> },
+              { num: "03", title: "Build", desc: "Our development capabilities turn concepts into reliable digital products and platforms.", icon: <Blocks className="w-8 h-8 text-[var(--color-accent)] mb-4" strokeWidth={1.5} /> },
+              { num: "04", title: "Grow", desc: "We connect products and brands with the right audiences through digital marketing and strategic communication.", icon: <TrendingUp className="w-8 h-8 text-[var(--color-accent)] mb-4" strokeWidth={1.5} /> }
             ].map((item, i) => (
               <Reveal key={item.num} variant="slide-up" delay={i * 0.1}>
-                <SpotlightCard className="h-full p-8 border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)]">
+                <SpotlightCard className="h-full p-8 border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] hover:border-[var(--color-accent)]/50 transition-colors duration-300">
+                  {item.icon}
                   <span className="text-sm font-bold tracking-widest text-[var(--color-accent)]">{item.num} — {item.title}</span>
                   <p className="mt-4 text-sm text-[var(--color-muted)] leading-relaxed">{item.desc}</p>
                 </SpotlightCard>
