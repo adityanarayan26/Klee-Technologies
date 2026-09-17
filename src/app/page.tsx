@@ -62,7 +62,7 @@ export default function HomePage() {
 
         {/* Full Bleed Hero Video */}
         <Reveal variant="slide-up" delay={0.4}>
-          <div className="mt-16 sm:mt-24 w-full relative aspect-video bg-[var(--color-background-secondary)]">
+          <div className="mt-16 sm:mt-24 w-full relative aspect-video bg-white">
             <video 
               src="/videos/hero-video.mp4" 
               autoPlay 
@@ -76,7 +76,7 @@ export default function HomePage() {
       </Section>
 
       {/* Introduction */}
-      <Section spacing="default" background="secondary" borderTop>
+      <Section spacing="default" background="default">
         <Container size="default">
           <div className="max-w-3xl">
             <Reveal variant="slide-up">
