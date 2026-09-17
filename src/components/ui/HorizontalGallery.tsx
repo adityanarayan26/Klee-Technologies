@@ -49,6 +49,7 @@ export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
                 src={asset.src}
                 alt={asset.src.split('/').pop() || "Service Work Example"}
                 fill
+                sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, 400px"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />

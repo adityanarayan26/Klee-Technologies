@@ -56,6 +56,7 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
                     alt={asset.src.split('/').pop() || "Portfolio item"}
                     width={800}
                     height={800}
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
                     className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />

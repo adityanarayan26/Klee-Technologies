@@ -26,10 +26,10 @@ export function Section({
 }: SectionProps) {
   const spacingClasses = {
     none: "py-0",
-    compact: "py-8 md:py-12 lg:py-16",
-    default: "py-12 md:py-16 lg:py-20",
-    spacious: "py-16 md:py-20 lg:py-28",
-    hero: "pt-6 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20",
+    compact: "py-6 md:py-8 lg:py-10",
+    default: "py-8 md:py-10 lg:py-14",
+    spacious: "py-10 md:py-14 lg:py-18",
+    hero: "pt-4 pb-8 md:pt-6 md:pb-10 lg:pt-8 lg:pb-14",
   };
 
   const bgClasses = {

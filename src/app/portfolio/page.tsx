@@ -135,6 +135,7 @@ export default function PortfolioPage() {
                     src="/portfolio/ksdc_app_preview.jpg" 
                     alt="KSDC Application Preview Dashboard" 
                     fill 
+                    sizes="(max-width: 1024px) 100vw, 58vw"
                     className="object-cover"
                     priority
                   />

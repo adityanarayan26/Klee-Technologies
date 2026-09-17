@@ -71,6 +71,7 @@ export function ClientsShowcase() {
                   src={client.src}
                   alt={`${client.name} logo`}
                   fill
+                  sizes="(max-width: 640px) 120px, (max-width: 1024px) 160px, 200px"
                   className="object-contain filter grayscale opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
