@@ -22,7 +22,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/msappl-logo-embose-mockup.jpeg",
+      "src": "/portfolio-assets/msappl-logo-embose-mockup.jpg",
       "type": "image"
     },
     {
@@ -50,7 +50,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/klee-technologies-logo-designs9.png",
+      "src": "/portfolio-assets/klee-technologies-logo-designs9.jpg",
       "type": "image"
     },
     {
@@ -104,7 +104,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/vmovexa-website-project.png",
+      "src": "/portfolio-assets/vmovexa-website-project.jpg",
       "type": "image"
     },
     {
@@ -112,7 +112,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/klee-technologies-website-designs2.png",
+      "src": "/portfolio-assets/klee-technologies-website-designs2.jpg",
       "type": "image"
     },
     {
@@ -142,11 +142,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
   ],
   "3D": [
     {
-      "src": "/portfolio-assets/b29fbd2a-176f-43d1-9f12-5d3e0817348a.png",
+      "src": "/portfolio-assets/b29fbd2a-176f-43d1-9f12-5d3e0817348a.jpg",
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/7633d4bf-ad73-41ad-a24c-c31d5f254aa1.png",
+      "src": "/portfolio-assets/7633d4bf-ad73-41ad-a24c-c31d5f254aa1.jpg",
       "type": "image"
     },
     {
@@ -154,11 +154,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/klee-technologies-3d-elevation-design9.png",
+      "src": "/portfolio-assets/klee-technologies-3d-elevation-design9.jpg",
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/klee-technologies-3d-elevation-design8.png",
+      "src": "/portfolio-assets/klee-technologies-3d-elevation-design8.jpg",
       "type": "image"
     },
     {
@@ -188,7 +188,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/dec-putti-packaging-01-png.png",
+      "src": "/portfolio-assets/dec-putti-packaging-01-png.jpg",
       "type": "image"
     },
     {
@@ -246,7 +246,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/c0f5221f-5285-4513-a76f-cc53c3f8bda7.png",
+      "src": "/portfolio-assets/c0f5221f-5285-4513-a76f-cc53c3f8bda7.jpg",
       "type": "image"
     },
     {
@@ -270,7 +270,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/714eb420-20f5-42d9-a241-a93b7d733288.png",
+      "src": "/portfolio-assets/714eb420-20f5-42d9-a241-a93b7d733288.jpg",
       "type": "image"
     },
     {
@@ -282,7 +282,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/13.png",
+      "src": "/portfolio-assets/13.jpg",
       "type": "image"
     },
     {
@@ -326,15 +326,15 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/8.jpeg",
+      "src": "/portfolio-assets/8.jpg",
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/img-9933.png",
+      "src": "/portfolio-assets/img-9933.jpg",
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/67eaada9-1536-498f-bdab-d8b8af8f589d.png",
+      "src": "/portfolio-assets/67eaada9-1536-498f-bdab-d8b8af8f589d.jpg",
       "type": "image"
     },
     {
@@ -342,7 +342,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/45c14400-abe2-4c76-8ae6-e1d1361a76ea.png",
+      "src": "/portfolio-assets/45c14400-abe2-4c76-8ae6-e1d1361a76ea.jpg",
       "type": "image"
     },
     {
@@ -358,11 +358,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/baed7091-2f15-4d27-8311-9680ef6a0fe0.png",
+      "src": "/portfolio-assets/baed7091-2f15-4d27-8311-9680ef6a0fe0.jpg",
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/img-0326.png",
+      "src": "/portfolio-assets/img-0326.jpg",
       "type": "image"
     },
     {
@@ -382,11 +382,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/79824748-5286-4cb2-bc15-34beea16077c.png",
+      "src": "/portfolio-assets/79824748-5286-4cb2-bc15-34beea16077c.jpg",
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/4.png",
+      "src": "/portfolio-assets/4.jpg",
       "type": "image"
     },
     {
@@ -430,11 +430,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/dad91a28-707c-4b41-b8ff-56873077aa2c.png",
+      "src": "/portfolio-assets/dad91a28-707c-4b41-b8ff-56873077aa2c.jpg",
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/3.png",
+      "src": "/portfolio-assets/3.jpg",
       "type": "image"
     },
     {
@@ -454,7 +454,7 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/1-2.png",
+      "src": "/portfolio-assets/1-2.jpg",
       "type": "image"
     }
   ]
