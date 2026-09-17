@@ -136,6 +136,7 @@ export default function PortfolioPage() {
                     alt="KSDC Application Preview Dashboard" 
                     fill 
                     className="object-cover"
+                    priority
                   />
                 </div>
               </Reveal>
