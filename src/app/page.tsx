@@ -58,20 +58,21 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Hero Video */}
-          <Reveal variant="slide-up" delay={0.4}>
-            <div className="mt-16 w-full rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] shadow-2xl shadow-black/5 relative aspect-video bg-[var(--color-background-secondary)]">
-              <video 
-                src="/videos/hero-video.mp4" 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </Reveal>
         </Container>
+
+        {/* Full Bleed Hero Video */}
+        <Reveal variant="slide-up" delay={0.4}>
+          <div className="mt-16 sm:mt-24 w-full relative aspect-video bg-[var(--color-background-secondary)]">
+            <video 
+              src="/videos/hero-video.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </Reveal>
       </Section>
 
       {/* Introduction */}
