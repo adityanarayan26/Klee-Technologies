@@ -7,6 +7,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { Button } from "@/components/ui/Button";
 import { PDFGrid } from "@/components/ui/PDFGrid";
+import { MasonryGallery } from "@/components/ui/MasonryGallery";
+import { ALL_ASSETS } from "@/data/portfolioAssets";
 
 export const metadata: Metadata = {
   title: "Portfolio | 200+ Digital & Technology Projects | KLEE Technologies",
@@ -199,6 +201,28 @@ export default function PortfolioPage() {
           </div>
 
           <PDFGrid />
+        </Container>
+      </Section>
+
+      {/* Comprehensive Visual Portfolio (Masonry) */}
+      <Section spacing="spacious" background="default" borderTop>
+        <Container size="default">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">COMPLETE WORK</span>
+              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-6">
+                Our Project Archive
+              </h2>
+              <p className="type-body-large text-[var(--color-muted)] max-w-2xl mx-auto">
+                Explore a comprehensive collection of our past work across various domains, ranging from branding and packaging to UI/UX and 3D visualization.
+              </p>
+            </Reveal>
+          </div>
+          
+          <MasonryGallery 
+            assets={ALL_ASSETS} 
+            categories={["Branding", "UI/UX", "3D", "Packaging", "General"]} 
+          />
         </Container>
       </Section>
 

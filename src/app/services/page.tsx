@@ -5,6 +5,8 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { TextReveal } from "@/components/motion/TextReveal";
 import { Button } from "@/components/ui/Button";
+import { HorizontalGallery } from "@/components/ui/HorizontalGallery";
+import { ALL_ASSETS } from "@/data/portfolioAssets";
 
 export const metadata: Metadata = {
   title: "Services | Software, SaaS, UI/UX, Digital Marketing & Branding | KLEE",
@@ -212,6 +214,17 @@ export default function ServicesPage() {
                   </Reveal>
                 </div>
               </div>
+              
+              {/* Insert Horizontal Gallery based on Service category */}
+              <Reveal variant="slide-up" delay={0.2}>
+                <HorizontalGallery 
+                  assets={ALL_ASSETS.filter(a => {
+                    if (srv.id === "branding" || srv.id === "graphic-design") return a.category === "Branding" || a.category === "Packaging";
+                    if (srv.id === "ui-ux" || srv.id === "software-development" || srv.id === "saas-development" || srv.id === "internship-projects") return a.category === "UI/UX";
+                    return a.category === "General"; // fallback for others like digital marketing, ai integration
+                  }).slice(0, 10)} // Show up to 10 best examples per section to not overwhelm
+                />
+              </Reveal>
             </Container>
           </Section>
         ))}
