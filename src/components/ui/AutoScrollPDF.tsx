@@ -19,7 +19,7 @@ export function AutoScrollPDF({ url, title, maxPages = 5 }: AutoScrollPDFProps) 
   const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | null>(null);
   const [containerWidth, setContainerWidth] = useState(300);
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
