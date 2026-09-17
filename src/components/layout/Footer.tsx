@@ -9,6 +9,18 @@ import {
   BRAND_INFO,
 } from "@/data/navigation";
 
+const ACCREDITATION_ROWS = [
+  [
+    { src: "/logos/dpiit.png", alt: "DPIIT" },
+    { src: "/logos/msme.png", alt: "MSME" },
+  ],
+  [
+    { src: "/logos/iso9001.png", alt: "ISO 9001" },
+    { src: "/logos/aicte.png", alt: "AICTE" },
+    { src: "/logos/T-Hub_Logo-PNG.png", alt: "T-Hub" },
+  ],
+];
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -31,52 +43,25 @@ export function Footer() {
             </p>
 
             {/* Official Accreditation Badges */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-3 bg-[var(--color-background-primary)] px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
-                <Image
-                  src="/logos/dpiit.png"
-                  alt="DPIIT"
-                  width={75}
-                  height={18}
-                  className="h-4 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center gap-3 bg-[var(--color-background-primary)] px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
-                <Image
-                  src="/logos/msme.png"
-                  alt="MSME"
-                  width={48}
-                  height={16}
-                  className="h-4 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center gap-3 bg-[var(--color-background-primary)] px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
-                <Image
-                  src="/logos/iso9001.png"
-                  alt="ISO 9001"
-                  width={20}
-                  height={20}
-                  className="h-5 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center gap-3 bg-[var(--color-background-primary)] px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
-                <Image
-                  src="/logos/aicte.png"
-                  alt="AICTE"
-                  width={20}
-                  height={20}
-                  className="h-5 w-auto object-contain"
-                />
-              </div>
-              <div className="flex items-center gap-3 bg-[var(--color-background-primary)] px-3 py-1.5 rounded-lg border border-[var(--color-border-subtle)]">
-                <Image
-                  src="/logos/T-Hub_Logo-PNG.png"
-                  alt="T-Hub"
-                  width={32}
-                  height={32}
-                  className="h-5 w-auto object-contain"
-                />
-              </div>
+            <div className="mt-7 flex flex-col items-start gap-2.5">
+              {ACCREDITATION_ROWS.map((row, rowIndex) => (
+                <div key={rowIndex} className="flex items-center justify-start gap-2.5">
+                  {row.map((badge) => (
+                    <div
+                      key={badge.alt}
+                      className="flex h-11 w-24 items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] p-2"
+                    >
+                      <Image
+                        src={badge.src}
+                        alt={badge.alt}
+                        width={80}
+                        height={24}
+                        className="h-6 w-full object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
 

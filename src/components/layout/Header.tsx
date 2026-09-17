@@ -48,7 +48,7 @@ export function Header() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-40 w-full transition-all duration-200 relative",
+          "sticky top-0 z-40 w-full transition-all duration-200",
           isScrolled
             ? "bg-white/90 backdrop-blur-md border-b border-[var(--color-border-subtle)] py-3 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.03)]"
             : "bg-white/80 backdrop-blur-sm border-b border-transparent py-3.5 sm:py-4"

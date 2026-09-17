@@ -64,68 +64,68 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium text-[var(--color-foreground)] block">
-            Name
+    <form onSubmit={handleSubmit} className="space-y-3.5">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+        <div className="space-y-1">
+          <label htmlFor="name" className="text-xs font-medium text-[var(--color-foreground)] block">
+            Your Name <span className="text-[var(--color-accent)]">*</span>
           </label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            placeholder="Your name"
-            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
+            placeholder="Aditya Narayan"
+            className="w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] px-3 py-1.5 sm:py-2 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] transition-all focus:border-[var(--color-accent)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
           />
         </div>
 
-        <div className="space-y-2">
-          <label htmlFor="company" className="text-sm font-medium text-[var(--color-foreground)] block">
-            Company
+        <div className="space-y-1">
+          <label htmlFor="company" className="text-xs font-medium text-[var(--color-foreground)] block">
+            Company / Organization
           </label>
           <input
             type="text"
             id="company"
             name="company"
-            placeholder="Your company"
-            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
+            placeholder="Acme Corporation"
+            className="w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] px-3 py-1.5 sm:py-2 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] transition-all focus:border-[var(--color-accent)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
           />
         </div>
 
-        <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium text-[var(--color-foreground)] block">
-            Email
+        <div className="space-y-1">
+          <label htmlFor="email" className="text-xs font-medium text-[var(--color-foreground)] block">
+            Business Email <span className="text-[var(--color-accent)]">*</span>
           </label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            placeholder="Your business email"
-            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
+            placeholder="you@company.com"
+            className="w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] px-3 py-1.5 sm:py-2 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] transition-all focus:border-[var(--color-accent)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
           />
         </div>
 
-        <div className="space-y-2">
-          <label htmlFor="phone" className="text-sm font-medium text-[var(--color-foreground)] block">
-            Phone
+        <div className="space-y-1">
+          <label htmlFor="phone" className="text-xs font-medium text-[var(--color-foreground)] block">
+            Phone Number
           </label>
           <input
             type="tel"
             id="phone"
             name="phone"
-            placeholder="Your contact number"
-            className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all"
+            placeholder="+91 98765 43210"
+            className="w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] px-3 py-1.5 sm:py-2 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] transition-all focus:border-[var(--color-accent)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
           />
         </div>
       </div>
 
-      <div className="space-y-4">
-        <label className="text-sm font-medium text-[var(--color-foreground)] block">
-          What do you need?
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-[var(--color-foreground)] block">
+          What do you need help with?
         </label>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-1.5">
           {SERVICE_OPTIONS.map((service) => {
             const isSelected = selectedServices.includes(service);
             return (
@@ -133,10 +133,10 @@ export function ContactForm() {
                 key={service}
                 type="button"
                 onClick={() => toggleService(service)}
-                className={`px-4 py-2 text-sm rounded-full border transition-all ${
+                className={`rounded-full border px-2.5 py-1 text-xs font-medium transition-all ${
                   isSelected 
-                    ? "bg-[var(--color-foreground)] border-[var(--color-foreground)] text-[var(--color-background-primary)]" 
-                    : "bg-transparent border-[var(--color-border)] text-[var(--color-muted)] hover:border-[var(--color-foreground)] hover:text-[var(--color-foreground)]"
+                    ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-white shadow-xs" 
+                    : "bg-[var(--color-background-secondary)] border-[var(--color-border-subtle)] text-[var(--color-muted)] hover:border-[var(--color-accent)]/50 hover:text-[var(--color-foreground)]"
                 }`}
               >
                 {service}
@@ -146,29 +146,34 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label htmlFor="message" className="text-sm font-medium text-[var(--color-foreground)] block">
-          Tell us about your project.
+      <div className="space-y-1">
+        <label htmlFor="message" className="text-xs font-medium text-[var(--color-foreground)] block">
+          Tell us about your project <span className="text-[var(--color-accent)]">*</span>
         </label>
         <textarea
           id="message"
           name="message"
           required
-          rows={5}
-          placeholder="What are you looking to build?"
-          className="w-full px-4 py-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] rounded-lg text-[var(--color-foreground)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20 focus:border-[var(--color-accent)] transition-all resize-none"
+          rows={2}
+          placeholder="Describe your timeline, goals, or core requirements..."
+          className="w-full resize-none rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] px-3 py-2 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] transition-all focus:border-[var(--color-accent)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
         />
       </div>
 
-      <Button
-        type="submit"
-        variant="primary"
-        size="lg"
-        className="w-full sm:w-auto"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? "Sending..." : "Send Enquiry"}
-      </Button>
+      <div className="flex items-center justify-between pt-1">
+        <Button
+          type="submit"
+          variant="primary"
+          size="md"
+          showArrow
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Sending..." : "Send Project Enquiry"}
+        </Button>
+        <span className="text-[11px] text-[var(--color-muted)] hidden sm:inline-block">
+          🔒 Strict NDA & confidentiality assured
+        </span>
+      </div>
     </form>
   );
 }
