@@ -9,6 +9,7 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Recognition", href: "/recognition" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -28,6 +29,7 @@ export const COMPANY_NAV_ITEMS: NavItem[] = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Recognition", href: "/recognition" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

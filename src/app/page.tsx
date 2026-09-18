@@ -7,9 +7,12 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
 import { TextReveal } from "@/components/motion/TextReveal";
+import TextRoll from "@/components/ui/text-roll";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import { Lightbulb, PenTool, Blocks, TrendingUp } from "lucide-react";
+import { HeroIllustration } from "@/components/ui/HeroIllustration";
+import { VerticalShowcase } from "@/components/ui/VerticalShowcase";
 
 export const metadata: Metadata = {
   title: "KLEE Technologies | Software, SaaS, UI/UX, Digital Marketing & Branding",
@@ -21,87 +24,63 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <Section spacing="none" className="relative min-h-[100svh] w-full overflow-hidden bg-[var(--color-background-primary)] flex items-center pt-32 lg:pt-16 pb-12">
+      <Section spacing="none" className="relative min-h-[100svh] w-full overflow-hidden bg-white flex items-stretch">
         
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Subtle Grid Pattern */}
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20" />
+        {/* Split Screen Layout */}
+        <div className="flex flex-col lg:flex-row w-full h-full min-h-[100svh]">
           
-          {/* Cyan/Blue Glowing Orbs */}
-          <div className="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-cyan-300/30 blur-[120px] animate-pulse-slow" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-400/20 blur-[140px]" />
-          <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-teal-200/20 blur-[100px]" />
-        </div>
-
-        <Container size="default" className="relative z-10 w-full h-full flex flex-col justify-center min-h-[calc(100svh-5rem)]">
-          <div className="grid w-full items-center gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 h-full py-8 lg:py-12">
-            
-            {/* Left Content */}
-            <div className="flex flex-col justify-center">
-              <Reveal variant="slide-up">
-                <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/15 bg-blue-500/5 px-3.5 py-1.5 text-xs font-semibold text-blue-600 mb-6 backdrop-blur-sm">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                  </span>
-                  WELCOME TO KLEE TECHNOLOGIES
-                </span>
-                <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] leading-[1.05] tracking-tight text-balance text-gray-900 mb-6 font-bold">
-                  Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 drop-shadow-sm">intelligent digital products</span>, enterprise solutions & brands for what's next.
-                </h1>
-              </Reveal>
-
-              <Reveal variant="slide-up" delay={0.15}>
-                <p className="mb-10 max-w-[500px] text-base lg:text-[1.1rem] leading-[1.65] text-gray-500">
-                  Klee Technologies partners with businesses to design, develop and scale digital experiences powered by technology, creativity and purpose.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-6">
-                  <Button href="/contact" variant="primary" size="lg" showArrow className="bg-gray-950 hover:bg-black text-white shadow-[0_8px_20px_rgba(0,0,0,0.12)] rounded-full px-8 py-3.5 border-transparent">
-                    START A PROJECT
-                  </Button>
+          {/* Left Content (Text) */}
+          <div className="w-full lg:w-[50%] flex flex-col justify-center px-6 sm:px-12 lg:pl-16 xl:pl-32 2xl:pl-[calc((100vw-1420px)/2+4rem)] pt-32 lg:pt-20 pb-8 relative z-20">
+            <Reveal variant="slide-up">
+              <h1 className="type-h1 mb-6 max-w-[900px] leading-[1.05] cursor-default">
+                <div className="flex flex-wrap gap-x-[0.22em] gap-y-0">
+                  <TextRoll className="text-gray-900">Building</TextRoll>
+                  {"intelligent digital products,".split(" ").map((word, i) => (
+                    <TextRoll key={`blue-${i}`} className="text-[#00AEEF]">
+                      {word}
+                    </TextRoll>
+                  ))}
+                  {"enterprise solutions & brands for what's next.".split(" ").map((word, i) => (
+                    <TextRoll key={`dark-${i}`} className="text-gray-900">
+                      {word}
+                    </TextRoll>
+                  ))}
                 </div>
-              </Reveal>
-            </div>
+              </h1>
+            </Reveal>
 
-            {/* Right Content - 3D Illustration */}
-            <Reveal variant="slide-up" delay={0.2} className="relative flex items-center justify-center h-full min-h-[40vh] lg:min-h-0 w-full">
-              <div className="relative w-full max-w-[450px] xl:max-w-[580px] z-10 group">
-                {/* Backdrop Glow behind image for integration */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-400/20 to-cyan-300/20 blur-[60px] rounded-full scale-75 group-hover:scale-105 transition-transform duration-700 ease-out" />
-                
-                <Image
-                  src="/hero/intelligent-digital-products-illustration.png"
-                  alt="3D Glassmorphic App Development Concept"
-                  width={1227}
-                  height={1282}
-                  priority
-                  className="relative z-10 w-full h-auto object-contain drop-shadow-[0_30px_50px_rgba(14,118,188,0.15)] animate-[float_6s_ease-in-out_infinite]"
-                />
+            <Reveal variant="slide-up" delay={0.15}>
+              <p className="mb-8 max-w-[550px] text-base lg:text-lg leading-[1.6] text-gray-500 font-medium">
+                Klee Technologies partners with businesses to design, develop and scale digital experiences powered by technology, creativity and purpose.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <Button href="/contact" variant="primary" size="lg" className="bg-[#00AEEF] hover:bg-[#0092c9] text-white font-bold rounded-full px-8 py-4 border-transparent shadow-[0_8px_30px_rgba(0,174,239,0.25)]">
+                  Start a project
+                </Button>
               </div>
             </Reveal>
           </div>
 
-          {/* Bottom Logos */}
-          <div className="w-full mt-auto pt-10 pb-6 flex flex-col items-start border-t border-gray-200/60 relative z-20 overflow-hidden">
-            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-3">TRUSTED BY VISIONARY TEAMS</span>
-            <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-              <LogoMarquee className="py-2" />
-            </div>
+          {/* Right Content (Vertical Showcase) */}
+          <div className="w-full lg:w-[50%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh]">
+            <VerticalShowcase />
           </div>
-        </Container>
+        </div>
 
-        {/* Scroll To Explore - Right Edge */}
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4 z-20">
-          <span className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.3em] [writing-mode:vertical-rl] rotate-180 mb-2">SCROLL TO EXPLORE</span>
-          <div className="w-1 h-1 rounded-full bg-gray-400" />
-          <div className="w-[1px] h-16 bg-gray-200 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-[scroll_2s_ease-in-out_infinite]" />
-          </div>
-          <div className="w-2 h-2 rounded-full border-[1.5px] border-blue-500 mt-2 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+      </Section>
+
+      {/* Marquee Section */}
+      <Section spacing="none" className="bg-white border-t border-gray-100 pt-10 pb-6 relative z-30">
+        <div className="w-full max-w-[1420px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 flex flex-col items-start">
+          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">TRUSTED BY VISIONARY TEAMS</span>
+        </div>
+        <div className="w-full">
+          <LogoMarquee className="py-2" />
         </div>
       </Section>
+
+
 
       {/* Full Bleed Hero Video */}
       <Reveal variant="slide-up" delay={0.1}>

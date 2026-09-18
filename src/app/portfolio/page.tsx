@@ -105,7 +105,7 @@ export default function PortfolioPage() {
           <div className="mb-10">
             <Reveal variant="slide-up">
               <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">FEATURED SAAS PLATFORM</span>
-              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
+              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4 uppercase">
                 Vmovexa SaaS
               </h2>
               <p className="type-body text-[var(--color-muted)] max-w-3xl leading-relaxed">
@@ -136,42 +136,54 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
-              {/* 3 Images Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {/* 4 Images Row */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
                   <Image 
-                    src="/portfolio/featured/vmovexa-dashboard.jpg" 
-                    alt="SaaS Dashboard" 
+                    src="/vmovexa_new/VMOVEXA SAAS PROJECT 1.png" 
+                    alt="SaaS Project" 
                     fill 
-                    sizes="(max-width: 640px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 50vw, 25vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/10">
                     Dashboard
                   </div>
                 </div>
                 <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
                   <Image 
-                    src="/portfolio/featured/vmovexa-app.jpg" 
-                    alt="Vmovexa Mobile Application" 
+                    src="/vmovexa_new/VMOVEXA MOBILE APPLICATION PROJECT 2.png" 
+                    alt="Mobile App" 
                     fill 
-                    sizes="(max-width: 640px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 50vw, 25vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/10">
                     Mobile App
                   </div>
                 </div>
                 <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
                   <Image 
-                    src="/portfolio/featured/vmovexa-mobile.jpeg" 
+                    src="/vmovexa_new/VMOVEXA MOBILE APPLICATION PROJECT 3.png" 
                     alt="Mobile Experience" 
                     fill 
-                    sizes="(max-width: 640px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 50vw, 25vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
-                    Website
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/10">
+                    Mobile UI
+                  </div>
+                </div>
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                  <Image 
+                    src="/vmovexa_new/WhatsApp Image 2026-09-18 at 15.26.09.jpeg" 
+                    alt="Additional Experience" 
+                    fill 
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/10">
+                    Platform
                   </div>
                 </div>
               </div>

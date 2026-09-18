@@ -43,29 +43,47 @@ export function Footer() {
             </p>
 
             {/* Official Accreditation Badges */}
-            <div className="mt-7 flex flex-col items-start gap-2.5">
-              {ACCREDITATION_ROWS.map((row, rowIndex) => (
-                <div key={rowIndex} className="flex items-center justify-start gap-2.5">
-                  {row.map((badge) => (
-                    <div
-                      key={badge.alt}
-                      className={`flex items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] p-2 ${
-                        rowIndex === 1 ? "h-16 w-16 sm:h-[72px] sm:w-[72px]" : "h-11 w-24"
-                      }`}
-                    >
-                      <Image
-                        src={badge.src}
-                        alt={badge.alt}
-                        width={rowIndex === 1 ? 72 : 80}
-                        height={rowIndex === 1 ? 72 : 24}
-                        className={`w-full object-contain ${
-                          rowIndex === 1 ? "h-10 sm:h-12" : "h-6"
-                        }`}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
+            <div className="mt-7 flex flex-col items-start gap-2.5 w-[236px] sm:w-[256px]">
+              {/* Row 1 */}
+              <div className="grid grid-cols-2 gap-2.5 w-full">
+                {ACCREDITATION_ROWS[0].map((badge) => (
+                  <div
+                    key={badge.alt}
+                    className="flex h-11 sm:h-12 items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] p-2 w-full"
+                  >
+                    <Image 
+                      src={badge.src} 
+                      alt={badge.alt} 
+                      width={100} 
+                      height={32} 
+                      className={`h-6 sm:h-7 w-full object-contain transition-transform ${
+                        badge.alt === "DPIIT" ? "scale-[1.15]" : ""
+                      }`} 
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              {/* Row 2 */}
+              <div className="grid grid-cols-3 gap-2.5 w-full">
+                {ACCREDITATION_ROWS[1].map((badge) => (
+                  <div
+                    key={badge.alt}
+                    className="flex aspect-square items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] p-1.5 w-full"
+                  >
+                    <Image 
+                      src={badge.src} 
+                      alt={badge.alt} 
+                      width={72} 
+                      height={72} 
+                      className={`w-full h-full object-contain transition-transform ${
+                        badge.alt === "T-Hub" ? "scale-[1.35]" : 
+                        badge.alt === "ISO 9001" ? "scale-[1.15]" : "scale-90"
+                      }`} 
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
