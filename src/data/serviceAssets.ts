@@ -75,6 +75,11 @@ export const SERVICE_ASSETS: Record<string, ServiceAsset[]> = {
     { src: "/services/saas-development/vmovexa-software-features.mp4", type: "video", alt: "SaaS Development - vmovexa-software-features.mp4" },
   ],
   "ai-integration": [
+    { src: "/portfolio/videos/vmovexa-demo.mp4", type: "video", alt: "AI Enterprise Platform Demo", category: "AI Platform" },
+    { src: "/vmovexa_new/VMOVEXA SAAS PROJECT 1.png", type: "image", alt: "AI Enterprise Solution - Vmovexa SaaS Dashboard", category: "Enterprise Dashboard" },
+    { src: "/vmovexa_new/VMOVEXA MOBILE APPLICATION PROJECT 2.png", type: "image", alt: "AI Enterprise Solution - Mobile App Experience", category: "Mobile App" },
+    { src: "/vmovexa_new/VMOVEXA MOBILE APPLICATION PROJECT 3.png", type: "image", alt: "AI Enterprise Solution - Fleet & AI Analytics", category: "Analytics & UI" },
+    { src: "/vmovexa_new/WhatsApp Image 2026-09-18 at 15.26.09.jpeg", type: "image", alt: "AI Enterprise Solution - System Overview", category: "Architecture" },
   ],
   "branding": [
     { src: "/services/branding/DEC LOGO ANIMATION1.MP4", type: "video", alt: "Branding & Logo - DEC LOGO ANIMATION1.MP4" },
