@@ -28,16 +28,48 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2. Transporter configuration using Zoho SMTP SSL
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || "smtppro.zoho.in",
-      port: Number(process.env.SMTP_PORT) || 465,
-      secure: process.env.SMTP_SECURE === "true" || Number(process.env.SMTP_PORT) === 465,
-      auth: {
-        user: process.env.SMTP_USER || "info@kleetechnologies.com",
-        pass: process.env.SMTP_PASS || "GGpfdgGJYUyX",
-      },
-    });
+    // 2. Transporter configuration with connection timeouts & dual-port fallback
+    function getTransporter(port: number, secure: boolean) {
+      return nodemailer.createTransport({
+        host: process.env.SMTP_HOST || "smtppro.zoho.in",
+        port,
+        secure,
+        requireTLS: !secure,
+        auth: {
+          user: process.env.SMTP_USER || "info@kleetechnologies.com",
+          pass: process.env.SMTP_PASS || "GGpfdgGJYUyX",
+        },
+        connectionTimeout: 12000,
+        greetingTimeout: 10000,
+        socketTimeout: 25000,
+        tls: {
+          minVersion: "TLSv1.2",
+          rejectUnauthorized: false,
+        },
+      });
+    }
+
+    async function sendMailWithFallback(mailOptions: any) {
+      const preferredPort = Number(process.env.SMTP_PORT) || 465;
+      const isPreferredSecure = process.env.SMTP_SECURE === "true" || preferredPort === 465;
+
+      const attempts = [
+        { port: preferredPort, secure: isPreferredSecure },
+        { port: preferredPort === 465 ? 587 : 465, secure: preferredPort !== 465 },
+      ];
+
+      let lastError: any;
+      for (const attempt of attempts) {
+        try {
+          const transporter = getTransporter(attempt.port, attempt.secure);
+          return await transporter.sendMail(mailOptions);
+        } catch (err: any) {
+          console.warn(`SMTP send attempt on port ${attempt.port} failed:`, err?.message);
+          lastError = err;
+        }
+      }
+      throw lastError;
+    }
 
     const formattedServices = Array.isArray(services) && services.length > 0
       ? services.join(", ")
@@ -115,7 +147,7 @@ export async function POST(req: Request) {
     `;
 
     // Send primary email to KLEE team
-    await transporter.sendMail({
+    await sendMailWithFallback({
       from: `"KLEE Website Lead" <${senderEmail}>`,
       to: recipientEmail,
       replyTo: `"${name}" <${email}>`,
@@ -168,7 +200,7 @@ export async function POST(req: Request) {
         </html>
       `;
 
-      await transporter.sendMail({
+      await sendMailWithFallback({
         from: `"KLEE Technologies" <${senderEmail}>`,
         to: email,
         subject: `Thank you for contacting KLEE Technologies`,
