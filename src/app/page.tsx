@@ -30,20 +30,20 @@ export default function HomePage() {
         <div className="flex flex-col lg:flex-row w-full h-full min-h-[100svh]">
           
           {/* Left Content (Text) */}
-          <div className="w-full lg:w-[58%] xl:w-[60%] flex flex-col justify-center items-center text-center px-6 sm:px-10 lg:px-8 xl:px-12 pt-32 sm:pt-36 lg:pt-28 pb-12 relative z-20 min-h-[calc(100svh-5rem)]">
+          <div className="w-full lg:w-[57%] xl:w-[58%] 2xl:w-[60%] flex flex-col justify-center items-center text-center px-6 sm:px-10 lg:px-10 xl:px-14 2xl:px-20 pt-32 sm:pt-36 lg:pt-24 2xl:pt-28 pb-12 sm:pb-16 relative z-20 min-h-[calc(100svh-4rem)]">
             <Reveal variant="slide-up">
               {/* Studio Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0e76bc]/8 border border-[#0e76bc]/20 text-[#0e76bc] text-xs font-semibold tracking-wider uppercase mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0e76bc] animate-pulse" />
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0e76bc]/8 border border-[#0e76bc]/20 text-[#0e76bc] text-xs sm:text-sm font-semibold tracking-wider uppercase mb-6 sm:mb-8 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#0e76bc] animate-pulse" />
                 <span>Digital Product & Innovation Studio</span>
               </div>
 
-              {/* Centered Editorial Headline */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.2rem] xl:text-[2.65rem] 2xl:text-[3rem] font-medium tracking-tight leading-[1.2] mb-5 sm:mb-6 cursor-default text-center">
+              {/* Centered Editorial Headline - Monumental & Commanding */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.65rem] xl:text-[3.25rem] 2xl:text-[4rem] font-medium tracking-tight leading-[1.12] 2xl:leading-[1.08] mb-6 sm:mb-8 cursor-default text-center max-w-[720px] 2xl:max-w-[840px]">
                 {/* Line 1 */}
                 <span className="block whitespace-normal lg:whitespace-nowrap">
                   <span className="inline-flex flex-wrap lg:flex-nowrap justify-center gap-x-[0.25em]">
-                    <TextRoll className="text-gray-900">Building</TextRoll>
+                    <TextRoll className="text-gray-950">Building</TextRoll>
                     {"intelligent digital products,".split(" ").map((word, i) => (
                       <TextRoll key={`blue-${i}`} className="text-[#0e76bc]">
                         {word}
@@ -56,7 +56,7 @@ export default function HomePage() {
                 <span className="block whitespace-normal lg:whitespace-nowrap">
                   <span className="inline-flex flex-wrap lg:flex-nowrap justify-center gap-x-[0.25em]">
                     {"enterprise solutions & brands".split(" ").map((word, i) => (
-                      <TextRoll key={`dark-1-${i}`} className="text-gray-900">
+                      <TextRoll key={`dark-1-${i}`} className="text-gray-950">
                         {word}
                       </TextRoll>
                     ))}
@@ -67,7 +67,7 @@ export default function HomePage() {
                 <span className="block whitespace-normal lg:whitespace-nowrap">
                   <span className="inline-flex flex-wrap lg:flex-nowrap justify-center gap-x-[0.25em]">
                     {"for what's next.".split(" ").map((word, i) => (
-                      <TextRoll key={`dark-2-${i}`} className="text-gray-900">
+                      <TextRoll key={`dark-2-${i}`} className="text-gray-950">
                         {word}
                       </TextRoll>
                     ))}
@@ -77,26 +77,50 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal variant="slide-up" delay={0.15}>
-              <p className="mb-8 max-w-[500px] mx-auto text-base lg:text-[1.05rem] leading-[1.65] text-gray-500 font-normal">
+              <p className="mb-8 sm:mb-10 max-w-[560px] 2xl:max-w-[640px] mx-auto text-base sm:text-lg lg:text-[1.15rem] 2xl:text-[1.3rem] leading-[1.65] text-gray-500 font-normal">
                 Klee Technologies partners with businesses to design, develop and scale digital experiences powered by technology, creativity and purpose.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
                 <Button 
                   href="/contact" 
                   variant="primary" 
                   size="lg" 
                   showArrow={true}
-                  className="bg-[#0e76bc] hover:bg-[#0a588c] text-white font-medium rounded-full px-8 py-3.5 border-transparent shadow-[0_10px_25px_rgba(14,118,188,0.3)] hover:shadow-[0_14px_35px_rgba(14,118,188,0.45)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+                  className="bg-[#0e76bc] hover:bg-[#0a588c] text-white font-medium rounded-full px-8 sm:px-10 py-4 text-base sm:text-lg border-transparent shadow-[0_12px_28px_rgba(14,118,188,0.32)] hover:shadow-[0_16px_36px_rgba(14,118,188,0.45)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
                 >
                   Start a project
                 </Button>
+                <Button 
+                  href="/portfolio" 
+                  variant="secondary" 
+                  size="lg"
+                  className="bg-gray-50 hover:bg-gray-100/90 text-gray-800 font-medium rounded-full px-7 sm:px-8 py-4 text-base sm:text-lg border border-gray-200/80 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+                >
+                  Explore Work
+                </Button>
+              </div>
+
+              {/* Elegant Proof Strip */}
+              <div className="mt-10 sm:mt-12 pt-8 sm:pt-9 border-t border-gray-100 w-full max-w-[540px] 2xl:max-w-[640px] grid grid-cols-3 gap-3 sm:gap-6 text-center">
+                <div>
+                  <div className="text-2xl sm:text-3xl 2xl:text-4xl font-semibold tracking-tight text-gray-950">200+</div>
+                  <div className="text-[11px] sm:text-xs text-gray-500 font-medium mt-1 uppercase tracking-wider">Projects Delivered</div>
+                </div>
+                <div className="border-x border-gray-100 px-2">
+                  <div className="text-2xl sm:text-3xl 2xl:text-4xl font-semibold tracking-tight text-[#0e76bc]">100%</div>
+                  <div className="text-[11px] sm:text-xs text-gray-500 font-medium mt-1 uppercase tracking-wider">Client Commitment</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl 2xl:text-4xl font-semibold tracking-tight text-gray-950">Global</div>
+                  <div className="text-[11px] sm:text-xs text-gray-500 font-medium mt-1 uppercase tracking-wider">Enterprise Scale</div>
+                </div>
               </div>
             </Reveal>
           </div>
 
           {/* Right Content (Vertical Showcase) */}
-          <div className="w-full lg:w-[42%] xl:w-[40%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh] bg-[#0e76bc] overflow-hidden">
+          <div className="w-full lg:w-[43%] xl:w-[42%] 2xl:w-[40%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh] bg-[#0e76bc] overflow-hidden">
             <VerticalShowcase />
           </div>
         </div>

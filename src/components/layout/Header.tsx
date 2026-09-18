@@ -71,7 +71,7 @@ export function Header() {
           <nav
             aria-label="Main Navigation"
             onMouseLeave={() => setHoveredPath(null)}
-            className="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-2 rounded-full bg-white/70 backdrop-blur-md shadow-[0_2px_15px_-5px_rgba(0,0,0,0.05)] border border-[var(--color-border-subtle)]/60"
+            className="hidden md:flex items-center gap-0.5 lg:gap-1 px-2.5 py-1.5 rounded-full bg-white/90 backdrop-blur-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.07)] border border-[var(--color-border-subtle)]"
           >
             {MAIN_NAV_ITEMS.map((item) => {
               const isActive =
@@ -87,7 +87,7 @@ export function Header() {
                   href={item.href}
                   onMouseEnter={() => setHoveredPath(item.href)}
                   className={cn(
-                    "relative px-4 py-2 text-xs lg:text-sm font-medium transition-colors duration-150 rounded-full select-none",
+                    "relative px-2.5 lg:px-3.5 py-1.5 text-xs lg:text-sm font-medium transition-colors duration-150 rounded-full select-none whitespace-nowrap",
                     isActive
                       ? "text-[var(--color-foreground)] font-semibold"
                       : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
