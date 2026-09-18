@@ -49,8 +49,8 @@ export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
       const maxScroll = gallery.scrollWidth - gallery.clientWidth;
 
       if (maxScroll > 4) {
-        // Speed: ~55px per second
-        const step = directionRef.current * (deltaTime * 0.055);
+        // Speed: ~140px per second (Matched with LogoMarquee speed)
+        const step = directionRef.current * (deltaTime * 0.14);
         const targetScroll = gallery.scrollLeft + step;
 
         if (targetScroll >= maxScroll) {
