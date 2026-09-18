@@ -131,7 +131,7 @@ function VideoCard({
   return (
     <div
       className={cn(
-        "group relative flex flex-col rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#00AEEF]/40 cursor-pointer",
+        "group relative flex flex-col rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-[#0e76bc]/40 cursor-pointer",
         ad.featured ? "md:col-span-2 lg:col-span-2" : ""
       )}
       onClick={() => onSelect(ad)}
@@ -154,7 +154,7 @@ function VideoCard({
         {/* Top Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-20 pointer-events-none">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-semibold tracking-wider uppercase text-white shadow-sm">
-            <Film className="w-3 h-3 text-[#00AEEF]" />
+            <Film className="w-3 h-3 text-[#0e76bc]" />
             {ad.category}
           </span>
           <span className="px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[11px] font-mono text-white/90 shadow-sm">
@@ -166,7 +166,7 @@ function VideoCard({
         <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors z-10">
           <div
             className={cn(
-              "flex h-14 w-14 items-center justify-center rounded-full bg-[#00AEEF] text-white shadow-lg transition-transform duration-300 group-hover:scale-110",
+              "flex h-14 w-14 items-center justify-center rounded-full bg-[#0e76bc] text-white shadow-lg transition-transform duration-300 group-hover:scale-110",
               isHovered ? "opacity-80 scale-105" : "opacity-95"
             )}
           >
@@ -181,7 +181,7 @@ function VideoCard({
       {/* Details Container */}
       <div className="flex flex-col flex-1 p-5 sm:p-6">
         <div className="flex items-baseline justify-between gap-2 mb-1">
-          <h3 className="text-lg sm:text-xl font-semibold text-[var(--color-foreground)] tracking-tight group-hover:text-[#00AEEF] transition-colors">
+          <h3 className="text-lg sm:text-xl font-semibold text-[var(--color-foreground)] tracking-tight group-hover:text-[#0e76bc] transition-colors">
             {ad.title}
           </h3>
         </div>

@@ -157,7 +157,7 @@ export function HorizontalGallery({ assets, priority = false }: HorizontalGaller
             onClick={() => {
               if (!isDraggingRef.current) setActiveAsset(asset);
             }}
-            className="shrink-0 w-[270px] sm:w-[320px] md:w-[380px] h-[220px] sm:h-[260px] md:h-[280px] rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] bg-slate-100 dark:bg-slate-800/40 shadow-xs hover:shadow-lg hover:border-[#00AEEF]/40 hover:-translate-y-1 transition-all duration-300 relative group/card hover:cursor-none"
+            className="shrink-0 w-[270px] sm:w-[320px] md:w-[380px] h-[220px] sm:h-[260px] md:h-[280px] rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] bg-slate-100 dark:bg-slate-800/40 shadow-xs hover:shadow-lg hover:border-[#0e76bc]/40 hover:-translate-y-1 transition-all duration-300 relative group/card hover:cursor-none"
           >
             {asset.type === "video" ? (
               <video

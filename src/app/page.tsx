@@ -33,8 +33,8 @@ export default function HomePage() {
           <div className="w-full lg:w-[58%] xl:w-[60%] flex flex-col justify-center items-center text-center px-6 sm:px-10 lg:px-8 xl:px-12 pt-32 sm:pt-36 lg:pt-28 pb-12 relative z-20 min-h-[calc(100svh-5rem)]">
             <Reveal variant="slide-up">
               {/* Studio Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00AEEF]/8 border border-[#00AEEF]/20 text-[#00AEEF] text-xs font-semibold tracking-wider uppercase mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0e76bc]/8 border border-[#0e76bc]/20 text-[#0e76bc] text-xs font-semibold tracking-wider uppercase mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0e76bc] animate-pulse" />
                 <span>Digital Product & Innovation Studio</span>
               </div>
 
@@ -45,7 +45,7 @@ export default function HomePage() {
                   <span className="inline-flex flex-wrap lg:flex-nowrap justify-center gap-x-[0.25em]">
                     <TextRoll className="text-gray-900">Building</TextRoll>
                     {"intelligent digital products,".split(" ").map((word, i) => (
-                      <TextRoll key={`blue-${i}`} className="text-[#00AEEF]">
+                      <TextRoll key={`blue-${i}`} className="text-[#0e76bc]">
                         {word}
                       </TextRoll>
                     ))}
@@ -87,7 +87,7 @@ export default function HomePage() {
                   variant="primary" 
                   size="lg" 
                   showArrow={true}
-                  className="bg-[#00AEEF] hover:bg-[#009cd6] text-white font-medium rounded-full px-8 py-3.5 border-transparent shadow-[0_10px_25px_rgba(0,174,239,0.3)] hover:shadow-[0_14px_35px_rgba(0,174,239,0.45)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+                  className="bg-[#0e76bc] hover:bg-[#0a588c] text-white font-medium rounded-full px-8 py-3.5 border-transparent shadow-[0_10px_25px_rgba(14,118,188,0.3)] hover:shadow-[0_14px_35px_rgba(14,118,188,0.45)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
                 >
                   Start a project
                 </Button>
@@ -96,7 +96,7 @@ export default function HomePage() {
           </div>
 
           {/* Right Content (Vertical Showcase) */}
-          <div className="w-full lg:w-[42%] xl:w-[40%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh] bg-[#00AEEF] overflow-hidden">
+          <div className="w-full lg:w-[42%] xl:w-[40%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh] bg-[#0e76bc] overflow-hidden">
             <VerticalShowcase />
           </div>
         </div>

@@ -55,7 +55,7 @@ export async function POST(req: Request) {
           <style>
             body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f4f6f8; margin: 0; padding: 24px; color: #1e293b; }
             .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
-            .header { background: linear-gradient(135deg, #090d16 0%, #1e293b 100%); padding: 32px 28px; text-align: left; border-bottom: 3px solid #00AEEF; }
+            .header { background: linear-gradient(135deg, #090d16 0%, #1e293b 100%); padding: 32px 28px; text-align: left; border-bottom: 3px solid #0e76bc; }
             .header h1 { margin: 0; font-size: 20px; font-weight: 600; color: #ffffff; letter-spacing: 0.5px; }
             .header p { margin: 6px 0 0; font-size: 13px; color: #94a3b8; }
             .content { padding: 28px; }
@@ -64,7 +64,7 @@ export async function POST(req: Request) {
             .detail-table td { padding: 10px 0; border-bottom: 1px solid #f1f5f9; font-size: 14px; vertical-align: top; }
             .detail-table td.label { width: 140px; color: #64748b; font-weight: 500; }
             .detail-table td.value { color: #0f172a; font-weight: 600; }
-            .message-box { background: #f8fafc; border-left: 4px solid #00AEEF; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-top: 10px; }
+            .message-box { background: #f8fafc; border-left: 4px solid #0e76bc; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-top: 10px; }
             .message-box h3 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; }
             .message-box p { margin: 0; font-size: 14px; line-height: 1.6; color: #1e293b; white-space: pre-wrap; }
             .footer { padding: 20px 28px; background: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 12px; color: #94a3b8; text-align: center; }
@@ -89,7 +89,7 @@ export async function POST(req: Request) {
                 </tr>
                 <tr>
                   <td class="label">Email Address:</td>
-                  <td class="value"><a href="mailto:${email}" style="color: #00AEEF; text-decoration: none;">${email}</a></td>
+                  <td class="value"><a href="mailto:${email}" style="color: #0e76bc; text-decoration: none;">${email}</a></td>
                 </tr>
                 <tr>
                   <td class="label">Phone Number:</td>
@@ -136,7 +136,7 @@ export async function POST(req: Request) {
               .card { max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
               .header { background: #0b1120; padding: 32px 28px; text-align: center; }
               .header h1 { margin: 0; font-size: 22px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; }
-              .header h1 span { color: #00AEEF; }
+              .header h1 span { color: #0e76bc; }
               .content { padding: 32px 28px; line-height: 1.65; }
               .content h2 { margin: 0 0 12px; font-size: 18px; color: #0f172a; font-weight: 600; }
               .content p { margin: 0 0 16px; font-size: 14px; color: #475569; }
@@ -158,7 +158,7 @@ export async function POST(req: Request) {
                   • Services: ${formattedServices}<br/>
                   • Message: "${message.slice(0, 160)}${message.length > 160 ? "..." : ""}"
                 </div>
-                <p>If you have any urgent details to share, feel free to reply directly to this email or reach us at <a href="mailto:info@kleetechnologies.com" style="color: #00AEEF;">info@kleetechnologies.com</a>.</p>
+                <p>If you have any urgent details to share, feel free to reply directly to this email or reach us at <a href="mailto:info@kleetechnologies.com" style="color: #0e76bc;">info@kleetechnologies.com</a>.</p>
               </div>
               <div class="footer">
                 KLEE Technologies • T-Hub, Hyderabad • info@kleetechnologies.com

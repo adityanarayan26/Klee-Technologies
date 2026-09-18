@@ -175,7 +175,7 @@ export default function AboutPage() {
                   href={person.link || "https://www.linkedin.com/company/klee-technologies"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between p-2.5 sm:p-3 pr-5 sm:pr-6 rounded-full border border-gray-200/90 bg-white hover:border-[#00AEEF] hover:shadow-md transition-all duration-300 w-full"
+                  className="group flex items-center justify-between p-2.5 sm:p-3 pr-5 sm:pr-6 rounded-full border border-gray-200/90 bg-white hover:border-[#0e76bc] hover:shadow-md transition-all duration-300 w-full"
                 >
                   <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-gray-100 shrink-0 border border-gray-100">
@@ -188,7 +188,7 @@ export default function AboutPage() {
                       />
                     </div>
                     <div className="min-w-0">
-                      <h3 className="text-base sm:text-[17px] font-bold text-gray-900 leading-tight truncate group-hover:text-[#00AEEF] transition-colors">
+                      <h3 className="text-base sm:text-[17px] font-bold text-gray-900 leading-tight truncate group-hover:text-[#0e76bc] transition-colors">
                         {person.name}
                       </h3>
                       <p className="text-xs sm:text-[13px] text-gray-500 font-medium mt-0.5 truncate">
@@ -198,11 +198,11 @@ export default function AboutPage() {
                   </div>
 
                   {/* LinkedIn Icon Badge with Diagonal Arrow */}
-                  <div className="flex items-center gap-1 shrink-0 ml-3 text-gray-900 group-hover:text-[#00AEEF] transition-colors">
+                  <div className="flex items-center gap-1 shrink-0 ml-3 text-gray-900 group-hover:text-[#0e76bc] transition-colors">
                     <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-[4px] bg-gray-900 text-white text-[11px] sm:text-[12px] font-bold">
                       in
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-gray-900 group-hover:text-[#00AEEF] transition-colors">
+                    <span className="text-xs sm:text-sm font-semibold text-gray-900 group-hover:text-[#0e76bc] transition-colors">
                       ↗
                     </span>
                   </div>
