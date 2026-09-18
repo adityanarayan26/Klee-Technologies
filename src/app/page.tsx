@@ -29,17 +29,17 @@ export default function HomePage() {
         {/* Split Screen Layout */}
         <div className="flex flex-col lg:flex-row w-full h-full min-h-[100svh]">
           
-          {/* Left Content (Text) - Proportionally Balanced Fluid Scaling */}
-          <div className="w-full lg:w-[58%] xl:w-[58%] 2xl:w-[60%] flex flex-col justify-center items-center text-center px-[clamp(1rem,2.8vw,3.5rem)] pt-[clamp(4.5rem,8.5vh,6.5rem)] pb-[clamp(1rem,2.2vh,2.5rem)] relative z-20 min-h-[calc(100svh-3.5rem)] lg:min-h-[100svh]">
+          {/* Left Content (Text) - Bold, Commanding & Elegant */}
+          <div className="w-full lg:w-[60%] xl:w-[61%] 2xl:w-[62%] flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-6 xl:px-8 2xl:px-12 pt-20 sm:pt-24 lg:pt-16 xl:pt-20 2xl:pt-24 pb-6 sm:pb-8 lg:pb-6 xl:pb-8 relative z-20 min-h-[calc(100svh-3.5rem)] lg:min-h-[100svh]">
             <Reveal variant="slide-up">
               {/* Studio Badge */}
-              <div className="inline-flex items-center gap-2 px-[clamp(0.65rem,1vw,0.9rem)] py-[clamp(0.25rem,0.5vh,0.4rem)] rounded-full bg-[#0e76bc]/8 border border-[#0e76bc]/20 text-[#0e76bc] text-[clamp(0.68rem,min(0.75vw,1.3vh),0.82rem)] font-semibold tracking-wider uppercase mb-[clamp(0.6rem,1.8vh,1.25rem)] shadow-xs">
+              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0e76bc]/8 border border-[#0e76bc]/20 text-[#0e76bc] text-xs sm:text-[0.8rem] font-semibold tracking-wider uppercase mb-3.5 sm:mb-4 shadow-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0e76bc] animate-pulse" />
                 <span>Digital Product & Innovation Studio</span>
               </div>
 
-              {/* Centered Editorial Headline - Continuous Fluid Scaling for 100% Proportional Consistency */}
-              <h1 className="text-[clamp(1.65rem,min(2.72vw,4.4vh),3.25rem)] font-medium tracking-tight leading-[1.14] mb-[clamp(0.6rem,1.8vh,1.25rem)] cursor-default text-center text-balance max-w-[clamp(480px,46vw,820px)]">
+              {/* Centered Editorial Headline - Bold & Perfectly Proportioned */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.15rem] xl:text-[2.6rem] 2xl:text-[3.45rem] font-medium tracking-tight leading-[1.12] mb-4 sm:mb-5 cursor-default text-center max-w-[680px] xl:max-w-[780px] 2xl:max-w-[920px]">
                 {/* Line 1 */}
                 <span className="block">
                   <span className="inline-flex flex-wrap justify-center gap-x-[0.25em]">
@@ -77,17 +77,17 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal variant="slide-up" delay={0.15}>
-              <p className="mb-[clamp(0.85rem,2.4vh,1.75rem)] max-w-[clamp(420px,38vw,600px)] mx-auto text-[clamp(0.85rem,min(1.02vw,1.75vh),1.125rem)] leading-[1.52] text-gray-500 font-normal text-pretty">
+              <p className="mb-5 sm:mb-6 max-w-[520px] xl:max-w-[600px] 2xl:max-w-[660px] mx-auto text-base sm:text-lg lg:text-[1.05rem] xl:text-[1.16rem] leading-[1.58] text-gray-500 font-normal">
                 Klee Technologies partners with businesses to design, develop and scale digital experiences powered by technology, creativity and purpose.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-[clamp(0.65rem,1vw,1rem)]">
+              <div className="flex flex-wrap items-center justify-center gap-3.5">
                 <Button 
                   href="/contact" 
                   variant="primary" 
                   size="md" 
                   showArrow={true}
-                  className="bg-[#0e76bc] hover:bg-[#0a588c] text-white font-medium rounded-full px-[clamp(1.4rem,2vw,2.2rem)] py-[clamp(0.55rem,1.3vh,0.9rem)] text-[clamp(0.82rem,min(0.92vw,1.6vh),1rem)] border-transparent shadow-[0_10px_24px_rgba(14,118,188,0.3)] hover:shadow-[0_14px_30px_rgba(14,118,188,0.42)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+                  className="bg-[#0e76bc] hover:bg-[#0a588c] text-white font-medium rounded-full px-8 sm:px-9 py-3.5 text-sm sm:text-base border-transparent shadow-[0_10px_24px_rgba(14,118,188,0.3)] hover:shadow-[0_14px_30px_rgba(14,118,188,0.42)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
                 >
                   Start a project
                 </Button>
@@ -95,32 +95,32 @@ export default function HomePage() {
                   href="/portfolio" 
                   variant="secondary" 
                   size="md"
-                  className="bg-gray-50 hover:bg-gray-100/90 text-gray-800 font-medium rounded-full px-[clamp(1.25rem,1.8vw,2rem)] py-[clamp(0.55rem,1.3vh,0.9rem)] text-[clamp(0.82rem,min(0.92vw,1.6vh),1rem)] border border-gray-200/80 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+                  className="bg-gray-50 hover:bg-gray-100/90 text-gray-800 font-medium rounded-full px-7 sm:px-8 py-3.5 text-sm sm:text-base border border-gray-200/80 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
                 >
                   Explore Work
                 </Button>
               </div>
 
-              {/* Compact Elegant Proof Strip - Proportional Fluid Sizing */}
-              <div className="mt-[clamp(0.75rem,2.2vh,2rem)] pt-[clamp(0.6rem,1.8vh,1.5rem)] border-t border-gray-100 w-full max-w-[clamp(400px,38vw,560px)] grid grid-cols-3 gap-[clamp(0.4rem,1vw,1rem)] text-center">
+              {/* Compact Elegant Proof Strip */}
+              <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-gray-100 w-full max-w-[480px] xl:max-w-[540px] grid grid-cols-3 gap-2 sm:gap-4 text-center">
                 <div>
-                  <div className="text-[clamp(1.35rem,min(1.85vw,3.2vh),2.25rem)] font-bold tracking-tight text-gray-950">200+</div>
-                  <div className="text-[clamp(9px,min(0.72vw,1.2vh),11px)] text-gray-400 font-medium mt-0.5 uppercase tracking-wider">Projects Delivered</div>
+                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-gray-950">200+</div>
+                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider">Projects Delivered</div>
                 </div>
                 <div className="border-x border-gray-100 px-1 sm:px-2">
-                  <div className="text-[clamp(1.35rem,min(1.85vw,3.2vh),2.25rem)] font-bold tracking-tight text-[#0e76bc]">100%</div>
-                  <div className="text-[clamp(9px,min(0.72vw,1.2vh),11px)] text-gray-400 font-medium mt-0.5 uppercase tracking-wider">Client Commitment</div>
+                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-[#0e76bc]">100%</div>
+                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider">Client Commitment</div>
                 </div>
                 <div>
-                  <div className="text-[clamp(1.35rem,min(1.85vw,3.2vh),2.25rem)] font-bold tracking-tight text-gray-950">Global</div>
-                  <div className="text-[clamp(9px,min(0.72vw,1.2vh),11px)] text-gray-400 font-medium mt-0.5 uppercase tracking-wider">Enterprise Scale</div>
+                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-gray-950">Global</div>
+                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider">Enterprise Scale</div>
                 </div>
               </div>
             </Reveal>
           </div>
 
           {/* Right Content (Vertical Showcase) */}
-          <div className="w-full lg:w-[42%] xl:w-[42%] 2xl:w-[40%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh] bg-[#0e76bc] overflow-hidden">
+          <div className="w-full lg:w-[40%] xl:w-[39%] 2xl:w-[38%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh] bg-[#0e76bc] overflow-hidden">
             <VerticalShowcase />
           </div>
         </div>
