@@ -327,6 +327,45 @@ html.lenis, html.lenis body {
 }
 
 /* -------------------------------------------------------------------------- */
+/* CONTINUOUS PURE CSS MARQUEES & SHIMMER ANIMATIONS                          */
+/* -------------------------------------------------------------------------- */
+
+@keyframes vertical-marquee-up {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes vertical-marquee-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+@keyframes gradient-text {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-showcase-col1 {
+  animation: vertical-marquee-up 52s linear infinite;
+  will-change: transform;
+}
+
+.animate-showcase-col2 {
+  animation: vertical-marquee-down 64s linear infinite;
+  will-change: transform;
+}
+
+.animate-showcase-col3 {
+  animation: vertical-marquee-up 58s linear infinite;
+  will-change: transform;
+}
+
+.animate-gradient-text {
+  animation: gradient-text 5s ease infinite;
+}
+
+/* -------------------------------------------------------------------------- */
 /* PREFERS-REDUCED-MOTION SAFEGUARD                                           */
 /* -------------------------------------------------------------------------- */
 

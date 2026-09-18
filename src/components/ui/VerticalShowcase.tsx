@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
@@ -78,64 +78,11 @@ const col2 = [...col2Media, ...col2Media];
 const col3 = [...col3Media, ...col3Media];
 
 export function VerticalShowcase({ className }: { className?: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const col1Ref = useRef<HTMLDivElement>(null);
-  const col2Ref = useRef<HTMLDivElement>(null);
-  const col3Ref = useRef<HTMLDivElement>(null);
-  
   const [activeAsset, setActiveAsset] = useState<LightboxAsset | null>(null);
-
-  useEffect(() => {
-    const anims: Animation[] = [];
-
-    if (col1Ref.current) {
-      const anim1 = col1Ref.current.animate(
-        [{ transform: "translateY(0%)" }, { transform: "translateY(-50%)" }],
-        { duration: 60000, iterations: Infinity, easing: "linear" }
-      );
-      anims.push(anim1);
-    }
-    if (col2Ref.current) {
-      const anim2 = col2Ref.current.animate(
-        [{ transform: "translateY(-50%)" }, { transform: "translateY(0%)" }],
-        { duration: 75000, iterations: Infinity, easing: "linear" }
-      );
-      anims.push(anim2);
-    }
-    if (col3Ref.current) {
-      const anim3 = col3Ref.current.animate(
-        [{ transform: "translateY(0%)" }, { transform: "translateY(-50%)" }],
-        { duration: 65000, iterations: Infinity, easing: "linear" }
-      );
-      anims.push(anim3);
-    }
-
-    const setupHover = (el: HTMLElement | null, anim: Animation) => {
-      if (!el || !anim) return;
-      const onEnter = () => { anim.playbackRate = 0.15; };
-      const onLeave = () => { anim.playbackRate = 1; };
-      el.addEventListener('mouseenter', onEnter);
-      el.addEventListener('mouseleave', onLeave);
-      return () => {
-        el.removeEventListener('mouseenter', onEnter);
-        el.removeEventListener('mouseleave', onLeave);
-      };
-    };
-
-    const cleanup1 = setupHover(col1Ref.current, anims[0]);
-    const cleanup2 = setupHover(col2Ref.current, anims[1]);
-    const cleanup3 = setupHover(col3Ref.current, anims[2]);
-
-    return () => {
-      cleanup1?.(); cleanup2?.(); cleanup3?.();
-      anims.forEach(anim => anim.cancel());
-    };
-  }, []);
 
   return (
     <>
       <div 
-        ref={containerRef} 
         className={cn("absolute inset-0 w-full h-full overflow-hidden", className)}
       >
         {/* Top and Bottom Gradient Dissolve Masks */}
@@ -150,8 +97,8 @@ export function VerticalShowcase({ className }: { className?: string }) {
 
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-3 gap-[clamp(0.75rem,1.2vw,1.5rem)] px-[clamp(0.75rem,1.5vw,2rem)] pb-20 pt-10">
           
-          {/* Column 1 */}
-          <div ref={col1Ref} className="flex flex-col gap-4 lg:gap-6">
+          {/* Column 1 - Continuous Pure CSS Infinite Scroll */}
+          <div className="flex flex-col gap-4 lg:gap-6 animate-showcase-col1">
             {col1.map((src, i) => (
               <div 
                 key={i} 
@@ -185,12 +132,12 @@ export function VerticalShowcase({ className }: { className?: string }) {
             ))}
           </div>
 
-          {/* Column 2 */}
-          <div ref={col2Ref} className="flex flex-col gap-4 lg:gap-6 -mt-32">
+          {/* Column 2 - Continuous Pure CSS Reverse Infinite Scroll */}
+          <div className="flex flex-col gap-4 lg:gap-6 -mt-32 animate-showcase-col2">
             {col2.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs", getAspectRatio(i + 1))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i + 1))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
@@ -220,12 +167,12 @@ export function VerticalShowcase({ className }: { className?: string }) {
             ))}
           </div>
 
-          {/* Column 3 */}
-          <div ref={col3Ref} className="hidden md:flex flex-col gap-4 lg:gap-6 mt-16">
+          {/* Column 3 - Continuous Pure CSS Infinite Scroll */}
+          <div className="hidden md:flex flex-col gap-4 lg:gap-6 mt-16 animate-showcase-col3">
             {col3.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs", getAspectRatio(i + 2))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i + 2))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
