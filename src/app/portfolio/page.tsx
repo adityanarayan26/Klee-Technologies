@@ -130,19 +130,93 @@ export default function PortfolioPage() {
             
             <div className="lg:col-span-7">
               <Reveal variant="scale" delay={0.2}>
-                <div className="aspect-[4/3] rounded-2xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-xl">
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-xl bg-[#e8e4dc]">
                   <Image 
-                    src="/portfolio/ksdc_app_preview.jpg" 
+                    src="/portfolio/featured/ksdc-mockup.jpg" 
                     alt="KSDC Application Preview Dashboard" 
                     fill 
                     sizes="(max-width: 1024px) 100vw, 58vw"
-                    className="object-cover"
+                    className="object-contain p-2"
                     priority
                   />
                 </div>
               </Reveal>
             </div>
           </div>
+        </Container>
+      </Section>
+
+      {/* Vmovexa SaaS Project */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default">
+          <div className="mb-10">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">SAAS PLATFORM</span>
+              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
+                Vmovexa SaaS
+              </h2>
+              <p className="type-body text-[var(--color-muted)] max-w-3xl">
+                A scalable software platform designed for digital businesses, featuring real-time analytics, seamless user management, and an intuitive dashboard interface.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal variant="slide-up" delay={0.1}>
+            <div className="mt-8 flex flex-col gap-6">
+              {/* Main Video - Full Width */}
+              <div className="w-full aspect-[16/7] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                <video 
+                  src="/portfolio/videos/vmovexa-demo.mp4" 
+                  poster="/portfolio/featured/vmovexa-poster.jpg"
+                  autoPlay loop muted playsInline 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
+                  Platform Demo
+                </div>
+              </div>
+
+              {/* 3 Images Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                  <Image 
+                    src="/portfolio/featured/vmovexa-dashboard.jpg" 
+                    alt="SaaS Dashboard" 
+                    fill 
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
+                    Dashboard
+                  </div>
+                </div>
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                  <Image 
+                    src="/portfolio/featured/vmovexa-app.jpg" 
+                    alt="Vmovexa Mobile Application" 
+                    fill 
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
+                    Mobile App
+                  </div>
+                </div>
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                  <Image 
+                    src="/portfolio/featured/vmovexa-mobile.jpeg" 
+                    alt="Mobile Experience" 
+                    fill 
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
+                    Website
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </Section>
 
