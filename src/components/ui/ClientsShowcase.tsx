@@ -243,29 +243,25 @@ export function ClientsShowcase() {
         </Reveal>
       </div>
 
-      {/* UNIQUE ELEMENT 1: Dual-Track Floating Infinite Ticker */}
-      <div className="relative w-[100vw] left-1/2 -translate-x-1/2 overflow-hidden bg-gradient-to-b from-[var(--color-background-secondary)]/70 to-[var(--color-background-primary)] py-8">
-        {/* Soft edge blur masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[var(--color-background)] to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[var(--color-background)] to-transparent z-20 pointer-events-none" />
-
-        <div className="space-y-4">
-          <LogoMarquee 
-            items={row1} 
-            baseVelocity={40} 
-            colored={true}
-            className="bg-transparent border-none py-2" 
-          />
-          <LogoMarquee 
-            items={row2} 
-            baseVelocity={45} 
-            reverse={true} 
-            colored={true}
-            className="bg-transparent border-none py-2" 
-          />
+      {/* Client Logos Grid */}
+      <div className="pt-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+          {filteredClients.map((client, idx) => (
+            <Reveal key={client.id} variant="scale" delay={(idx % 10) * 0.05}>
+              <div className="flex items-center justify-center p-4 sm:p-6 rounded-2xl bg-white border border-[var(--color-border-subtle)] shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg hover:border-[var(--color-accent)]/30 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="relative w-full aspect-[3/2] flex items-center justify-center">
+                  <Image
+                    src={client.src}
+                    alt={`${client.name} logo`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
-
-      
       </div>
 
     </div>

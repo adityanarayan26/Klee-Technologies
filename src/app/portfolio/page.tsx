@@ -99,59 +99,12 @@ export default function PortfolioPage() {
         </Container>
       </Section>
 
-      {/* Featured Project */}
-      <Section spacing="default" background="default" borderTop>
-        <Container size="default">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <Reveal variant="slide-up">
-                <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">FEATURED PROJECT</span>
-                <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
-                  KSDC Application
-                </h2>
-                <h3 className="text-xl font-medium text-[var(--color-foreground)] mb-6">
-                  Technology for Skill Development
-                </h3>
-                <div className="space-y-4 type-body text-[var(--color-muted)] leading-relaxed mb-8">
-                  <p>
-                    KLEE Technologies developed the KSDC application for the Telangana Government under a skill development program.
-                  </p>
-                  <p>
-                    The project represents KLEE's ability to translate technology into solutions supporting large-scale skill development initiatives.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-[var(--color-background-secondary)] text-[var(--color-muted)] text-xs font-medium rounded-full border border-[var(--color-border-subtle)]">Government Project</span>
-                  <span className="px-3 py-1 bg-[var(--color-background-secondary)] text-[var(--color-muted)] text-xs font-medium rounded-full border border-[var(--color-border-subtle)]">Application Development</span>
-                  <span className="px-3 py-1 bg-[var(--color-background-secondary)] text-[var(--color-muted)] text-xs font-medium rounded-full border border-[var(--color-border-subtle)]">Skill Development</span>
-                </div>
-              </Reveal>
-            </div>
-            
-            <div className="lg:col-span-7">
-              <Reveal variant="scale" delay={0.2}>
-                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-xl bg-[#e8e4dc]">
-                  <Image 
-                    src="/portfolio/featured/ksdc-mockup.jpg" 
-                    alt="KSDC Application Preview Dashboard" 
-                    fill 
-                    sizes="(max-width: 1024px) 100vw, 58vw"
-                    className="object-contain p-2"
-                    priority
-                  />
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       {/* Vmovexa SaaS Project */}
-      <Section spacing="default" background="secondary" borderTop>
+      <Section spacing="default" background="default" borderTop>
         <Container size="default">
           <div className="mb-10">
             <Reveal variant="slide-up">
-              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">SAAS PLATFORM</span>
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">FEATURED SAAS PLATFORM</span>
               <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
                 Vmovexa SaaS
               </h2>
@@ -163,15 +116,15 @@ export default function PortfolioPage() {
 
           <Reveal variant="slide-up" delay={0.1}>
             <div className="mt-8 flex flex-col gap-6">
-              {/* Main Video - Full Width */}
-              <div className="w-full aspect-[16/7] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+              {/* Main Video - Full Width, Natural Aspect Ratio */}
+              <div className="w-full rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group bg-black">
                 <video 
                   src="/portfolio/videos/vmovexa-demo.mp4" 
                   poster="/portfolio/featured/vmovexa-poster.jpg"
                   autoPlay loop muted playsInline 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10">
+                <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full border border-white/10 z-10">
                   Platform Demo
                 </div>
               </div>
@@ -217,6 +170,52 @@ export default function PortfolioPage() {
               </div>
             </div>
           </Reveal>
+        </Container>
+      </Section>
+
+      {/* KSDC Project */}
+      <Section spacing="default" background="secondary" borderTop>
+        <Container size="default">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5">
+              <Reveal variant="slide-up">
+                <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">GOVERNMENT INITIATIVE</span>
+                <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
+                  KSDC Application
+                </h2>
+                <h3 className="text-xl font-medium text-[var(--color-foreground)] mb-6">
+                  Technology for Skill Development
+                </h3>
+                <div className="space-y-4 type-body text-[var(--color-muted)] leading-relaxed mb-8">
+                  <p>
+                    KLEE Technologies developed the KSDC application for the Telangana Government under a skill development program.
+                  </p>
+                  <p>
+                    The project represents KLEE's ability to translate technology into solutions supporting large-scale skill development initiatives.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-[var(--color-background-secondary)] text-[var(--color-muted)] text-xs font-medium rounded-full border border-[var(--color-border-subtle)]">Government Project</span>
+                  <span className="px-3 py-1 bg-[var(--color-background-secondary)] text-[var(--color-muted)] text-xs font-medium rounded-full border border-[var(--color-border-subtle)]">Application Development</span>
+                  <span className="px-3 py-1 bg-[var(--color-background-secondary)] text-[var(--color-muted)] text-xs font-medium rounded-full border border-[var(--color-border-subtle)]">Skill Development</span>
+                </div>
+              </Reveal>
+            </div>
+            
+            <div className="lg:col-span-7">
+              <Reveal variant="scale" delay={0.2}>
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-xl bg-[#e8e4dc]">
+                  <Image 
+                    src="/portfolio/featured/ksdc-mockup.jpg" 
+                    alt="KSDC Application Preview Dashboard" 
+                    fill 
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    className="object-contain p-2"
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </Container>
       </Section>
 

@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Section spacing="none" background="default" className="overflow-visible min-h-screen flex items-center pt-32 pb-12 lg:pt-40 lg:pb-16">
-        <Container size="default" className="w-full">
-          <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+      <Section spacing="none" background="default" className="overflow-visible min-h-screen flex items-center pt-28 pb-10 lg:pt-32 lg:pb-10">
+        <Container size="wide" className="w-full">
+          <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
             {/* Contact Hero & Info (Left 5 Cols) */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               <Reveal variant="slide-up">

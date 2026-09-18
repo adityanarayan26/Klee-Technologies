@@ -44,7 +44,7 @@ export function LogoMarquee({
   baseVelocity = 40, // Represents duration in seconds now
   items = CLIENT_LOGOS,
   reverse = false,
-  colored = false,
+  colored = true,
 }: { 
   className?: string; 
   baseVelocity?: number;
@@ -65,12 +65,6 @@ export function LogoMarquee({
 
   return (
     <div className={`relative flex w-full overflow-hidden ${className || "bg-background-secondary/50 py-7 border-y border-(--color-border-subtle)"}`}>
-      {/* Left Gradient Fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-linear-to-r from-(--color-background) to-transparent z-10 pointer-events-none" />
-      
-      {/* Right Gradient Fade */}
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-(--color-background) to-transparent z-10 pointer-events-none" />
-
       <motion.div 
         className="flex w-max items-center hover:[animation-play-state:paused]" 
         animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
