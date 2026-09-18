@@ -138,7 +138,7 @@ export function VerticalShowcase({ className }: { className?: string }) {
         ref={containerRef} 
         className={cn("absolute inset-0 w-full h-full overflow-hidden", className)}
       >
-        <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-6 px-4 lg:px-8 pb-20 pt-10">
+        <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-3 gap-[clamp(0.75rem,1.2vw,1.5rem)] px-[clamp(0.75rem,1.5vw,2rem)] pb-20 pt-10">
           
           {/* Column 1 */}
           <div ref={col1Ref} className="flex flex-col gap-4 lg:gap-6">
