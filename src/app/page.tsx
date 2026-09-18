@@ -30,32 +30,65 @@ export default function HomePage() {
         <div className="flex flex-col lg:flex-row w-full h-full min-h-[100svh]">
           
           {/* Left Content (Text) */}
-          <div className="w-full lg:w-[50%] flex flex-col justify-center px-6 sm:px-12 lg:pl-16 xl:pl-32 2xl:pl-[calc((100vw-1420px)/2+4rem)] pt-32 lg:pt-20 pb-8 relative z-20">
+          <div className="w-full lg:w-[58%] xl:w-[60%] flex flex-col justify-center items-center text-center px-6 sm:px-10 lg:px-8 xl:px-12 pt-32 sm:pt-36 lg:pt-28 pb-12 relative z-20 min-h-[calc(100svh-5rem)]">
             <Reveal variant="slide-up">
-              <h1 className="type-h1 mb-6 max-w-[900px] leading-[1.05] cursor-default">
-                <div className="flex flex-wrap gap-x-[0.22em] gap-y-0">
-                  <TextRoll className="text-gray-900">Building</TextRoll>
-                  {"intelligent digital products,".split(" ").map((word, i) => (
-                    <TextRoll key={`blue-${i}`} className="text-[#00AEEF]">
-                      {word}
-                    </TextRoll>
-                  ))}
-                  {"enterprise solutions & brands for what's next.".split(" ").map((word, i) => (
-                    <TextRoll key={`dark-${i}`} className="text-gray-900">
-                      {word}
-                    </TextRoll>
-                  ))}
-                </div>
+              {/* Studio Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00AEEF]/8 border border-[#00AEEF]/20 text-[#00AEEF] text-xs font-semibold tracking-wider uppercase mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
+                <span>Digital Product & Innovation Studio</span>
+              </div>
+
+              {/* Centered Editorial Headline */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.2rem] xl:text-[2.65rem] 2xl:text-[3rem] font-medium tracking-tight leading-[1.2] mb-5 sm:mb-6 cursor-default text-center">
+                {/* Line 1 */}
+                <span className="block whitespace-normal lg:whitespace-nowrap">
+                  <span className="inline-flex flex-wrap lg:flex-nowrap justify-center gap-x-[0.25em]">
+                    <TextRoll className="text-gray-900">Building</TextRoll>
+                    {"intelligent digital products,".split(" ").map((word, i) => (
+                      <TextRoll key={`blue-${i}`} className="text-[#00AEEF]">
+                        {word}
+                      </TextRoll>
+                    ))}
+                  </span>
+                </span>
+
+                {/* Line 2 */}
+                <span className="block whitespace-normal lg:whitespace-nowrap">
+                  <span className="inline-flex flex-wrap lg:flex-nowrap justify-center gap-x-[0.25em]">
+                    {"enterprise solutions & brands".split(" ").map((word, i) => (
+                      <TextRoll key={`dark-1-${i}`} className="text-gray-900">
+                        {word}
+                      </TextRoll>
+                    ))}
+                  </span>
+                </span>
+
+                {/* Line 3 */}
+                <span className="block whitespace-normal lg:whitespace-nowrap">
+                  <span className="inline-flex flex-wrap lg:flex-nowrap justify-center gap-x-[0.25em]">
+                    {"for what's next.".split(" ").map((word, i) => (
+                      <TextRoll key={`dark-2-${i}`} className="text-gray-900">
+                        {word}
+                      </TextRoll>
+                    ))}
+                  </span>
+                </span>
               </h1>
             </Reveal>
 
             <Reveal variant="slide-up" delay={0.15}>
-              <p className="mb-8 max-w-[550px] text-base lg:text-lg leading-[1.6] text-gray-500 font-medium">
+              <p className="mb-8 max-w-[500px] mx-auto text-base lg:text-[1.05rem] leading-[1.65] text-gray-500 font-normal">
                 Klee Technologies partners with businesses to design, develop and scale digital experiences powered by technology, creativity and purpose.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
-                <Button href="/contact" variant="primary" size="lg" className="bg-[#00AEEF] hover:bg-[#0092c9] text-white font-bold rounded-full px-8 py-4 border-transparent shadow-[0_8px_30px_rgba(0,174,239,0.25)]">
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Button 
+                  href="/contact" 
+                  variant="primary" 
+                  size="lg" 
+                  showArrow={true}
+                  className="bg-[#00AEEF] hover:bg-[#009cd6] text-white font-medium rounded-full px-8 py-3.5 border-transparent shadow-[0_10px_25px_rgba(0,174,239,0.3)] hover:shadow-[0_14px_35px_rgba(0,174,239,0.45)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+                >
                   Start a project
                 </Button>
               </div>
@@ -63,7 +96,7 @@ export default function HomePage() {
           </div>
 
           {/* Right Content (Vertical Showcase) */}
-          <div className="w-full lg:w-[50%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh]">
+          <div className="w-full lg:w-[42%] xl:w-[40%] relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 min-h-[60vh] bg-[#00AEEF] overflow-hidden">
             <VerticalShowcase />
           </div>
         </div>
@@ -87,6 +120,8 @@ export default function HomePage() {
         <div className="relative aspect-[21/9] w-full overflow-hidden bg-white lg:aspect-[2.35/1]">
           <video
             src="/videos/hero-video.mp4"
+            poster="/videos/hero-video-poster.jpg"
+            preload="auto"
             autoPlay
             loop
             muted

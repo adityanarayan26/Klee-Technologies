@@ -12,9 +12,11 @@ const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://klee-technologies.com"),
   title: {
     default: "KLEE Technologies — Design. Technology. Growth.",
     template: "%s | KLEE Technologies",

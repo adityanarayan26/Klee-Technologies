@@ -2,25 +2,69 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
-import { Lightbox, LightboxAsset } from "./Lightbox";
+import type { LightboxAsset } from "./Lightbox";
 
-const mediaFiles = [
-  // Column 1 (items 0-5)
-  "DEC LOGO ANIMATION.MP4",
-  "1 2.PNG", "1.JPG", "13.PNG", "14bc276d-c63f-476f-8ecc-7720f5d4ed9a.JPG", "2.JPG",
-  
-  // Column 2 (items 6-11)
-  "KLEE TECHNOLOGIES WEB INTRO.MP4",
-  "KRYA CORONA UV-C DIS-INFECTOR.MP4",
-  "2.PNG", "3.JPG", "3.PNG", "4.JPG",
-  
-  // Column 3 (items 12-17)
-  "WhatsApp Video 2023-09-20 at 1.14.39 PM.MP4",
-  "4.PNG", "45C14400-ABE2-4C76-8AE6-E1D1361A76EA.PNG", "5.JPG", "6 2.JPG", "6.JPG"
-].map(file => `/KLEE TECHNOLOGIES PORTFOLIO/${file}`);
+const Lightbox = dynamic(() => import("./Lightbox").then((m) => m.Lightbox), {
+  ssr: false,
+});
 
-const isVideo = (src: string) => src.toLowerCase().endsWith('.mp4');
+const col1Media = [
+  "1-2.png",
+  "2.jpg",
+  "30-sec_gopichand_.mp4",
+  "4.png",
+  "45c14400-abe2-4c76-8ae6-e1d1361a76ea.png",
+  "67eaada9-1536-498f-bdab-d8b8af8f589d.png",
+  "70b86633-e5f8-4345-8cb7-53b060e192b9.jpg",
+  "dec-logo-animation.mp4",
+  "714eb420-20f5-42d9-a241-a93b7d733288.png",
+  "7633d4bf-ad73-41ad-a24c-c31d5f254aa1.png",
+  "b29fbd2a-176f-43d1-9f12-5d3e0817348a.png",
+  "c0f5221f-5285-4513-a76f-cc53c3f8bda7.png",
+  "ca486253-457a-42d4-bf9c-0baeef8482c6.jpg",
+  "dad91a28-707c-4b41-b8ff-56873077aa2c.png",
+].map((file) => `/hero-showcase/${file}`);
+
+const col2Media = [
+  "dec_putti_packaging_01_png.png",
+  "img_0902.jpg",
+  "ramesh-pumps-60sec-telugu.mp4",
+  "img_1528.jpg",
+  "img_9744.jpg",
+  "img_9933.png",
+  "klee-technologies-3d-elevation-design8.png",
+  "townships---30-sec.mp4",
+  "klee-technologies-3d-rendering-of-exhibition-booth-designs4.webp",
+  "klee-technologies-3d-rendering-of-exhibition-booth-designs7-1-1024x576.webp",
+  "klee-technologies-3d-rendering-of-exhibition-booth-designs8-1-scaled.webp",
+  "klee-technologies-app-ui-ux-designs20.jpg",
+  "klee-technologies-app-ui-ux-designs28.png",
+  "klee-technologies-logo-designs1.jpg",
+  "klee-technologies-packaging-designs10.jpg",
+].map((file) => `/hero-showcase/${file}`);
+
+const col3Media = [
+  "klee-technologies-packaging-designs29-1-scaled.webp",
+  "klee-technologies-packaging-designs9.jpg",
+  "vvs--30-sec.mp4",
+  "klee-technologies-portfolio76.jpg",
+  "klee-technologies-website-designs2.png",
+  "klee-technologies-website-designs9-1536x1074.webp",
+  "msappl-logo-embose-mockup.jpeg",
+  "whatsapp-video-2023-09-20-at-1.14.39-pm.mp4",
+  "unnamed-1.webp",
+  "unnamed-2.webp",
+  "unnamed-3.webp",
+  "vmovexa-mobile-application-project-2.jpg",
+  "vmovexa-website-project.png",
+  "whatsapp-image-2025-06-26-at-15.55.29-1.jpeg",
+  "whatsapp-image-2025-11-10-at-12.23.50-2.jpeg",
+].map((file) => `/hero-showcase/${file}`);
+
+const isVideo = (src: string) => src.toLowerCase().endsWith(".mp4");
+const getPoster = (src: string) => src.replace(/\.mp4$/i, "-poster.jpg");
 
 // Helper to assign masonry-like aspect ratios
 const getAspectRatio = (index: number) => {
@@ -29,9 +73,9 @@ const getAspectRatio = (index: number) => {
 };
 
 // Split and duplicate media for infinite loop
-const col1 = [...mediaFiles.slice(0, 6), ...mediaFiles.slice(0, 6)];
-const col2 = [...mediaFiles.slice(6, 12), ...mediaFiles.slice(6, 12)];
-const col3 = [...mediaFiles.slice(12, 18), ...mediaFiles.slice(12, 18)];
+const col1 = [...col1Media, ...col1Media];
+const col2 = [...col2Media, ...col2Media];
+const col3 = [...col3Media, ...col3Media];
 
 export function VerticalShowcase({ className }: { className?: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,22 +90,22 @@ export function VerticalShowcase({ className }: { className?: string }) {
 
     if (col1Ref.current) {
       const anim1 = col1Ref.current.animate(
-        [{ transform: 'translateY(0%)' }, { transform: 'translateY(-50%)' }],
-        { duration: 30000, iterations: Infinity, easing: 'linear' }
+        [{ transform: "translateY(0%)" }, { transform: "translateY(-50%)" }],
+        { duration: 60000, iterations: Infinity, easing: "linear" }
       );
       anims.push(anim1);
     }
     if (col2Ref.current) {
       const anim2 = col2Ref.current.animate(
-        [{ transform: 'translateY(-50%)' }, { transform: 'translateY(0%)' }],
-        { duration: 45000, iterations: Infinity, easing: 'linear' }
+        [{ transform: "translateY(-50%)" }, { transform: "translateY(0%)" }],
+        { duration: 75000, iterations: Infinity, easing: "linear" }
       );
       anims.push(anim2);
     }
     if (col3Ref.current) {
       const anim3 = col3Ref.current.animate(
-        [{ transform: 'translateY(0%)' }, { transform: 'translateY(-50%)' }],
-        { duration: 35000, iterations: Infinity, easing: 'linear' }
+        [{ transform: "translateY(0%)" }, { transform: "translateY(-50%)" }],
+        { duration: 65000, iterations: Infinity, easing: "linear" }
       );
       anims.push(anim3);
     }
@@ -101,14 +145,31 @@ export function VerticalShowcase({ className }: { className?: string }) {
             {col1.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)]", getAspectRatio(i))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs", getAspectRatio(i))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
                 {isVideo(src) ? (
-                  <video src={src} autoPlay loop muted playsInline className="object-cover w-full h-full pointer-events-none" />
+                  <video 
+                    src={src} 
+                    poster={getPoster(src)}
+                    preload="auto"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="object-cover w-full h-full pointer-events-none" 
+                  />
                 ) : (
-                  <Image src={src} alt="Portfolio Item" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover pointer-events-none" />
+                  <Image 
+                    src={src} 
+                    alt="Portfolio Item" 
+                    fill 
+                    sizes="(max-width: 768px) 50vw, 33vw" 
+                    priority={i === 0}
+                    loading={i === 0 ? undefined : "lazy"}
+                    className="object-cover pointer-events-none transition-opacity duration-300" 
+                  />
                 )}
               </div>
             ))}
@@ -119,14 +180,31 @@ export function VerticalShowcase({ className }: { className?: string }) {
             {col2.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)]", getAspectRatio(i + 1))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs", getAspectRatio(i + 1))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
                 {isVideo(src) ? (
-                  <video src={src} autoPlay loop muted playsInline className="object-cover w-full h-full pointer-events-none" />
+                  <video 
+                    src={src} 
+                    poster={getPoster(src)}
+                    preload="auto"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="object-cover w-full h-full pointer-events-none" 
+                  />
                 ) : (
-                  <Image src={src} alt="Portfolio Item" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover pointer-events-none" />
+                  <Image 
+                    src={src} 
+                    alt="Portfolio Item" 
+                    fill 
+                    sizes="(max-width: 768px) 50vw, 33vw" 
+                    priority={i === 0}
+                    loading={i === 0 ? undefined : "lazy"}
+                    className="object-cover pointer-events-none transition-opacity duration-300" 
+                  />
                 )}
               </div>
             ))}
@@ -137,14 +215,31 @@ export function VerticalShowcase({ className }: { className?: string }) {
             {col3.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)]", getAspectRatio(i + 2))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs", getAspectRatio(i + 2))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
                 {isVideo(src) ? (
-                  <video src={src} autoPlay loop muted playsInline className="object-cover w-full h-full pointer-events-none" />
+                  <video 
+                    src={src} 
+                    poster={getPoster(src)}
+                    preload="auto"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="object-cover w-full h-full pointer-events-none" 
+                  />
                 ) : (
-                  <Image src={src} alt="Portfolio Item" fill sizes="33vw" className="object-cover pointer-events-none" />
+                  <Image 
+                    src={src} 
+                    alt="Portfolio Item" 
+                    fill 
+                    sizes="33vw" 
+                    priority={i === 0}
+                    loading={i === 0 ? undefined : "lazy"}
+                    className="object-cover pointer-events-none transition-opacity duration-300" 
+                  />
                 )}
               </div>
             ))}

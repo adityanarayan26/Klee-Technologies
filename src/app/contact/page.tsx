@@ -69,8 +69,8 @@ export default function ContactPage() {
 
                 <Reveal variant="slide-up" delay={0.2}>
                   <div className="flex items-start gap-4 p-5 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)]">
-                    <div className="w-14 h-14 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5" />
+                    <div className="w-14 h-14 rounded-xl bg-[var(--color-accent-subtle)] text-[var(--color-accent)] flex items-center justify-center shrink-0">
+                      <MapPin className="w-6 h-6" />
                     </div>
                     <div className="text-sm">
                       <p className="font-semibold text-[var(--color-foreground)]">T-Hub, 4th Floor</p>

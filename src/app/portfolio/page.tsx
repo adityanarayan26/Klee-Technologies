@@ -8,6 +8,7 @@ import { TextReveal } from "@/components/motion/TextReveal";
 import { Button } from "@/components/ui/Button";
 import { PDFGrid } from "@/components/ui/PDFGrid";
 import { MasonryGallery } from "@/components/ui/MasonryGallery";
+import { CorporateAdsSection } from "@/components/ui/CorporateAdsSection";
 import { ALL_ASSETS } from "@/data/portfolioAssets";
 
 export const metadata: Metadata = {
@@ -138,19 +139,20 @@ export default function PortfolioPage() {
 
               {/* 4 Images Row */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] bg-slate-100 dark:bg-slate-800/40 overflow-hidden relative shadow-lg group">
                   <Image 
                     src="/vmovexa_new/VMOVEXA SAAS PROJECT 1.png" 
                     alt="SaaS Project" 
                     fill 
                     sizes="(max-width: 640px) 50vw, 25vw"
+                    priority
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[9px] sm:text-[10px] font-semibold tracking-wider uppercase px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-white/10">
                     Dashboard
                   </div>
                 </div>
-                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] bg-slate-100 dark:bg-slate-800/40 overflow-hidden relative shadow-lg group">
                   <Image 
                     src="/vmovexa_new/VMOVEXA MOBILE APPLICATION PROJECT 2.png" 
                     alt="Mobile App" 
@@ -162,7 +164,7 @@ export default function PortfolioPage() {
                     Mobile App
                   </div>
                 </div>
-                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] bg-slate-100 dark:bg-slate-800/40 overflow-hidden relative shadow-lg group">
                   <Image 
                     src="/vmovexa_new/VMOVEXA MOBILE APPLICATION PROJECT 3.png" 
                     alt="Mobile Experience" 
@@ -174,7 +176,7 @@ export default function PortfolioPage() {
                     Mobile UI
                   </div>
                 </div>
-                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-lg group">
+                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] bg-slate-100 dark:bg-slate-800/40 overflow-hidden relative shadow-lg group">
                   <Image 
                     src="/vmovexa_new/WhatsApp Image 2026-09-18 at 15.26.09.jpeg" 
                     alt="Additional Experience" 
@@ -235,6 +237,25 @@ export default function PortfolioPage() {
               </Reveal>
             </div>
           </div>
+        </Container>
+      </Section>
+
+      {/* Corporate Advertisements & Brand Films */}
+      <Section spacing="default" background="default" borderTop>
+        <Container size="default">
+          <div className="max-w-3xl mb-12">
+            <Reveal variant="slide-up">
+              <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">COMMERCIALS & BROADCAST</span>
+              <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4 uppercase">
+                Corporate Advertisement & TVCs
+              </h2>
+              <p className="type-body text-[var(--color-muted)] leading-relaxed">
+                High-impact television commercials, corporate brand films, and campaign narratives crafted with cinematic precision, compelling storytelling, and measurable brand recall.
+              </p>
+            </Reveal>
+          </div>
+
+          <CorporateAdsSection />
         </Container>
       </Section>
 

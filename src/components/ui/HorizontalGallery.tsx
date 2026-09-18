@@ -2,15 +2,21 @@
 
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { PortfolioAsset } from "@/data/portfolioAssets";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Lightbox, LightboxAsset } from "./Lightbox";
+import type { LightboxAsset } from "./Lightbox";
+
+const Lightbox = dynamic(() => import("./Lightbox").then((m) => m.Lightbox), {
+  ssr: false,
+});
 
 interface HorizontalGalleryProps {
   assets: PortfolioAsset[];
+  priority?: boolean;
 }
 
-export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
+export function HorizontalGallery({ assets, priority = false }: HorizontalGalleryProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
@@ -151,11 +157,13 @@ export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
             onClick={() => {
               if (!isDraggingRef.current) setActiveAsset(asset);
             }}
-            className="shrink-0 w-[270px] sm:w-[320px] md:w-[380px] h-[220px] sm:h-[260px] md:h-[280px] rounded-2xl overflow-hidden border border-(--color-border-subtle) bg-(--color-background-secondary) shadow-xs hover:shadow-lg hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 relative group/card hover:cursor-none"
+            className="shrink-0 w-[270px] sm:w-[320px] md:w-[380px] h-[220px] sm:h-[260px] md:h-[280px] rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] bg-slate-100 dark:bg-slate-800/40 shadow-xs hover:shadow-lg hover:border-[#00AEEF]/40 hover:-translate-y-1 transition-all duration-300 relative group/card hover:cursor-none"
           >
             {asset.type === "video" ? (
               <video
                 src={asset.src}
+                poster={asset.src.replace(/\.mp4$/i, "-poster.jpg")}
+                preload="auto"
                 autoPlay
                 loop
                 muted
@@ -169,7 +177,8 @@ export function HorizontalGallery({ assets }: HorizontalGalleryProps) {
                 fill
                 sizes="(max-width: 640px) 270px, (max-width: 768px) 320px, 380px"
                 className="object-cover transition-transform duration-500 group-hover/card:scale-105"
-                loading="lazy"
+                loading={priority && i === 0 ? undefined : "lazy"}
+                priority={priority && i === 0}
               />
             )}
             

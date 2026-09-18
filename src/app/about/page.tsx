@@ -141,72 +141,72 @@ export default function AboutPage() {
       {/* Leadership Team */}
       <Section spacing="default" background="default" borderTop>
         <Container size="default">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div className="max-w-2xl">
-              <Reveal variant="slide-up">
-                <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">LEADERSHIP</span>
-              </Reveal>
-              <TextReveal as="h2" className="type-h2 text-[var(--color-foreground)] font-medium text-balance">
-                The Team Driving the Vision
-              </TextReveal>
-            </div>
+          <div className="mb-10 sm:mb-12">
+            <Reveal variant="slide-up">
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-[var(--color-foreground)]">
+                Leadership
+              </h2>
+            </Reveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 w-full">
             {[
-              { name: "G Satyanarayana", role: "Founder & CEO", image: "/people/g-satyanarayana-real.png", link: "https://www.linkedin.com/in/satyanarayanakleetechnologiesceo/" },
-              { name: "BS Anuhya", role: "Director", image: "/people/bs-anuhya-real.png", link: "" },
-              { name: "Nikhil Mungilwar", role: "Business Head", image: "/people/nikhil-mungilwar-real.png", link: "" }
+              { 
+                name: "G Satyanarayana", 
+                role: "Founder & CEO", 
+                image: "/people/g-satyanarayana-real.png", 
+                link: "https://www.linkedin.com/in/satyanarayanakleetechnologiesceo/" 
+              },
+              { 
+                name: "BS Anuhya", 
+                role: "Director", 
+                image: "/people/bs-anuhya-real.png", 
+                link: "https://www.linkedin.com/in/klee-technologies/" 
+              },
+              { 
+                name: "Nikhil Mungilwar", 
+                role: "Business Head", 
+                image: "/people/nikhil-mungilwar-real.png", 
+                link: "https://www.linkedin.com/in/nikhil-mungilwar-553521164/" 
+              }
             ].map((person, i) => (
-              <Reveal key={person.name} variant="slide-up" delay={i * 0.1}>
-                {person.link ? (
-                  <a href={person.link} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between p-2 pr-6 sm:pr-8 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] hover:border-blue-500 hover:shadow-md transition-all duration-300">
-                    <div className="flex items-center gap-4 sm:gap-6">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[var(--color-background-secondary)] shrink-0 border border-[var(--color-border-subtle)]">
-                        <Image
-                          src={person.image}
-                          alt={person.name}
-                          width={80}
-                          height={80}
-                          className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-medium text-[var(--color-foreground)] mb-0.5">{person.name}</h3>
-                        <p className="text-sm text-[var(--color-muted)] font-medium">{person.role}</p>
-                      </div>
+              <Reveal key={person.name} variant="slide-up" delay={i * 0.08}>
+                <a
+                  href={person.link || "https://www.linkedin.com/company/klee-technologies"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-2.5 sm:p-3 pr-5 sm:pr-6 rounded-full border border-gray-200/90 bg-white hover:border-[#00AEEF] hover:shadow-md transition-all duration-300 w-full"
+                >
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-gray-100 shrink-0 border border-gray-100">
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        width={56}
+                        height={56}
+                        className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                      />
                     </div>
-                    <div className="text-[var(--color-muted)] group-hover:text-blue-500 transition-colors flex items-center gap-1 sm:gap-2 shrink-0">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="sm:w-6 sm:h-6">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                      </svg>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 group-hover:translate-y-[-2px] duration-300 hidden sm:block">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                      </svg>
-                    </div>
-                  </a>
-                ) : (
-                  <div className="group flex items-center justify-between p-2 pr-6 sm:pr-8 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] transition-all duration-300">
-                    <div className="flex items-center gap-4 sm:gap-6">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-[var(--color-background-secondary)] shrink-0 border border-[var(--color-border-subtle)]">
-                        <Image
-                          src={person.image}
-                          alt={person.name}
-                          width={80}
-                          height={80}
-                          className="object-cover w-full h-full filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-medium text-[var(--color-foreground)] mb-0.5">{person.name}</h3>
-                        <p className="text-sm text-[var(--color-muted)] font-medium">{person.role}</p>
-                      </div>
+                    <div className="min-w-0">
+                      <h3 className="text-base sm:text-[17px] font-bold text-gray-900 leading-tight truncate group-hover:text-[#00AEEF] transition-colors">
+                        {person.name}
+                      </h3>
+                      <p className="text-xs sm:text-[13px] text-gray-500 font-medium mt-0.5 truncate">
+                        {person.role}
+                      </p>
                     </div>
                   </div>
-                )}
+
+                  {/* LinkedIn Icon Badge with Diagonal Arrow */}
+                  <div className="flex items-center gap-1 shrink-0 ml-3 text-gray-900 group-hover:text-[#00AEEF] transition-colors">
+                    <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-[4px] bg-gray-900 text-white text-[11px] sm:text-[12px] font-bold">
+                      in
+                    </span>
+                    <span className="text-xs sm:text-sm font-semibold text-gray-900 group-hover:text-[#00AEEF] transition-colors">
+                      ↗
+                    </span>
+                  </div>
+                </a>
               </Reveal>
             ))}
           </div>

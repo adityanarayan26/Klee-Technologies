@@ -41,11 +41,13 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
           <Reveal key={asset.src + i} variant="slide-up" delay={(i % 10) * 0.05}>
             <div 
               data-cursor="expand"
-              className="break-inside-avoid mb-6 overflow-hidden rounded-2xl bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)] group hover:cursor-none"
+              className="break-inside-avoid mb-6 overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800/40 border border-[var(--color-border-subtle)] group hover:cursor-none"
             >
               {asset.type === "video" ? (
                 <video
                   src={asset.src}
+                  poster={asset.src.replace(/\.mp4$/i, "-poster.jpg")}
+                  preload="metadata"
                   autoPlay
                   loop
                   muted
@@ -53,7 +55,7 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
                   className="w-full h-auto block"
                 />
               ) : (
-                <div className="relative w-full">
+                <div className="relative w-full bg-slate-100 dark:bg-slate-800/30">
                   <Image
                     src={asset.src}
                     alt={asset.src.split('/').pop() || "Portfolio item"}
@@ -61,7 +63,8 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
                     height={800}
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
                     className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    loading={i < 2 ? undefined : "lazy"}
+                    priority={i < 2}
                   />
                 </div>
               )}

@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local raw asset source folders & screen recordings
+/corporate advertisement/
+/KLEE HERO PAGE CONETNT/
+/service page images/
+/vmovexa/
+/team/
+/footer logos/
+/pdfs/
+/public/images/clients-original-backup/
+/REC-*.mp4
+/brochure.pdf
+scratch_*.json
+test-smtp.mjs
+

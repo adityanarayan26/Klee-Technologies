@@ -68,6 +68,8 @@ export function Lightbox({ asset, onClose }: LightboxProps) {
             {asset.type === "video" ? (
               <video
                 src={asset.src}
+                poster={asset.src.replace(/\.mp4$/i, "-poster.jpg")}
+                preload="auto"
                 autoPlay
                 controls
                 loop

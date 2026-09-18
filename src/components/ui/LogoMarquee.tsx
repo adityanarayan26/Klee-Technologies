@@ -56,14 +56,14 @@ export function LogoMarquee({
         {marqueeItems.map((client, index) => (
           <div 
             key={`${client.name}-${index}`} 
-            className="shrink-0 mx-3 sm:mx-4 flex items-center justify-center px-5 py-2.5 rounded-xl bg-white border border-(--color-border-subtle) shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-200 group"
+            className="shrink-0 mx-2.5 sm:mx-3 flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-white border border-(--color-border-subtle) shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-200 group"
           >
-            <div className="relative w-28 sm:w-32 h-10 sm:h-12 flex items-center justify-center">
+            <div className="relative w-36 sm:w-44 md:w-48 h-14 sm:h-16 flex items-center justify-center">
               <Image
                 src={client.src}
                 alt={`${client.name} logo`}
                 fill
-                sizes="140px"
+                sizes="200px"
                 className={`object-contain transition-all duration-300 group-hover:scale-105 ${
                   colored 
                     ? "" 

@@ -4,12 +4,17 @@ import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useSpring } from "motion/react";
+import dynamic from "next/dynamic";
 import { MAIN_NAV_ITEMS } from "@/data/navigation";
 import { Logo } from "@/components/svg/Logo";
 import { MenuIcon } from "@/components/svg/Icons";
 import { Button } from "@/components/ui/Button";
-import { MobileNav } from "@/components/layout/MobileNav";
 import { cn } from "@/lib/utils";
+
+const MobileNav = dynamic(
+  () => import("@/components/layout/MobileNav").then((m) => m.MobileNav),
+  { ssr: false }
+);
 
 /**
  * Global Header Component for KLEE Technologies.
