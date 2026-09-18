@@ -49,14 +49,18 @@ export function Footer() {
                   {row.map((badge) => (
                     <div
                       key={badge.alt}
-                      className="flex h-11 w-24 items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] p-2"
+                      className={`flex items-center justify-center rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-primary)] p-2 ${
+                        rowIndex === 1 ? "h-16 w-16 sm:h-[72px] sm:w-[72px]" : "h-11 w-24"
+                      }`}
                     >
                       <Image
                         src={badge.src}
                         alt={badge.alt}
-                        width={80}
-                        height={24}
-                        className="h-6 w-full object-contain"
+                        width={rowIndex === 1 ? 72 : 80}
+                        height={rowIndex === 1 ? 72 : 24}
+                        className={`w-full object-contain ${
+                          rowIndex === 1 ? "h-10 sm:h-12" : "h-6"
+                        }`}
                       />
                     </div>
                   ))}
