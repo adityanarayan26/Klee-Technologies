@@ -28,16 +28,30 @@ export async function POST(req: Request) {
       );
     }
 
+    const smtpHost = process.env.SMTP_HOST || "smtppro.zoho.in";
+    const smtpUser = process.env.SMTP_USER;
+    const smtpPass = process.env.SMTP_PASS;
+    const recipientEmail = process.env.CONTACT_TO_EMAIL || smtpUser || "info@kleetechnologies.com";
+
+    // Validate that credentials exist in environment
+    if (!smtpUser || !smtpPass) {
+      console.error("Missing SMTP credentials: SMTP_USER or SMTP_PASS is not configured in environment variables.");
+      return NextResponse.json(
+        { success: false, error: "Email service is not configured. Please add SMTP credentials in environment variables." },
+        { status: 500 }
+      );
+    }
+
     // 2. Transporter configuration with connection timeouts & dual-port fallback
     function getTransporter(port: number, secure: boolean) {
       return nodemailer.createTransport({
-        host: process.env.SMTP_HOST || "smtppro.zoho.in",
+        host: smtpHost,
         port,
         secure,
         requireTLS: !secure,
         auth: {
-          user: process.env.SMTP_USER || "info@kleetechnologies.com",
-          pass: process.env.SMTP_PASS || "GGpfdgGJYUyX",
+          user: smtpUser,
+          pass: smtpPass,
         },
         connectionTimeout: 12000,
         greetingTimeout: 10000,
@@ -75,8 +89,7 @@ export async function POST(req: Request) {
       ? services.join(", ")
       : "General Inquiry";
 
-    const senderEmail = process.env.SMTP_USER || "info@kleetechnologies.com";
-    const recipientEmail = process.env.CONTACT_TO_EMAIL || "info@kleetechnologies.com";
+    const senderEmail = smtpUser;
 
     // 3. Admin Notification Email (to KLEE team)
     const adminHtml = `
