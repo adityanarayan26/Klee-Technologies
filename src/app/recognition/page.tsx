@@ -50,8 +50,8 @@ const CERTIFICATIONS = [
       </>
     ),
     logo: "/logos/iso9001.png",
-    width: 64,
-    height: 64,
+    width: 72,
+    height: 72,
     isSquare: true,
   },
   {
@@ -62,8 +62,8 @@ const CERTIFICATIONS = [
       <p>KLEE Technologies is AICTE recognised, supporting its engagement with students and industry-oriented learning initiatives.</p>
     ),
     logo: "/logos/aicte.png",
-    width: 64,
-    height: 64,
+    width: 66,
+    height: 66,
     isSquare: true,
   }
 ];
@@ -105,7 +105,7 @@ export default function RecognitionPage() {
                     </div>
                   </div>
                   
-                  <div className={`flex items-center justify-center p-6 bg-white border border-[var(--color-border-subtle)] rounded-xl mt-auto w-fit ${cert.isSquare ? 'aspect-square' : ''}`}>
+                  <div className={`flex items-center justify-center bg-white border border-[var(--color-border-subtle)] rounded-xl mt-auto ${cert.isSquare ? 'w-28 h-28 p-3.5 aspect-square' : 'w-fit p-6'}`}>
                     <Image
                       src={cert.logo}
                       alt={cert.heading}
