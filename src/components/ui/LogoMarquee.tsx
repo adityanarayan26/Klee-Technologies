@@ -17,27 +17,10 @@ const wrap = (min: number, max: number, v: number) => {
   return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
 };
 
-export const CLIENT_LOGOS = [
-  { name: "Akshara Finserv", src: "/client_logos/Akshara_finserv_logo.png" },
-  { name: "Amasia Solar", src: "/client_logos/amasia_solar_logo.png" },
-  { name: "Amit Construction", src: "/client_logos/Amit_construction_logo.jpeg" },
-  { name: "Anasa Spices", src: "/client_logos/Anasa_spices_logo.png" },
-  { name: "DEC Industries", src: "/client_logos/DEC_industries_logo.png" },
-  { name: "Flyatease", src: "/client_logos/Flyatease_logo.jpeg" },
-  { name: "Lookatshoez", src: "/client_logos/Lookatshoez_logo.jpeg" },
-  { name: "Mahasai", src: "/client_logos/Mahasai_logo.png" },
-  { name: "Mane Sports", src: "/client_logos/Mane_sports_logo.png" },
-  { name: "Nutrigreenz", src: "/client_logos/Nutrigreenz_logo.jpeg" },
-  { name: "Onyxsiri", src: "/client_logos/Onyxsiri_logo.png" },
-  { name: "Railcab", src: "/client_logos/Railcab_logo.png" },
-  { name: "Sunshine Petworld", src: "/client_logos/Sunshinepetworld_logo.jpeg" },
-  { name: "Systatic Inc", src: "/client_logos/Systatic_inc_logo.jpeg" },
-  { name: "True Renewable", src: "/client_logos/True_renewable_logo.png" },
-  { name: "Truelay", src: "/client_logos/Truelay_logo.jpeg" },
-  { name: "Ubase Infra", src: "/client_logos/Ubase_infra_logo.jpeg" },
-  { name: "VIT", src: "/client_logos/VIT_logo.jpeg" },
-  { name: "VKIAS", src: "/client_logos/VKIAS_logo.png" },
-];
+export const CLIENT_LOGOS = Array.from({ length: 21 }, (_, index) => ({
+  name: `Client ${index + 1}`,
+  src: `/images/clients/${index + 1}.png`,
+}));
 
 export function LogoMarquee({ 
   className, 
