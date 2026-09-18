@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
     <>
       {/* Hero Section */}
       <Section spacing="spacious" background="secondary" className="pt-32 pb-16">
-        <Container size="sm">
+        <Container size="narrow">
           <Reveal variant="slide-up">
             <span className="type-eyebrow mb-4 block">KLEE TECHNOLOGIES</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-foreground)] mb-6">
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
 
       {/* Content Section */}
       <Section spacing="default" background="default">
-        <Container size="sm" className="space-y-16">
+        <Container size="narrow" className="space-y-16">
           
           <PolicySection num="01" title="Who we are">
             <p>KLEE TECHNOLOGIES PRIVATE LIMITED is a technology and digital solutions company established on 6 April 2018.</p>
@@ -203,16 +203,18 @@ export default function PrivacyPolicyPage() {
 
 function PolicySection({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
-    <Reveal variant="slide-up" className="scroll-mt-32" id={`section-${num}`}>
-      <div className="mb-6">
-        <span className="text-3xl font-bold text-[var(--color-accent)] block mb-2">{num}</span>
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--color-foreground)]">
-          {title}
-        </h2>
-      </div>
-      <div className="space-y-4 text-[1.05rem] leading-relaxed text-[var(--color-foreground-secondary)]">
-        {children}
-      </div>
-    </Reveal>
+    <div className="scroll-mt-32" id={`section-${num}`}>
+      <Reveal variant="slide-up">
+        <div className="mb-6">
+          <span className="text-3xl font-bold text-[var(--color-accent)] block mb-2">{num}</span>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--color-foreground)]">
+            {title}
+          </h2>
+        </div>
+        <div className="space-y-4 text-[1.05rem] leading-relaxed text-[var(--color-foreground-secondary)]">
+          {children}
+        </div>
+      </Reveal>
+    </div>
   );
 }
