@@ -108,9 +108,16 @@ export default function PortfolioPage() {
               <h2 className="type-h2 text-[var(--color-foreground)] font-medium mb-4">
                 Vmovexa SaaS
               </h2>
-              <p className="type-body text-[var(--color-muted)] max-w-3xl">
-                A scalable software platform designed for digital businesses, featuring real-time analytics, seamless user management, and an intuitive dashboard interface.
+              <p className="type-body text-[var(--color-muted)] max-w-3xl leading-relaxed">
+                VMOVEXA SaaS Portal is the cloud-based intelligence and orchestration layer of the VMOVEXA ecosystem, designed to connect connected vehicles, edge devices, digital displays, fleet operators, advertisers, government agencies and passengers through one unified platform.
               </p>
+              <div className="flex flex-wrap gap-2 mt-6">
+                {["React/Next.js", "NestJS/FastAPI", "PostgreSQL", "Redis", "AWS", "MQTT", "WebSockets", "Mapbox"].map(tech => (
+                  <span key={tech} className="px-3 py-1 bg-[var(--color-background-secondary)] text-[var(--color-muted)] text-xs font-medium rounded-full border border-[var(--color-border-subtle)]">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </Reveal>
           </div>
 
