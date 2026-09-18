@@ -138,6 +138,16 @@ export function VerticalShowcase({ className }: { className?: string }) {
         ref={containerRef} 
         className={cn("absolute inset-0 w-full h-full overflow-hidden", className)}
       >
+        {/* Top and Bottom Gradient Dissolve Masks */}
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#0e76bc] via-[#0e76bc]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#0e76bc] via-[#0e76bc]/80 to-transparent z-20 pointer-events-none" />
+
+        {/* Floating Live Indicator Badge */}
+        <div className="absolute top-6 right-6 z-30 hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[11px] font-medium tracking-wide shadow-lg pointer-events-none">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>Live Showcase</span>
+        </div>
+
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-3 gap-[clamp(0.75rem,1.2vw,1.5rem)] px-[clamp(0.75rem,1.5vw,2rem)] pb-20 pt-10">
           
           {/* Column 1 */}
@@ -145,7 +155,7 @@ export function VerticalShowcase({ className }: { className?: string }) {
             {col1.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs", getAspectRatio(i))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >

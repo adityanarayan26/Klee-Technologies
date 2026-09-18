@@ -13,6 +13,8 @@ import { LogoMarquee } from "@/components/ui/LogoMarquee";
 import { Lightbulb, PenTool, Blocks, TrendingUp } from "lucide-react";
 import { HeroIllustration } from "@/components/ui/HeroIllustration";
 import { VerticalShowcase } from "@/components/ui/VerticalShowcase";
+import { RotatingHeroWords } from "@/components/ui/RotatingHeroWords";
+import { HeroAmbientBackground } from "@/components/ui/HeroAmbientBackground";
 
 export const metadata: Metadata = {
   title: "KLEE Technologies | Software, SaaS, UI/UX, Digital Marketing & Branding",
@@ -29,26 +31,32 @@ export default function HomePage() {
         {/* Split Screen Layout */}
         <div className="flex flex-col lg:flex-row w-full h-full min-h-[100svh]">
           
-          {/* Left Content (Text) - Bold, Commanding & Elegant */}
+          {/* Left Content (Text) - Bold, Commanding & Highly Dynamic */}
           <div className="w-full lg:w-[60%] xl:w-[61%] 2xl:w-[62%] flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-6 xl:px-8 2xl:px-12 pt-20 sm:pt-24 lg:pt-16 xl:pt-20 2xl:pt-24 pb-6 sm:pb-8 lg:pb-6 xl:pb-8 relative z-20 min-h-[calc(100svh-3.5rem)] lg:min-h-[100svh]">
+            {/* Ambient Animated Mesh & Blueprint Overlay */}
+            <HeroAmbientBackground />
+
             <Reveal variant="slide-up">
-              {/* Studio Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#0e76bc]/8 border border-[#0e76bc]/20 text-[#0e76bc] text-xs sm:text-[0.8rem] font-semibold tracking-wider uppercase mb-3.5 sm:mb-4 shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0e76bc] animate-pulse" />
+              {/* Studio Badge with Pulsing Live Radar Indicator */}
+              <div className="relative z-10 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#0e76bc]/10 via-[#0e76bc]/6 to-[#0e76bc]/10 border border-[#0e76bc]/25 text-[#0e76bc] text-xs sm:text-[0.8rem] font-semibold tracking-wider uppercase mb-3.5 sm:mb-4 shadow-[0_2px_14px_rgba(14,118,188,0.12)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0e76bc] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0e76bc]" />
+                </span>
                 <span>Digital Product & Innovation Studio</span>
+                <span className="hidden sm:inline-block text-[9px] px-1.5 py-0.5 rounded-full bg-[#0e76bc]/15 font-bold tracking-widest text-[#0e76bc]">
+                  AI-FIRST
+                </span>
               </div>
 
-              {/* Centered Editorial Headline - Bold & Perfectly Proportioned */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.15rem] xl:text-[2.6rem] 2xl:text-[3.45rem] font-medium tracking-tight leading-[1.12] mb-4 sm:mb-5 cursor-default text-center max-w-[680px] xl:max-w-[780px] 2xl:max-w-[920px]">
-                {/* Line 1 */}
+              {/* Centered Editorial Headline with Dynamic Rotating Specialty */}
+              <h1 className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[2.15rem] xl:text-[2.6rem] 2xl:text-[3.45rem] font-medium tracking-tight leading-[1.12] mb-4 sm:mb-5 cursor-default text-center max-w-[680px] xl:max-w-[780px] 2xl:max-w-[920px]">
+                {/* Line 1 - Dynamic Animated Morphing Words */}
                 <span className="block">
-                  <span className="inline-flex flex-wrap justify-center gap-x-[0.25em]">
+                  <span className="inline-flex flex-wrap justify-center items-baseline gap-x-[0.25em]">
                     <TextRoll className="text-gray-950">Building</TextRoll>
-                    {"intelligent digital products,".split(" ").map((word, i) => (
-                      <TextRoll key={`blue-${i}`} className="text-[#0e76bc]">
-                        {word}
-                      </TextRoll>
-                    ))}
+                    <span className="text-gray-950">intelligent</span>
+                    <RotatingHeroWords />
                   </span>
                 </span>
 
@@ -77,19 +85,21 @@ export default function HomePage() {
             </Reveal>
 
             <Reveal variant="slide-up" delay={0.15}>
-              <p className="mb-5 sm:mb-6 max-w-[520px] xl:max-w-[600px] 2xl:max-w-[660px] mx-auto text-base sm:text-lg lg:text-[1.05rem] xl:text-[1.16rem] leading-[1.58] text-gray-500 font-normal">
+              <p className="relative z-10 mb-5 sm:mb-6 max-w-[520px] xl:max-w-[600px] 2xl:max-w-[660px] mx-auto text-base sm:text-lg lg:text-[1.05rem] xl:text-[1.16rem] leading-[1.58] text-gray-500 font-normal">
                 Klee Technologies partners with businesses to design, develop and scale digital experiences powered by technology, creativity and purpose.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-3.5">
+              <div className="relative z-10 flex flex-wrap items-center justify-center gap-3.5">
                 <Button 
                   href="/contact" 
                   variant="primary" 
                   size="md" 
                   showArrow={true}
-                  className="bg-[#0e76bc] hover:bg-[#0a588c] text-white font-medium rounded-full px-8 sm:px-9 py-3.5 text-sm sm:text-base border-transparent shadow-[0_10px_24px_rgba(14,118,188,0.3)] hover:shadow-[0_14px_30px_rgba(14,118,188,0.42)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+                  className="relative overflow-hidden group bg-[#0e76bc] hover:bg-[#0a588c] text-white font-medium rounded-full px-8 sm:px-9 py-3.5 text-sm sm:text-base border-transparent shadow-[0_12px_28px_rgba(14,118,188,0.32)] hover:shadow-[0_16px_38px_rgba(14,118,188,0.48)] transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
                 >
-                  Start a project
+                  <span className="relative z-10">Start a project</span>
+                  {/* Subtle Light Gleam Animation on Hover */}
+                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
                 </Button>
                 <Button 
                   href="/portfolio" 
@@ -101,19 +111,32 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              {/* Compact Elegant Proof Strip */}
-              <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-gray-100 w-full max-w-[480px] xl:max-w-[540px] grid grid-cols-3 gap-2 sm:gap-4 text-center">
-                <div>
-                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-gray-950">200+</div>
-                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider">Projects Delivered</div>
+              {/* Animated Proof Strip with Live Counters */}
+              <div className="relative z-10 mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-gray-100 w-full max-w-[480px] xl:max-w-[540px] grid grid-cols-3 gap-2 sm:gap-4 text-center">
+                <div className="group cursor-default">
+                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-gray-950 flex items-center justify-center">
+                    <AnimatedCounter value={200} suffix="+" duration={2} />
+                  </div>
+                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider group-hover:text-gray-700 transition-colors">
+                    Projects Delivered
+                  </div>
                 </div>
-                <div className="border-x border-gray-100 px-1 sm:px-2">
-                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-[#0e76bc]">100%</div>
-                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider">Client Commitment</div>
+                <div className="border-x border-gray-100 px-1 sm:px-2 group cursor-default">
+                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-[#0e76bc] flex items-center justify-center">
+                    <AnimatedCounter value={100} suffix="%" duration={2.2} />
+                  </div>
+                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider group-hover:text-[#0e76bc] transition-colors">
+                    Client Commitment
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-gray-950">Global</div>
-                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider">Enterprise Scale</div>
+                <div className="group cursor-default">
+                  <div className="text-xl sm:text-2xl xl:text-[1.85rem] font-bold tracking-tight text-gray-950 flex items-center justify-center gap-1.5">
+                    <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Global</span>
+                  </div>
+                  <div className="text-[10px] sm:text-[11px] text-gray-400 font-semibold mt-0.5 uppercase tracking-wider group-hover:text-gray-700 transition-colors">
+                    Enterprise Scale
+                  </div>
                 </div>
               </div>
             </Reveal>
