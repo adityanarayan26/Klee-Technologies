@@ -30,7 +30,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "akshara-finserv",
     name: "Akshara Finserv",
-    src: "/clients/akshara-finserv.png",
+    src: "/client_logos/Akshara_finserv_logo.png",
     category: "Enterprise & SaaS",
     industry: "FinTech & Wealth",
     engagement: "Enterprise Platform",
@@ -38,7 +38,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "amasia-solar",
     name: "Amasia Solar",
-    src: "/clients/amasia-solar.png",
+    src: "/client_logos/amasia_solar_logo.png",
     category: "CleanTech & Energy",
     industry: "Solar & CleanTech",
     engagement: "Digital Platform & Web",
@@ -46,7 +46,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "amit-construction",
     name: "Amit Construction",
-    src: "/clients/amit-construction.png",
+    src: "/client_logos/Amit_construction_logo.jpeg",
     category: "Logistics & Infra",
     industry: "Civil Infrastructure",
     engagement: "Brand & Corporate Web",
@@ -54,7 +54,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "anasa-spices",
     name: "Anasa Spices",
-    src: "/clients/anasa-spices.png",
+    src: "/client_logos/Anasa_spices_logo.png",
     category: "Retail & Lifestyle",
     industry: "FMCG & Organic Spices",
     engagement: "E-Commerce & Branding",
@@ -62,7 +62,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "dec-industries",
     name: "DEC Industries",
-    src: "/clients/dec-industries.png",
+    src: "/client_logos/DEC_industries_logo.png",
     category: "Enterprise & SaaS",
     industry: "Industrial Manufacturing",
     engagement: "Digital Product Architecture",
@@ -70,7 +70,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "flyatease",
     name: "Flyatease",
-    src: "/clients/flyatease.png",
+    src: "/client_logos/Flyatease_logo.jpeg",
     category: "Education & Training",
     industry: "Aviation & Travel Tech",
     engagement: "Booking & SaaS Portal",
@@ -78,7 +78,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "lookatshoez",
     name: "Lookatshoez",
-    src: "/clients/lookatshoez.png",
+    src: "/client_logos/Lookatshoez_logo.jpeg",
     category: "Retail & Lifestyle",
     industry: "Footwear & Fashion",
     engagement: "D2C E-Commerce Experience",
@@ -86,7 +86,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "mahasai",
     name: "Mahasai",
-    src: "/clients/mahasai.png",
+    src: "/client_logos/Mahasai_logo.png",
     category: "Logistics & Infra",
     industry: "Real Estate & Housing",
     engagement: "PropTech Portal & Brand",
@@ -94,7 +94,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "mane-sports",
     name: "Mane Sports",
-    src: "/clients/mane-sports.png",
+    src: "/client_logos/Mane_sports_logo.png",
     category: "Retail & Lifestyle",
     industry: "Athletic & Sports Tech",
     engagement: "Brand System & Web App",
@@ -102,7 +102,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "nutrigreenz",
     name: "Nutrigreenz",
-    src: "/clients/nutrigreenz.png",
+    src: "/client_logos/Nutrigreenz_logo.jpeg",
     category: "Retail & Lifestyle",
     industry: "Organic Food & Nutrition",
     engagement: "Product Showcase & Growth",
@@ -110,7 +110,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "onyxsiri",
     name: "Onyxsiri",
-    src: "/clients/onyxsiri.png",
+    src: "/client_logos/Onyxsiri_logo.png",
     category: "Retail & Lifestyle",
     industry: "Jewelry & Luxury Retail",
     engagement: "Luxury Web & Catalog",
@@ -118,7 +118,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "railcab",
     name: "Railcab",
-    src: "/clients/railcab.png",
+    src: "/client_logos/Railcab_logo.png",
     category: "Logistics & Infra",
     industry: "Mobility & Transit",
     engagement: "Logistics Application",
@@ -126,7 +126,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "sunshinepetworld",
     name: "Sunshine Petworld",
-    src: "/clients/sunshinepetworld.png",
+    src: "/client_logos/Sunshinepetworld_logo.jpeg",
     category: "Retail & Lifestyle",
     industry: "Pet Care & Retail",
     engagement: "Omnichannel Experience",
@@ -134,7 +134,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "systatic-inc",
     name: "Systatic Inc",
-    src: "/clients/systatic-inc.png",
+    src: "/client_logos/Systatic_inc_logo.jpeg",
     category: "Enterprise & SaaS",
     industry: "Cloud & Enterprise Tech",
     engagement: "SaaS Application Design",
@@ -142,7 +142,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "true-renewable",
     name: "True Renewable",
-    src: "/clients/true-renewable.png",
+    src: "/client_logos/True_renewable_logo.png",
     category: "CleanTech & Energy",
     industry: "Green & Renewable Energy",
     engagement: "CleanTech Dashboard",
@@ -150,7 +150,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "truelay",
     name: "Truelay",
-    src: "/clients/truelay.png",
+    src: "/client_logos/Truelay_logo.jpeg",
     category: "Enterprise & SaaS",
     industry: "Fintech & Payments",
     engagement: "Fintech Web Architecture",
@@ -158,7 +158,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "ubase-infra",
     name: "Ubase Infra",
-    src: "/clients/ubase-infra.png",
+    src: "/client_logos/Ubase_infra_logo.jpeg",
     category: "CleanTech & Energy",
     industry: "Urban Infrastructure",
     engagement: "Enterprise Digital Presence",
@@ -166,7 +166,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "vit",
     name: "VIT",
-    src: "/clients/vit.png",
+    src: "/client_logos/VIT_logo.jpeg",
     category: "Education & Training",
     industry: "Higher Education & Research",
     engagement: "Student Programs & Portal",
@@ -174,7 +174,7 @@ export const CLIENTS_DATA: ClientItem[] = [
   {
     id: "vkias",
     name: "V.K. IAS Academy",
-    src: "/clients/vkias.png",
+    src: "/client_logos/VKIAS_logo.png",
     category: "Education & Training",
     industry: "Civil Services EdTech",
     engagement: "EdTech Learning Platform",
