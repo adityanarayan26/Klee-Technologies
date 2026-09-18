@@ -21,15 +21,17 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <Section spacing="none" className="relative min-h-[100svh] w-full overflow-hidden bg-white flex items-center pt-32 lg:pt-16 pb-12">
+      <Section spacing="none" className="relative min-h-[100svh] w-full overflow-hidden bg-[var(--color-background-primary)] flex items-center pt-32 lg:pt-16 pb-12">
         
         {/* Background Elements */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20" />
           
           {/* Cyan/Blue Glowing Orbs */}
-          <div className="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-cyan-200/40 blur-[100px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-100/40 blur-[120px]" />
-          <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-teal-100/30 blur-[80px]" />
+          <div className="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-cyan-300/30 blur-[120px] animate-pulse-slow" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-blue-400/20 blur-[140px]" />
+          <div className="absolute top-[20%] left-[10%] w-[30vw] h-[30vw] rounded-full bg-teal-200/20 blur-[100px]" />
         </div>
 
         <Container size="default" className="relative z-10 w-full h-full flex flex-col justify-center min-h-[calc(100svh-5rem)]">
@@ -38,8 +40,15 @@ export default function HomePage() {
             {/* Left Content */}
             <div className="flex flex-col justify-center">
               <Reveal variant="slide-up">
-                <h1 className="type-h1 leading-[0.95] tracking-tighter text-balance text-gray-900 mb-6 font-semibold">
-                  Building <span className="text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400">intelligent digital products</span>, enterprise solutions and brands for what's next.
+                <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/15 bg-blue-500/5 px-3.5 py-1.5 text-xs font-semibold text-blue-600 mb-6 backdrop-blur-sm">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  </span>
+                  WELCOME TO KLEE TECHNOLOGIES
+                </span>
+                <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] leading-[1.05] tracking-tight text-balance text-gray-900 mb-6 font-bold">
+                  Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400 drop-shadow-sm">intelligent digital products</span>, enterprise solutions & brands for what's next.
                 </h1>
               </Reveal>
 
@@ -58,17 +67,19 @@ export default function HomePage() {
 
             {/* Right Content - 3D Illustration */}
             <Reveal variant="slide-up" delay={0.2} className="relative flex items-center justify-center h-full min-h-[40vh] lg:min-h-0 w-full">
-              <div className="relative w-full max-w-[450px] xl:max-w-[580px] z-10">
+              <div className="relative w-full max-w-[450px] xl:max-w-[580px] z-10 group">
+                {/* Backdrop Glow behind image for integration */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-400/20 to-cyan-300/20 blur-[60px] rounded-full scale-75 group-hover:scale-105 transition-transform duration-700 ease-out" />
+                
                 <Image
                   src="/hero/intelligent-digital-products-illustration.png"
                   alt="3D Glassmorphic App Development Concept"
                   width={1227}
                   height={1282}
                   priority
-                  className="relative z-10 w-full h-auto object-contain drop-shadow-[0_25px_40px_rgba(0,0,0,0.1)]"
+                  className="relative z-10 w-full h-auto object-contain drop-shadow-[0_30px_50px_rgba(14,118,188,0.15)] animate-[float_6s_ease-in-out_infinite]"
                 />
               </div>
-
             </Reveal>
           </div>
 
@@ -85,10 +96,10 @@ export default function HomePage() {
         <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4 z-20">
           <span className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.3em] [writing-mode:vertical-rl] rotate-180 mb-2">SCROLL TO EXPLORE</span>
           <div className="w-1 h-1 rounded-full bg-gray-400" />
-          <div className="w-[1px] h-12 bg-gray-300 relative">
-            <div className="absolute top-0 w-full h-1/3 bg-gray-600 rounded-full" />
+          <div className="w-[1px] h-16 bg-gray-200 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-blue-500 to-transparent animate-[scroll_2s_ease-in-out_infinite]" />
           </div>
-          <div className="w-2 h-2 rounded-full border-[1.5px] border-gray-400 mt-2" />
+          <div className="w-2 h-2 rounded-full border-[1.5px] border-blue-500 mt-2 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
         </div>
       </Section>
 
@@ -219,12 +230,15 @@ export default function HomePage() {
               { title: "Live Internships", desc: "Give students practical exposure by working on real-world projects and industry-oriented tech." }
             ].map((srv, i) => (
               <Reveal key={srv.title} variant="slide-up" delay={i * 0.05}>
-                <div className="group h-full p-5 sm:p-6 rounded-2xl bg-[var(--color-background-secondary)]/40 border border-[var(--color-border-subtle)] hover:bg-white hover:border-[var(--color-accent)]/30 hover:shadow-[0_12px_40px_-15px_rgba(14,118,188,0.15)] transition-all duration-300 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 text-[var(--color-accent)]">
+                <div className="group h-full p-6 rounded-2xl bg-white/40 backdrop-blur-md border border-[var(--color-border-subtle)] hover:bg-white hover:border-[var(--color-accent)]/30 hover:shadow-[0_12px_40px_-15px_rgba(14,118,188,0.2)] transition-all duration-300 relative overflow-hidden">
+                  {/* Subtle hover gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 text-[var(--color-accent)] z-10">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </div>
-                  <h3 className="text-base font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors mb-2.5 pr-6">{srv.title}</h3>
-                  <p className="text-[13px] text-[var(--color-muted)] leading-relaxed">{srv.desc}</p>
+                  <h3 className="relative text-base font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors mb-3 pr-6 z-10">{srv.title}</h3>
+                  <p className="relative text-[13px] text-[var(--color-muted)] leading-relaxed z-10">{srv.desc}</p>
                 </div>
               </Reveal>
             ))}

@@ -282,6 +282,51 @@ html.lenis, html.lenis body {
 }
 
 /* -------------------------------------------------------------------------- */
+/* CUSTOM HERO ANIMATIONS                                                     */
+/* -------------------------------------------------------------------------- */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.02);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-\\[float_6s_ease-in-out_infinite\\] {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-\\[scroll_2s_ease-in-out_infinite\\] {
+  animation: scroll 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------------------------- */
 /* PREFERS-REDUCED-MOTION SAFEGUARD                                           */
 /* -------------------------------------------------------------------------- */
 
