@@ -1,8 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { Reveal } from "@/components/motion/Reveal";
 import { PortfolioAsset } from "@/data/portfolioAssets";
+import type { LightboxAsset } from "./Lightbox";
+
+const Lightbox = dynamic(() => import("./Lightbox").then((m) => m.Lightbox), {
+  ssr: false,
+});
 
 interface MasonryGalleryProps {
   assets: PortfolioAsset[];
@@ -11,6 +17,7 @@ interface MasonryGalleryProps {
 
 export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [activeAsset, setActiveAsset] = useState<LightboxAsset | null>(null);
 
   const filteredAssets = activeCategory === "All" 
     ? assets 
@@ -41,7 +48,8 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
           <Reveal key={asset.src + i} variant="slide-up" delay={(i % 10) * 0.05}>
             <div 
               data-cursor="expand"
-              className="break-inside-avoid mb-6 overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800/40 border border-[var(--color-border-subtle)] group hover:cursor-none"
+              onClick={() => setActiveAsset({ src: asset.src, type: asset.type })}
+              className="break-inside-avoid mb-6 overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800/40 border border-[var(--color-border-subtle)] group hover:cursor-none cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-[var(--color-accent)]/40"
             >
               {asset.type === "video" ? (
                 <video
@@ -58,7 +66,7 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
                 <div className="relative w-full bg-slate-100 dark:bg-slate-800/30">
                   <Image
                     src={asset.src}
-                    alt={asset.src.split('/').pop() || "Portfolio item"}
+                    alt={asset.alt || asset.src.split('/').pop() || "Portfolio item"}
                     width={800}
                     height={800}
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
@@ -78,6 +86,12 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
           No items found in this category.
         </div>
       )}
+
+      {/* Lightbox Modal on click */}
+      <Lightbox
+        asset={activeAsset}
+        onClose={() => setActiveAsset(null)}
+      />
     </div>
   );
 }
