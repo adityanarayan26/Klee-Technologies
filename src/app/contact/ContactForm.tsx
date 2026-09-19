@@ -103,7 +103,7 @@ export function ContactForm() {
             id="name"
             name="name"
             required
-            placeholder="Aditya Narayan"
+            placeholder="John Doe"
             className="w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] px-4 py-2 sm:py-2.5 text-base text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] transition-all focus:border-[var(--color-accent)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
           />
         </div>
@@ -116,7 +116,7 @@ export function ContactForm() {
             type="text"
             id="company"
             name="company"
-            placeholder="Acme Corporation"
+            placeholder="Company Name"
             className="w-full rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-background-secondary)] px-4 py-2 sm:py-2.5 text-base text-[var(--color-foreground)] placeholder:text-[var(--color-muted-subtle)] transition-all focus:border-[var(--color-accent)] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/20"
           />
         </div>

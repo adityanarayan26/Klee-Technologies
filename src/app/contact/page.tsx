@@ -11,11 +11,42 @@ export const metadata: Metadata = {
   title: "Contact KLEE Technologies | Start Your Digital Project",
   description:
     "Contact KLEE Technologies in Hyderabad for software development, SaaS, UI/UX, digital marketing, branding, graphic design and technology solutions.",
+  openGraph: {
+    title: "Contact KLEE Technologies",
+    description: "Contact KLEE Technologies in Hyderabad for software development, SaaS, UI/UX, digital marketing, branding, graphic design and technology solutions.",
+    url: "https://kleetechnologies.com/contact",
+  }
 };
 
 export default function ContactPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact KLEE Technologies",
+    "description": "Contact KLEE Technologies for software development, SaaS, UI/UX, and digital marketing.",
+    "url": "https://kleetechnologies.com/contact",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "KLEE Technologies",
+      "telephone": "+91-7382897999",
+      "email": "info@kleetechnologies.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "T-Hub, 4th Floor, Knowledge City Rd, Rai Durg",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "TG",
+        "postalCode": "500032",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Section spacing="none" background="default" className="overflow-visible min-h-screen flex items-center pt-20 pb-4 lg:pt-24 lg:pb-4">
         <Container size="wide" className="w-full">
           <div className="grid w-full grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-12">

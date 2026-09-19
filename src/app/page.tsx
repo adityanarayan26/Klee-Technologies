@@ -20,11 +20,36 @@ export const metadata: Metadata = {
   title: "KLEE Technologies | Software, SaaS, UI/UX, Digital Marketing & Branding",
   description:
     "KLEE Technologies is a Hyderabad-based technology and digital solutions company delivering software, SaaS, UI/UX, branding, graphic design, digital marketing and AI enterprise solutions worldwide.",
+  openGraph: {
+    title: "KLEE Technologies | Software, SaaS, UI/UX, Digital Marketing & Branding",
+    description: "KLEE Technologies is a Hyderabad-based technology and digital solutions company delivering software, SaaS, UI/UX, branding, graphic design, digital marketing and AI enterprise solutions worldwide.",
+    url: "https://kleetechnologies.com/",
+  },
 };
 
 export default function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "KLEE Technologies",
+    "image": "https://kleetechnologies.com/og-image.jpg",
+    "description": "KLEE Technologies is a technology and digital solutions company delivering software, SaaS, UI/UX, branding, digital marketing and AI solutions.",
+    "url": "https://kleetechnologies.com",
+    "telephone": "+91-9121703274",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "TG",
+      "addressCountry": "IN"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <Section spacing="none" className="relative min-h-[100svh] w-full overflow-hidden bg-white flex items-stretch">
         
@@ -266,7 +291,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal variant="slide-up" delay={0.3}>
               <p className="text-4xl lg:text-5xl font-semibold tracking-tight text-[var(--color-foreground)]">
-                <AnimatedCounter value={500} suffix="+" duration={2} />
+                <AnimatedCounter value={700} suffix="+" duration={2} />
               </p>
               <p className="text-sm uppercase tracking-wider text-[var(--color-muted)] mt-2">Students Successfully Completed Internships</p>
             </Reveal>

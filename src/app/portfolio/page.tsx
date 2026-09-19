@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   title: "Portfolio | 200+ Digital & Technology Projects | KLEE Technologies",
   description:
     "Explore KLEE Technologies' portfolio of 200+ projects across software development, SaaS, UI/UX, branding, graphic design and digital solutions.",
+  openGraph: {
+    title: "Portfolio | KLEE Technologies",
+    description: "Explore KLEE Technologies' portfolio of 200+ projects across software development, SaaS, UI/UX, branding, graphic design and digital solutions.",
+    url: "https://kleetechnologies.com/portfolio",
+  }
 };
 
 const CATEGORIES = [
@@ -49,8 +54,32 @@ const CATEGORIES = [
 ];
 
 export default function PortfolioPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "KLEE Technologies Portfolio",
+    "description": "Explore KLEE Technologies' portfolio of 200+ projects.",
+    "url": "https://kleetechnologies.com/portfolio",
+    "hasPart": [
+      {
+        "@type": "CreativeWork",
+        "name": "Vmovexa SaaS",
+        "description": "Cloud-based intelligence and orchestration layer."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "KSDC Application",
+        "description": "Technology for Skill Development developed for the Telangana Government."
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Portfolio Hero */}
       <Section spacing="hero" background="default">
         <Container size="default">

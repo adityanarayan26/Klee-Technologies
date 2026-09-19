@@ -77,7 +77,7 @@ export const BRAND_INFO = {
   headquarters: "Hyderabad, India",
   highlights: [
     "200+ Global Client Projects Delivered",
-    "500+ Students Mentored via Live Internships",
+    "700+ Students Mentored via Live Internships",
     "DPIIT Recognized Startup",
     "MSME, ISO & AICTE Aligned",
     "Institutional & Enterprise Technology Experience",

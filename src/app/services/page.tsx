@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   title: "Services | Software, SaaS, UI/UX, Digital Marketing & Branding | KLEE",
   description:
     "Explore KLEE Technologies services including software development, SaaS development, UI/UX design, digital marketing, graphic design, branding and live internship projects.",
+  openGraph: {
+    title: "Services | KLEE Technologies",
+    description: "Explore KLEE Technologies services including software development, SaaS development, UI/UX design, digital marketing, graphic design, branding and live internship projects.",
+    url: "https://kleetechnologies.com/services",
+  }
 };
 
 const SERVICES = [
@@ -23,6 +28,10 @@ const SERVICES = [
     desc: "We create digital marketing strategies designed to connect brands with the right audiences.",
     capabilities: [
       "Digital Marketing Strategy",
+      "Search Engine Optimization (SEO)",
+      "Social Media Optimization (SMO)",
+      "Performance Marketing",
+      "Email Marketing",
       "Social Media Marketing",
       "Campaign Design",
       "Creative Content",
@@ -158,8 +167,25 @@ const SERVICES = [
 ];
 
 export default function ServicesPage() {
+  const jsonLd = SERVICES.map(srv => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": srv.title,
+    "description": srv.desc,
+    "provider": {
+      "@type": "Organization",
+      "name": "KLEE Technologies",
+      "url": "https://kleetechnologies.com"
+    },
+    "areaServed": "Worldwide"
+  }));
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Services Hero */}
       <Section spacing="hero" background="default">
         <Container size="default">

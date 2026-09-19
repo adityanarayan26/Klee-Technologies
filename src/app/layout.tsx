@@ -16,7 +16,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://klee-technologies.com"),
+  metadataBase: new URL("https://kleetechnologies.com"),
   title: {
     default: "KLEE Technologies — Design. Technology. Growth.",
     template: "%s | KLEE Technologies",
@@ -33,6 +33,31 @@ export const metadata: Metadata = {
     "T-Hub Hyderabad",
   ],
   authors: [{ name: "KLEE Technologies" }],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "KLEE Technologies — Design. Technology. Growth.",
+    description: "Premium Creative Digital Agency and Technology Studio. We engineer software, craft digital products, and drive high-velocity growth for innovative enterprises.",
+    url: "https://kleetechnologies.com",
+    siteName: "KLEE Technologies",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "KLEE Technologies - Premium Creative Digital Agency",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KLEE Technologies — Design. Technology. Growth.",
+    description: "Premium Creative Digital Agency and Technology Studio. We engineer software, craft digital products, and drive high-velocity growth.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export const viewport: Viewport = {

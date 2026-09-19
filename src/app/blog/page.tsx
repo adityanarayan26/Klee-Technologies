@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: "AI-First Enterprise Solutions | KLEE Technologies",
   description:
     "From software that works to technology that thinks. Learn how KLEE Technologies integrates AI into software, SaaS platforms, workflows, and digital experiences.",
+  openGraph: {
+    title: "AI-First Enterprise Solutions | KLEE Technologies",
+    description: "From software that works to technology that thinks. Learn how KLEE Technologies integrates AI into software, SaaS platforms, workflows, and digital experiences.",
+    url: "https://kleetechnologies.com/blog",
+  }
 };
 
 export default function BlogPage() {

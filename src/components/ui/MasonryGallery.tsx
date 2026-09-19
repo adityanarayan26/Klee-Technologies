@@ -66,7 +66,7 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
                 <div className="relative w-full bg-slate-100 dark:bg-slate-800/30">
                   <Image
                     src={asset.src}
-                    alt={asset.alt || asset.src.split('/').pop() || "Portfolio item"}
+                    alt={asset.alt || `KLEE Technologies ${asset.category || 'Portfolio'} - ${asset.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Image'}`}
                     width={800}
                     height={800}
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"

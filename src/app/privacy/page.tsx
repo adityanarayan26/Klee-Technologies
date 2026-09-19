@@ -122,7 +122,7 @@ export default function PrivacyPolicyPage() {
 
           <PolicySection num="12" title="Students & internships">
             <p>KLEE Technologies provides Live Internship Projects designed to give students practical industry exposure.</p>
-            <p>500+ students have completed internships with KLEE Technologies.</p>
+            <p>700+ students have completed internships with KLEE Technologies.</p>
             <p>Information submitted by internship applicants may be used to evaluate applications, understand skills, communicate opportunities and administer internship programs.</p>
             <p>We collect information reasonably necessary for these purposes.</p>
           </PolicySection>

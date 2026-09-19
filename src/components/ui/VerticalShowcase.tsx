@@ -121,7 +121,7 @@ export function VerticalShowcase({ className }: { className?: string }) {
                 ) : (
                   <Image 
                     src={src} 
-                    alt="Portfolio Item" 
+                    alt={`KLEE Technologies Project - ${src.split('/').pop()?.split('.')[0].replace(/[-_]/g, ' ')}`}
                     fill 
                     sizes="(max-width: 768px) 50vw, 33vw" 
                     priority={i === 0}
@@ -156,7 +156,7 @@ export function VerticalShowcase({ className }: { className?: string }) {
                 ) : (
                   <Image 
                     src={src} 
-                    alt="Portfolio Item" 
+                    alt={`KLEE Technologies Project - ${src.split('/').pop()?.split('.')[0].replace(/[-_]/g, ' ')}`}
                     fill 
                     sizes="(max-width: 768px) 50vw, 33vw" 
                     priority={i === 0}
@@ -191,7 +191,7 @@ export function VerticalShowcase({ className }: { className?: string }) {
                 ) : (
                   <Image 
                     src={src} 
-                    alt="Portfolio Item" 
+                    alt={`KLEE Technologies Project - ${src.split('/').pop()?.split('.')[0].replace(/[-_]/g, ' ')}`}
                     fill 
                     sizes="33vw" 
                     priority={i === 0}

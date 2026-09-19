@@ -12,11 +12,33 @@ export const metadata: Metadata = {
   title: "About KLEE Technologies | Technology & Digital Solutions Company",
   description:
     "Learn about KLEE Technologies, established in 2018 in Hyderabad. Explore our technology, design, SaaS, digital marketing, branding and innovation journey.",
+  openGraph: {
+    title: "About KLEE Technologies",
+    description: "Learn about KLEE Technologies, established in 2018 in Hyderabad. Explore our technology, design, SaaS, digital marketing, branding and innovation journey.",
+    url: "https://kleetechnologies.com/about",
+  }
 };
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About KLEE Technologies",
+    "description": "Learn about KLEE Technologies, a digital solutions company in Hyderabad.",
+    "url": "https://kleetechnologies.com/about",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "KLEE Technologies",
+      "foundingDate": "2018-04-06"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* About KLEE Hero */}
       <Section spacing="hero" background="default">
         <Container size="default">
@@ -242,7 +264,7 @@ export default function AboutPage() {
                 Technology grows faster when knowledge moves with it. Through our Live Internship Projects, students gain practical exposure to real-world projects, technologies and professional workflows.
               </p>
               <p className="text-sm font-medium text-[var(--color-foreground)] leading-relaxed">
-                500+ students have completed internships with KLEE Technologies.
+                700+ students have completed internships with KLEE Technologies.
               </p>
             </Reveal>
 

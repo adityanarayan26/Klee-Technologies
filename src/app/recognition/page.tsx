@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Recognition & Certifications | KLEE Technologies",
   description:
     "Explore KLEE Technologies' startup recognition, MSME certification, ISO certification, AICTE recognition and technology achievements.",
+  openGraph: {
+    title: "Recognition & Certifications | KLEE Technologies",
+    description: "Explore KLEE Technologies' startup recognition, MSME certification, ISO certification, AICTE recognition and technology achievements.",
+    url: "https://kleetechnologies.com/recognition",
+  }
 };
 
 const CERTIFICATIONS = [
@@ -140,10 +145,10 @@ export default function RecognitionPage() {
 
             <Reveal variant="slide-up" delay={0.1}>
               <span className="type-eyebrow text-[var(--color-accent)] mb-4 block">INTERNSHIP IMPACT</span>
-              <h3 className="type-h3 text-[var(--color-foreground)] font-medium mb-4">500+ Students. Real-World Exposure.</h3>
+              <h3 className="type-h3 text-[var(--color-foreground)] font-medium mb-4">700+ Students. Real-World Exposure.</h3>
               <div className="type-body text-[var(--color-muted)] leading-relaxed space-y-4">
                 <p>
-                  More than <strong>500 students have completed internships</strong> with KLEE Technologies, gaining exposure to practical projects and industry-oriented technology.
+                  More than <strong>700 students have completed internships</strong> with KLEE Technologies, gaining exposure to practical projects and industry-oriented technology.
                 </p>
                 <p className="font-medium text-[var(--color-foreground)] border-l-2 border-[var(--color-accent)] pl-4 py-1">
                   Because the future of technology needs builders—not just learners.

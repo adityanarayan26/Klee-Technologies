@@ -152,7 +152,7 @@ export async function POST(req: Request) {
               </div>
             </div>
             <div class="footer">
-              Submitted via klee-technologies.com • Reply directly to this email to contact ${name}.
+              Submitted via kleetechnologies.com • Reply directly to this email to contact ${name}.
             </div>
           </div>
         </body>
