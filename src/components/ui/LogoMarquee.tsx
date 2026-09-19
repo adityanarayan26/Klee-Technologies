@@ -23,7 +23,7 @@ export const CLIENT_LOGOS: ClientLogo[] = [
 
 export function LogoMarquee({ 
   className, 
-  baseVelocity = 50, // Duration in seconds for a full cycle
+  baseVelocity = 24, // Fast & dynamic duration (~185px/s) with hardware-accelerated smoothness
   items = CLIENT_LOGOS,
   reverse = false,
   colored = true,
