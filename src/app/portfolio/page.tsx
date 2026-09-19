@@ -225,13 +225,13 @@ export default function PortfolioPage() {
             
             <div className="lg:col-span-7">
               <Reveal variant="scale" delay={0.2}>
-                <div className="aspect-[4/3] rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-xl bg-[#e8e4dc]">
+                <div className="aspect-square w-full max-w-2xl mx-auto rounded-3xl border border-[var(--color-border-subtle)] overflow-hidden relative shadow-2xl bg-[#060b11]">
                   <Image 
-                    src="/portfolio/featured/ksdc-mockup.jpg" 
-                    alt="KSDC Application Preview Dashboard" 
+                    src="/portfolio/featured/ksdc-ts-govt-mobile-app.jpg" 
+                    alt="KSDC Application - Telangana Government Skill Development Mobile App" 
                     fill 
                     sizes="(max-width: 1024px) 100vw, 58vw"
-                    className="object-contain p-2"
+                    className="object-contain"
                   />
                 </div>
               </Reveal>

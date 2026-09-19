@@ -17,10 +17,23 @@ const wrap = (min: number, max: number, v: number) => {
   return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
 };
 
-export const CLIENT_LOGOS = Array.from({ length: 21 }, (_, index) => ({
-  name: `Client ${index + 1}`,
-  src: `/images/clients/${index + 1}.png`,
-}));
+export interface ClientLogo {
+  name: string;
+  src: string;
+  className?: string;
+}
+
+export const CLIENT_LOGOS: ClientLogo[] = [
+  {
+    name: "Government of Telangana",
+    src: "/images/clients/telangana-govt.png",
+    className: "p-0.5",
+  },
+  ...Array.from({ length: 21 }, (_, index) => ({
+    name: `Client ${index + 1}`,
+    src: `/images/clients/${index + 1}.png`,
+  })),
+];
 
 export function LogoMarquee({ 
   className, 
@@ -31,7 +44,7 @@ export function LogoMarquee({
 }: { 
   className?: string; 
   baseVelocity?: number;
-  items?: { name: string; src: string }[];
+  items?: ClientLogo[];
   reverse?: boolean;
   colored?: boolean;
 }) {
@@ -68,7 +81,7 @@ export function LogoMarquee({
                   colored 
                     ? "" 
                     : "filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100"
-                }`}
+                } ${client.className || ""}`}
               />
             </div>
           </div>

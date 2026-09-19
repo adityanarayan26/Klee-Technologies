@@ -14,12 +14,14 @@ export interface ClientItem {
   id: string;
   name: string;
   src: string;
+  className?: string;
 }
 
 export const CLIENTS_DATA: ClientItem[] = CLIENT_LOGOS.map((client, index) => ({
   id: `client-${index + 1}`,
   name: client.name,
   src: client.src,
+  className: client.className,
 }));
 
 export function ClientsShowcase() {
@@ -51,7 +53,7 @@ export function ClientsShowcase() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-6 text-xs text-[var(--color-foreground)] font-medium">
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)]">
               <Building2 className="w-3.5 h-3.5 text-[var(--color-accent)]" />
-              <span>21+ Industry Leaders</span>
+              <span>{CLIENTS_DATA.length}+ Industry Leaders</span>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--color-background-secondary)] border border-[var(--color-border-subtle)]">
               <TrendingUp className="w-3.5 h-3.5 text-emerald-600" />
@@ -77,7 +79,7 @@ export function ClientsShowcase() {
                     alt={`${client.name} logo`}
                     fill
                     sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                    className="object-contain transition-transform duration-300 group-hover:scale-105"
+                    className={`object-contain transition-transform duration-300 group-hover:scale-105 ${client.className || ""}`}
                   />
                 </div>
               </div>
