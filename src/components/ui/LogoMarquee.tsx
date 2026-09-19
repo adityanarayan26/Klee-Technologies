@@ -1,21 +1,7 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
-import {
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  useMotionValue,
-  useVelocity,
-  useAnimationFrame
-} from "motion/react";
-
-const wrap = (min: number, max: number, v: number) => {
-  const rangeSize = max - min;
-  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
-};
 
 export interface ClientLogo {
   name: string;
@@ -37,56 +23,61 @@ export const CLIENT_LOGOS: ClientLogo[] = [
 
 export function LogoMarquee({ 
   className, 
-  baseVelocity = 40, // Represents duration in seconds now
+  baseVelocity = 50, // Duration in seconds for a full cycle
   items = CLIENT_LOGOS,
   reverse = false,
   colored = true,
+  pauseOnHover = true,
 }: { 
   className?: string; 
   baseVelocity?: number;
   items?: ClientLogo[];
   reverse?: boolean;
   colored?: boolean;
+  pauseOnHover?: boolean;
 }) {
-  // Duplicate the array to create a seamless infinite loop.
-  // We use 4 sets. Moving to -50% means we move exactly 2 sets over, perfectly looping.
-  const marqueeItems = [
-    ...items,
-    ...items,
-    ...items,
-    ...items
-  ];
-
-
+  const renderTrack = (trackKey: string, isAriaHidden = false) => (
+    <div 
+      aria-hidden={isAriaHidden ? "true" : undefined}
+      className={`flex shrink-0 items-center ${
+        reverse ? "animate-marquee-reverse" : "animate-marquee"
+      } ${pauseOnHover ? "group-hover:[animation-play-state:paused]" : ""}`}
+      style={{ 
+        animationDuration: `${baseVelocity}s`,
+        animationTimingFunction: "linear",
+      }}
+    >
+      {items.map((client, index) => (
+        <div 
+          key={`${trackKey}-${client.name}-${index}`} 
+          className="shrink-0 mx-2 sm:mx-2.5 flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-white border border-[var(--color-border-subtle)] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-200 group/card"
+        >
+          <div className="relative w-36 sm:w-44 md:w-48 h-14 sm:h-16 flex items-center justify-center">
+            <Image
+              src={client.src}
+              alt={`${client.name} logo`}
+              fill
+              sizes="200px"
+              className={`object-contain transition-all duration-300 group-hover/card:scale-105 ${
+                colored 
+                  ? "" 
+                  : "filter grayscale opacity-80 group-hover/card:grayscale-0 group-hover/card:opacity-100"
+              } ${client.className || ""}`}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
-    <div className={`relative flex w-full overflow-hidden ${className || "bg-background-secondary/50 py-7 border-y border-(--color-border-subtle)"}`}>
-      <motion.div 
-        className="flex w-max items-center hover:[animation-play-state:paused]" 
-        animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
-        transition={{ ease: "linear", duration: baseVelocity, repeat: Infinity }}
-      >
-        {marqueeItems.map((client, index) => (
-          <div 
-            key={`${client.name}-${index}`} 
-            className="shrink-0 mx-2.5 sm:mx-3 flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-white border border-(--color-border-subtle) shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] hover:shadow-md hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-200 group"
-          >
-            <div className="relative w-36 sm:w-44 md:w-48 h-14 sm:h-16 flex items-center justify-center">
-              <Image
-                src={client.src}
-                alt={`${client.name} logo`}
-                fill
-                sizes="200px"
-                className={`object-contain transition-all duration-300 group-hover:scale-105 ${
-                  colored 
-                    ? "" 
-                    : "filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100"
-                } ${client.className || ""}`}
-              />
-            </div>
-          </div>
-        ))}
-      </motion.div>
+    <div 
+      className={`group relative flex w-full overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] ${
+        className || "bg-background-secondary/50 py-7 border-y border-[var(--color-border-subtle)]"
+      }`}
+    >
+      {renderTrack("track-1", false)}
+      {renderTrack("track-2", true)}
     </div>
   );
 }
