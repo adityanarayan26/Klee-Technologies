@@ -491,7 +491,7 @@ const amasiaAssets = rawAllAssets.filter(a => a.src.includes('amasia-solar'));
 const otherAssets = rawAllAssets.filter(a => !a.src.includes('ksdc-ts-govt-mobile-app') && !a.src.includes('amasia-solar'));
 
 export const ALL_ASSETS: PortfolioAsset[] = [
-  ...(ksdcAsset ? [ksdcAsset] : []),
   ...amasiaAssets,
+  ...(ksdcAsset ? [ksdcAsset] : []),
   ...otherAssets
 ];

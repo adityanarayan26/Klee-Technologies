@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Reveal } from "@/components/motion/Reveal";
@@ -18,10 +18,39 @@ interface MasonryGalleryProps {
 export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [activeAsset, setActiveAsset] = useState<LightboxAsset | null>(null);
+  const [columns, setColumns] = useState<number>(5);
+
+  useEffect(() => {
+    const updateColumns = () => {
+      const width = window.innerWidth;
+      if (width < 640) setColumns(1);
+      else if (width < 768) setColumns(2);
+      else if (width < 1024) setColumns(3);
+      else if (width < 1200) setColumns(4);
+      else setColumns(5);
+    };
+
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
+    return () => window.removeEventListener("resize", updateColumns);
+  }, []);
 
   const filteredAssets = activeCategory === "All" 
     ? assets 
     : assets.filter((a: any) => a.category === activeCategory);
+
+  // Distribute items across columns round-robin so the initial items (Row 1)
+  // appear horizontally left-to-right across the top row instead of vertically stacking in column 1.
+  const columnData = useMemo(() => {
+    const cols: { asset: PortfolioAsset; index: number }[][] = Array.from(
+      { length: columns },
+      () => []
+    );
+    filteredAssets.forEach((asset, idx) => {
+      cols[idx % columns].push({ asset, index: idx });
+    });
+    return cols;
+  }, [filteredAssets, columns]);
 
   return (
     <div className="w-full">
@@ -42,42 +71,51 @@ export function MasonryGallery({ assets, categories }: MasonryGalleryProps) {
         ))}
       </div>
 
-      {/* Masonry Grid */}
-      <div className="columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-6 space-y-6">
-        {filteredAssets.map((asset, i) => (
-          <Reveal key={asset.src + i} variant="slide-up" delay={(i % 10) * 0.05}>
-            <div 
-              data-cursor="expand"
-              onClick={() => setActiveAsset({ src: asset.src, type: asset.type })}
-              className="break-inside-avoid mb-6 overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800/40 border border-[var(--color-border-subtle)] group hover:cursor-none cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-[var(--color-accent)]/40"
-            >
-              {asset.type === "video" ? (
-                <video
-                  src={asset.src}
-                  poster={asset.src.replace(/\.mp4$/i, "-poster.jpg")}
-                  preload="metadata"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-auto block"
-                />
-              ) : (
-                <div className="relative w-full bg-slate-100 dark:bg-slate-800/30">
-                  <Image
-                    src={asset.src}
-                    alt={asset.alt || `KLEE Technologies ${asset.category || 'Portfolio'} - ${asset.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Image'}`}
-                    width={800}
-                    height={800}
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                    className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
-                    loading={i < 2 ? undefined : "lazy"}
-                    priority={i < 2}
-                  />
+      {/* Masonry Grid with Row-First Distribution */}
+      <div 
+        className="grid gap-6 items-start w-full"
+        style={{
+          gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`
+        }}
+      >
+        {columnData.map((col, colIdx) => (
+          <div key={colIdx} className="flex flex-col gap-6">
+            {col.map(({ asset, index }) => (
+              <Reveal key={asset.src + index} variant="slide-up" delay={(index % 5) * 0.05}>
+                <div 
+                  data-cursor="expand"
+                  onClick={() => setActiveAsset({ src: asset.src, type: asset.type })}
+                  className="overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800/40 border border-[var(--color-border-subtle)] group hover:cursor-none cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-[var(--color-accent)]/40"
+                >
+                  {asset.type === "video" ? (
+                    <video
+                      src={asset.src}
+                      poster={asset.src.replace(/\.mp4$/i, "-poster.jpg")}
+                      preload="metadata"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-auto block"
+                    />
+                  ) : (
+                    <div className="relative w-full bg-slate-100 dark:bg-slate-800/30">
+                      <Image
+                        src={asset.src}
+                        alt={asset.alt || `KLEE Technologies ${asset.category || 'Portfolio'} - ${asset.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Image'}`}
+                        width={800}
+                        height={800}
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1200px) 25vw, 20vw"
+                        className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
+                        loading={index < 5 ? undefined : "lazy"}
+                        priority={index < 5}
+                      />
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         ))}
       </div>
       
