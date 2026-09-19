@@ -15,26 +15,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "alt": "Amasia Solar - SMA Inverter Built to Withstand Engineered to Perform"
     },
     {
-      "src": "/portfolio-assets/amasia-solar-smart-monitoring-6.jpg",
-      "type": "image",
-      "alt": "Amasia Solar - Integrated Smart Monitoring: Stay Informed, Stay in Control"
-    },
-    {
-      "src": "/portfolio-assets/amasia-solar-unique-by-design-8.jpg",
-      "type": "image",
-      "alt": "Amasia Solar - SMA Inverters: Unique by Design, Better by Choice"
-    },
-    {
-      "src": "/portfolio-assets/amasia-solar-strength-you-can-trust-11.jpg",
-      "type": "image",
-      "alt": "Amasia Solar - Strength You Can Trust, Power You Can Rely On"
-    },
-    {
-      "src": "/portfolio-assets/amasia-solar-fire-mitigation-ai-12.jpg",
-      "type": "image",
-      "alt": "Amasia Solar - Fire Mitigation via Acoustic AI: Stops Fires Before They Start"
-    },
-    {
       "src": "/portfolio-assets/klee-technologies-branding-designs4.png",
       "type": "image"
     },
@@ -51,12 +31,52 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
+      "src": "/portfolio-assets/amasia-solar-smart-monitoring-6.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - Integrated Smart Monitoring: Stay Informed, Stay in Control"
+    },
+    {
       "src": "/portfolio-assets/mockup-2.jpg",
       "type": "image"
     },
     {
       "src": "/portfolio-assets/klee-technologies-logo-designs10.jpg",
       "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/amasia-solar-unique-by-design-8.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - SMA Inverters: Unique by Design, Better by Choice"
+    },
+    {
+      "src": "/portfolio-assets/klee-technologies-brand-guidelines-designs28.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/klee-technologies-logo-designs1.jpg",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/dec-logo-animation.mp4",
+      "type": "video"
+    },
+    {
+      "src": "/portfolio-assets/amasia-solar-strength-you-can-trust-11.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - Strength You Can Trust, Power You Can Rely On"
+    },
+    {
+      "src": "/portfolio-assets/klee-technologies-brand-guidelines-designs38.jpg",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/klee-technologies-logo-designs9.jpg",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/amasia-solar-fire-mitigation-ai-12.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - Fire Mitigation via Acoustic AI: Stops Fires Before They Start"
     },
     {
       "src": "/portfolio-assets/klee-technologies-brand-guidelines-designs28.png",
@@ -487,11 +507,31 @@ const rawAllAssets: PortfolioAsset[] = Object.entries(PORTFOLIO_ASSETS).flatMap(
 );
 
 const ksdcAsset = rawAllAssets.find(a => a.src.includes('ksdc-ts-govt-mobile-app'));
-const amasiaAssets = rawAllAssets.filter(a => a.src.includes('amasia-solar'));
 const otherAssets = rawAllAssets.filter(a => !a.src.includes('ksdc-ts-govt-mobile-app') && !a.src.includes('amasia-solar'));
+const amasia9 = rawAllAssets.find(a => a.src.includes('amasia-solar-sma-inverter-withstand-9'));
+const amasia6 = rawAllAssets.find(a => a.src.includes('amasia-solar-smart-monitoring-6'));
+const amasia8 = rawAllAssets.find(a => a.src.includes('amasia-solar-unique-by-design-8'));
+const amasia11 = rawAllAssets.find(a => a.src.includes('amasia-solar-strength-you-can-trust-11'));
+const amasia12 = rawAllAssets.find(a => a.src.includes('amasia-solar-fire-mitigation-ai-12'));
 
 export const ALL_ASSETS: PortfolioAsset[] = [
-  ...amasiaAssets,
+  // Row 1: diverse mix (KSDC govt app, Amasia 9.jpg, Momentum, Coffetree, Akshara)
   ...(ksdcAsset ? [ksdcAsset] : []),
-  ...otherAssets
+  ...(amasia9 ? [amasia9] : []),
+  ...(otherAssets.slice(0, 3)),
+  
+  // Row 2: diverse mix with Amasia 6 & 8 interleaved
+  ...(otherAssets.slice(3, 4)),
+  ...(amasia6 ? [amasia6] : []),
+  ...(otherAssets.slice(4, 6)),
+  ...(amasia8 ? [amasia8] : []),
+  
+  // Row 3: diverse mix with Amasia 11 & 12 interleaved
+  ...(otherAssets.slice(6, 8)),
+  ...(amasia11 ? [amasia11] : []),
+  ...(otherAssets.slice(8, 10)),
+  ...(amasia12 ? [amasia12] : []),
+  
+  // Remaining assets
+  ...(otherAssets.slice(10))
 ];
