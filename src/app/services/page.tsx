@@ -7,7 +7,7 @@ import { TextReveal } from "@/components/motion/TextReveal";
 import { Button } from "@/components/ui/Button";
 import { HorizontalGallery } from "@/components/ui/HorizontalGallery";
 import { SERVICE_ASSETS } from "@/data/serviceAssets";
-import { Quote } from "lucide-react";
+import { Quote, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services | Software, SaaS, UI/UX, Digital Marketing & Branding | KLEE",
@@ -221,15 +221,40 @@ export default function ServicesPage() {
                     <p className="type-body text-[var(--color-muted)] mb-8 max-w-md">
                       {srv.desc}
                     </p>
-                    <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border-primary)]/80 bg-gradient-to-br from-[var(--color-surface)] via-[var(--color-surface)] to-[var(--color-accent-subtle)]/30 p-5 sm:p-6 shadow-xs transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:shadow-md">
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-accent)] to-[#00c982]" />
-                      <div className="flex items-start gap-3.5">
-                        <div className="w-8 h-8 rounded-lg bg-[var(--color-accent-subtle)] flex items-center justify-center shrink-0 text-[var(--color-accent)] mt-0.5">
-                          <Quote className="w-4 h-4 fill-[var(--color-accent)]/20 text-[var(--color-accent)]" />
+                    <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#0e76bc]/20 bg-gradient-to-br from-white via-[#f4f8fc] to-[#eaf5f0] p-6 sm:p-7 shadow-[0_12px_36px_-6px_rgba(14,118,188,0.1),0_4px_16px_rgba(0,0,0,0.03)] group transition-all duration-500 hover:shadow-[0_18px_45px_-6px_rgba(14,118,188,0.18)] hover:border-[#0e76bc]/35">
+                      {/* Ambient corner glow */}
+                      <div className="absolute -top-10 -right-10 w-36 h-36 bg-gradient-to-br from-[#0e76bc]/20 to-emerald-400/20 rounded-full blur-2xl pointer-events-none transition-transform duration-700 group-hover:scale-125" />
+                      
+                      {/* Left accent gradient stripe */}
+                      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#0e76bc] via-[#00c982] to-[#0e76bc] rounded-l-3xl" />
+
+                      {/* Watermark Quote Icon in background */}
+                      <Quote className="absolute right-4 bottom-3 w-20 h-20 text-[#0e76bc]/[0.07] -rotate-12 pointer-events-none select-none" />
+
+                      <div className="relative z-10">
+                        {/* Kicker badge */}
+                        <div className="flex items-center gap-2 mb-3.5">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-[#0e76bc]/25 text-[#0e76bc] text-[11px] font-bold tracking-wider uppercase shadow-xs">
+                            <Sparkles className="w-3 h-3 text-[#0e76bc] fill-[#0e76bc]/30" />
+                            Guiding Principle
+                          </span>
                         </div>
-                        <p className="text-base sm:text-[17px] font-medium text-[var(--color-foreground)] italic leading-relaxed text-pretty">
-                          "{srv.oneliner}"
-                        </p>
+
+                        {/* Quote text */}
+                        <blockquote className="text-lg sm:text-xl lg:text-[21px] font-medium tracking-tight text-slate-900 leading-snug sm:leading-snug text-pretty">
+                          &ldquo;{srv.oneliner}&rdquo;
+                        </blockquote>
+
+                        {/* Micro footer */}
+                        <div className="mt-4 pt-3 border-t border-[#0e76bc]/15 flex items-center justify-between">
+                          <span className="text-[11px] font-semibold tracking-wider uppercase text-[var(--color-muted)]">
+                            The KLEE Standard
+                          </span>
+                          <div className="flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#00c982] animate-pulse" />
+                            <span className="text-[11px] font-medium text-slate-600">Core Belief</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </Reveal>
