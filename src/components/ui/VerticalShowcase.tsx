@@ -11,6 +11,7 @@ const Lightbox = dynamic(() => import("./Lightbox").then((m) => m.Lightbox), {
 });
 
 const col1Media = [
+  "ksdc-ts-govt-mobile-app.jpg",
   "1-2.png",
   "2.jpg",
   "30-sec_gopichand_.mp4",

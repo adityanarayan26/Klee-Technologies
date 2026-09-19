@@ -64,6 +64,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
   ],
   "UI/UX": [
     {
+      "src": "/portfolio/featured/ksdc-ts-govt-mobile-app.jpg",
+      "type": "image",
+      "alt": "KSDC Application - Telangana Government Skill Development Mobile App"
+    },
+    {
       "src": "/portfolio-assets/whatsapp-video-2023-09-20-at-1.14.39-pm.mp4",
       "type": "video"
     },
