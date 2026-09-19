@@ -36,10 +36,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "alt": "Amasia Solar - Integrated Smart Monitoring: Stay Informed, Stay in Control"
     },
     {
-      "src": "/portfolio-assets/mockup-2.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/klee-technologies-logo-designs10.jpg",
       "type": "image"
     },
@@ -77,26 +73,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "src": "/portfolio-assets/amasia-solar-fire-mitigation-ai-12.jpg",
       "type": "image",
       "alt": "Amasia Solar - Fire Mitigation via Acoustic AI: Stops Fires Before They Start"
-    },
-    {
-      "src": "/portfolio-assets/klee-technologies-brand-guidelines-designs28.png",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/klee-technologies-logo-designs1.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/dec-logo-animation.mp4",
-      "type": "video"
-    },
-    {
-      "src": "/portfolio-assets/klee-technologies-brand-guidelines-designs38.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/klee-technologies-logo-designs9.jpg",
-      "type": "image"
     },
     {
       "src": "/portfolio-assets/msappl-magazine-mockup-pack.jpg",
@@ -196,10 +172,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/7633d4bf-ad73-41ad-a24c-c31d5f254aa1.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/dec-industries-kiosk-booth-2.png",
       "type": "image"
     },
@@ -231,10 +203,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
     },
     {
       "src": "/portfolio-assets/klee-technologies-packaging-designs4.png",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/dec-ready-plast-png.png",
       "type": "image"
     },
     {
@@ -280,10 +248,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/14bc276d-c63f-476f-8ecc-7720f5d4ed9a.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/img-9744.jpg",
       "type": "image"
     },
@@ -297,10 +261,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
     },
     {
       "src": "/portfolio-assets/c0f5221f-5285-4513-a76f-cc53c3f8bda7.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/photo-2023-03-08-11-57-35.jpg",
       "type": "image"
     },
     {
@@ -336,39 +296,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/img-0266.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/img-4028.jpg",
       "type": "image"
     },
     {
       "src": "/portfolio-assets/img-0264.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/img-0265.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/img-20200816-wa0010.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/70b86633-e5f8-4345-8cb7-53b060e192b9.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/img-0903.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/b15a81e9-b483-4adb-a65f-2e5bae0569bf.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/img-0532.jpg",
       "type": "image"
     },
     {
@@ -384,19 +316,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/67eaada9-1536-498f-bdab-d8b8af8f589d.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/6-2.jpg",
       "type": "image"
     },
     {
       "src": "/portfolio-assets/45c14400-abe2-4c76-8ae6-e1d1361a76ea.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/img-0902.jpg",
       "type": "image"
     },
     {
@@ -448,10 +372,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/7-2.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/img-0209.jpg",
       "type": "image"
     },
@@ -480,19 +400,11 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/3.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/1.jpg",
       "type": "image"
     },
     {
       "src": "/portfolio-assets/img-1528.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/img-1529.png",
       "type": "image"
     },
     {
