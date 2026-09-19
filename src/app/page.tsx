@@ -54,7 +54,7 @@ export default function HomePage() {
                 <span className="block">
                   <span className="inline-flex flex-wrap justify-center gap-x-[0.25em]">
                     <TextRoll className="text-gray-950">Building</TextRoll>
-                    <span className="inline-flex flex-wrap justify-center gap-x-[0.25em] bg-gradient-to-r from-[#0e76bc] via-[#29a5f5] via-[#0e76bc] to-[#0a588c] bg-[length:200%_auto] animate-gradient-text bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(14,118,188,0.15)] font-semibold">
+                    <span className="inline-flex flex-wrap justify-center gap-x-[0.25em] bg-gradient-to-r from-[#13a89e] via-[#0284c7] via-[#0e76bc] to-[#13a89e] bg-[length:200%_auto] animate-gradient-text bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(14,118,188,0.18)] font-semibold">
                       {"intelligent digital products,".split(" ").map((word, i) => (
                         <span key={`blue-${i}`} className="inline-block">
                           {word}
