@@ -387,14 +387,6 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
       "type": "image"
     },
     {
-      "src": "/portfolio-assets/79824748-5286-4cb2-bc15-34beea16077c.jpg",
-      "type": "image"
-    },
-    {
-      "src": "/portfolio-assets/4.jpg",
-      "type": "image"
-    },
-    {
       "src": "/portfolio-assets/krya-corona-uv-c-dis-infector.mp4",
       "type": "video"
     },
@@ -465,6 +457,13 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
   ]
 };
 
-export const ALL_ASSETS = Object.entries(PORTFOLIO_ASSETS).flatMap(([category, assets]) => 
+const rawAllAssets: PortfolioAsset[] = Object.entries(PORTFOLIO_ASSETS).flatMap(([category, assets]) => 
   assets.map(asset => ({ ...asset, category }))
 );
+
+const ksdcAsset = rawAllAssets.find(a => a.src.includes('ksdc-ts-govt-mobile-app'));
+const remainingAssets = rawAllAssets.filter(a => !a.src.includes('ksdc-ts-govt-mobile-app'));
+
+export const ALL_ASSETS: PortfolioAsset[] = ksdcAsset 
+  ? [ksdcAsset, ...remainingAssets] 
+  : rawAllAssets;
