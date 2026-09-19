@@ -10,6 +10,31 @@ export interface PortfolioAsset {
 export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
   "Branding": [
     {
+      "src": "/portfolio-assets/amasia-solar-sma-inverter-withstand-9.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - SMA Inverter Built to Withstand Engineered to Perform"
+    },
+    {
+      "src": "/portfolio-assets/amasia-solar-smart-monitoring-6.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - Integrated Smart Monitoring: Stay Informed, Stay in Control"
+    },
+    {
+      "src": "/portfolio-assets/amasia-solar-unique-by-design-8.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - SMA Inverters: Unique by Design, Better by Choice"
+    },
+    {
+      "src": "/portfolio-assets/amasia-solar-strength-you-can-trust-11.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - Strength You Can Trust, Power You Can Rely On"
+    },
+    {
+      "src": "/portfolio-assets/amasia-solar-fire-mitigation-ai-12.jpg",
+      "type": "image",
+      "alt": "Amasia Solar - Fire Mitigation via Acoustic AI: Stops Fires Before They Start"
+    },
+    {
       "src": "/portfolio-assets/klee-technologies-branding-designs4.png",
       "type": "image"
     },
@@ -462,8 +487,11 @@ const rawAllAssets: PortfolioAsset[] = Object.entries(PORTFOLIO_ASSETS).flatMap(
 );
 
 const ksdcAsset = rawAllAssets.find(a => a.src.includes('ksdc-ts-govt-mobile-app'));
-const remainingAssets = rawAllAssets.filter(a => !a.src.includes('ksdc-ts-govt-mobile-app'));
+const amasiaAssets = rawAllAssets.filter(a => a.src.includes('amasia-solar'));
+const otherAssets = rawAllAssets.filter(a => !a.src.includes('ksdc-ts-govt-mobile-app') && !a.src.includes('amasia-solar'));
 
-export const ALL_ASSETS: PortfolioAsset[] = ksdcAsset 
-  ? [ksdcAsset, ...remainingAssets] 
-  : rawAllAssets;
+export const ALL_ASSETS: PortfolioAsset[] = [
+  ...(ksdcAsset ? [ksdcAsset] : []),
+  ...amasiaAssets,
+  ...otherAssets
+];
