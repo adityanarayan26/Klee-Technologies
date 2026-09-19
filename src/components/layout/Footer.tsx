@@ -78,7 +78,7 @@ export function Footer() {
                       height={72} 
                       className={`w-full h-full object-contain transition-transform ${
                         badge.alt === "T-Hub" ? "scale-[1.35]" : 
-                        badge.alt === "ISO 9001" ? "scale-[1.15]" : "scale-90"
+                        badge.alt === "ISO 9001" ? "scale-[0.85]" : "scale-90"
                       }`} 
                     />
                   </div>
