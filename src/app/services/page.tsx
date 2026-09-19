@@ -7,6 +7,13 @@ import { TextReveal } from "@/components/motion/TextReveal";
 import { Button } from "@/components/ui/Button";
 import { HorizontalGallery } from "@/components/ui/HorizontalGallery";
 import { SERVICE_ASSETS } from "@/data/serviceAssets";
+import { Dancing_Script } from "next/font/google";
+
+const cursiveFont = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Services | Software, SaaS, UI/UX, Digital Marketing & Branding | KLEE",
@@ -225,8 +232,8 @@ export default function ServicesPage() {
                       <div className="absolute -top-8 -right-8 w-28 h-28 bg-[var(--color-accent)]/[0.06] rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-150" />
                       
                       <div className="relative flex items-start gap-4">
-                        <div className="w-1 self-stretch rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-accent)]/20 shrink-0 mt-0.5" />
-                        <blockquote className="text-lg sm:text-xl font-medium tracking-tight text-[var(--color-foreground)] leading-relaxed text-pretty">
+                        <div className="w-1 self-stretch rounded-full bg-gradient-to-b from-[var(--color-accent)] to-[var(--color-accent)]/20 shrink-0 mt-1" />
+                        <blockquote className={`${cursiveFont.className} text-2xl sm:text-[27px] font-semibold tracking-wide text-[var(--color-foreground)] leading-snug sm:leading-relaxed text-pretty`}>
                           &ldquo;{srv.oneliner}&rdquo;
                         </blockquote>
                       </div>
