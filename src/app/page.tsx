@@ -14,6 +14,7 @@ import { Lightbulb, PenTool, Blocks, TrendingUp } from "lucide-react";
 import { HeroIllustration } from "@/components/ui/HeroIllustration";
 import { VerticalShowcase } from "@/components/ui/VerticalShowcase";
 import { HeroAmbientBackground } from "@/components/ui/HeroAmbientBackground";
+import { TestimonialsSection } from "@/components/ui/TestimonialsSection";
 
 export const metadata: Metadata = {
   title: "KLEE Technologies | Software, SaaS, UI/UX, Digital Marketing & Branding",
@@ -339,6 +340,9 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
+
+      {/* Client Voices & Testimonials */}
+      <TestimonialsSection />
 
       {/* Closing CTA */}
       <Section spacing="default" background="default" borderTop>
