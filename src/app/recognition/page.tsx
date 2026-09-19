@@ -50,8 +50,8 @@ const CERTIFICATIONS = [
       </>
     ),
     logo: "/logos/iso9001.png",
-    width: 72,
-    height: 72,
+    width: 84,
+    height: 84,
     isSquare: true,
   },
   {
@@ -105,7 +105,7 @@ export default function RecognitionPage() {
                     </div>
                   </div>
                   
-                  <div className={`flex items-center justify-center bg-white border border-[var(--color-border-subtle)] rounded-xl mt-auto ${cert.isSquare ? 'w-28 h-28 p-3.5 aspect-square' : 'w-fit p-6'}`}>
+                  <div className={`flex items-center justify-center bg-white border border-[var(--color-border-subtle)] rounded-xl mt-auto ${cert.isSquare ? 'w-28 h-28 p-2.5 sm:p-3 aspect-square' : 'w-fit p-6'}`}>
                     <Image
                       src={cert.logo}
                       alt={cert.heading}
