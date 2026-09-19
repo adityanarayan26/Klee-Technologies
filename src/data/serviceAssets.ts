@@ -60,7 +60,7 @@ export const SERVICE_ASSETS: Record<string, ServiceAsset[]> = {
     { src: "/services/ui-ux/uiux4.webp", type: "image", alt: "UI/UX Design - uiux4.webp" },
     { src: "/services/ui-ux/uiux5.webp", type: "image", alt: "UI/UX Design - uiux5.webp" },
     { src: "/services/ui-ux/uiux6.jpg", type: "image", alt: "UI/UX Design - uiux6.jpg" },
-    { src: "/services/ui-ux/uiux7.PNG", type: "image", alt: "UI/UX Design - uiux7.PNG" },
+    { src: "/services/ui-ux/ksdc-ts-govt-mobile-app.jpg", type: "image", alt: "KSDC Application - Telangana Government Skill Development Mobile App" },
   ],
   "software-development": [
     { src: "/services/software-development/VMOVEXA SAAS Platform2.png", type: "image", alt: "Software Development - VMOVEXA SAAS Platform2.png" },

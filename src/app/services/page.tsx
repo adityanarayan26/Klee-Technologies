@@ -7,6 +7,7 @@ import { TextReveal } from "@/components/motion/TextReveal";
 import { Button } from "@/components/ui/Button";
 import { HorizontalGallery } from "@/components/ui/HorizontalGallery";
 import { SERVICE_ASSETS } from "@/data/serviceAssets";
+import { Quote } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services | Software, SaaS, UI/UX, Digital Marketing & Branding | KLEE",
@@ -220,8 +221,16 @@ export default function ServicesPage() {
                     <p className="type-body text-[var(--color-muted)] mb-8 max-w-md">
                       {srv.desc}
                     </p>
-                    <div className="p-5 bg-[var(--color-foreground)] text-[var(--color-background-primary)] rounded-lg font-medium text-lg text-balance">
-                      "{srv.oneliner}"
+                    <div className="relative overflow-hidden rounded-2xl border border-[var(--color-border-primary)]/80 bg-gradient-to-br from-[var(--color-surface)] via-[var(--color-surface)] to-[var(--color-accent-subtle)]/30 p-5 sm:p-6 shadow-xs transition-all duration-300 hover:border-[var(--color-accent)]/30 hover:shadow-md">
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--color-accent)] to-[#00c982]" />
+                      <div className="flex items-start gap-3.5">
+                        <div className="w-8 h-8 rounded-lg bg-[var(--color-accent-subtle)] flex items-center justify-center shrink-0 text-[var(--color-accent)] mt-0.5">
+                          <Quote className="w-4 h-4 fill-[var(--color-accent)]/20 text-[var(--color-accent)]" />
+                        </div>
+                        <p className="text-base sm:text-[17px] font-medium text-[var(--color-foreground)] italic leading-relaxed text-pretty">
+                          "{srv.oneliner}"
+                        </p>
+                      </div>
                     </div>
                   </Reveal>
                 </div>
