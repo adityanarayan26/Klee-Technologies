@@ -143,7 +143,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-muted)]">
-          <p className="uppercase tracking-wide">© {BRAND_INFO.establishedYear}–{currentYear} KLEE TECHNOLOGIES PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
+          <p>© {BRAND_INFO.establishedYear}–{currentYear} KLEE TECHNOLOGIES PRIVATE LIMITED. ALL RIGHTS RESERVED.</p>
           <Link href="/privacy" className="hover:text-[var(--color-foreground)] transition-colors">Privacy Policy</Link>
         </div>
       </Container>
