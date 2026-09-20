@@ -220,6 +220,62 @@ export const PORTFOLIO_ASSETS: Record<string, PortfolioAsset[]> = {
   ],
   "General": [
     {
+      "src": "/portfolio-assets/vmovexa-brnad.jpeg",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-brochure-3.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-brochure-4.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-brochure-6.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-brochure.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-folder-design-1.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-folder-design-mockup1.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-folder-design-mockup4.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-folder.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-investor-magazine3.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-press-banner.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-press-interviews-vertical-flex.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-press-launch-banner.png",
+      "type": "image"
+    },
+    {
+      "src": "/portfolio-assets/vmovexa-stall-design.png",
+      "type": "image"
+    },
+    {
       "src": "/portfolio-assets/klee-technologies-portfolio39-2048x1536.jpg",
       "type": "image"
     },
@@ -444,6 +500,19 @@ export const ALL_ASSETS: PortfolioAsset[] = [
   ...(otherAssets.slice(8, 10)),
   ...(amasia12 ? [amasia12] : []),
   
-  // Remaining assets
-  ...(otherAssets.slice(10))
+  // Remaining assets (jumbled)
+  ...((() => {
+    const remaining = [...otherAssets.slice(10)];
+    // Deterministic shuffle to avoid hydration mismatch
+    let seed = 1;
+    const random = () => {
+      const x = Math.sin(seed++) * 10000;
+      return x - Math.floor(x);
+    };
+    for (let i = remaining.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
+    }
+    return remaining;
+  })())
 ];

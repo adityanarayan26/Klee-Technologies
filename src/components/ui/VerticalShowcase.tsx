@@ -29,6 +29,7 @@ const col1Media = [
 ].map((file) => `/hero-showcase/${file}`);
 
 const col2Media = [
+  "vmovexa-stall-design.png",
   "amasia-solar-sma-inverter-withstand-9.jpg",
   "dec_putti_packaging_01_png.png",
   "img_0902.jpg",
