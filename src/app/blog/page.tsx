@@ -178,17 +178,17 @@ export default function BlogPage() {
       </Section>
 
       {/* Call to Action */}
-      <Section spacing="default" background="default" borderTop className="relative bg-gray-950 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent pointer-events-none" />
+      <Section spacing="default" background="default" borderTop className="relative overflow-hidden" style={{ backgroundColor: '#0e76bc' }}>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none" />
         <Container size="default" className="text-center max-w-4xl mx-auto relative z-10 py-12 lg:py-20">
           <Reveal variant="slide-up">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight [text-wrap:balance]">
-              DON’T JUST ADD AI.
+              DON'T JUST ADD AI.
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 mb-12 font-light tracking-wide [text-wrap:balance]">
+            <p className="text-xl md:text-2xl text-white/80 mb-12 font-light tracking-wide [text-wrap:balance]">
               Build with intelligence at the core.
             </p>
-            <Button href="/contact" variant="primary" size="lg" showArrow className="bg-white text-black hover:bg-gray-100 shadow-[0_8px_30px_rgba(255,255,255,0.15)] rounded-full px-10 py-4 text-lg">
+            <Button href="/contact" variant="primary" size="lg" showArrow className="bg-white text-[#0e76bc] hover:bg-blue-50 shadow-[0_8px_30px_rgba(0,0,0,0.15)] rounded-full px-10 py-4 text-lg font-semibold">
               Start Your AI Project
             </Button>
           </Reveal>
