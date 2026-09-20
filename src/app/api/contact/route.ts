@@ -1,6 +1,37 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+// --- Server-side spam detection ---
+function isGibberish(str: string): boolean {
+  if (!str || str.length < 4) return false;
+  const s = str.trim();
+  if (/[bcdfghjklmnpqrstvwxyz]{5,}/i.test(s)) return true;
+  if (s.length > 15 && !s.includes(" ")) return true;
+
+  const letters = s.replace(/[^a-zA-Z]/g, "");
+  if (letters.length > 8) {
+    let altCount = 0;
+    for (let i = 1; i < letters.length; i++) {
+      const prevUpper = letters[i - 1] === letters[i - 1].toUpperCase();
+      const curUpper = letters[i] === letters[i].toUpperCase();
+      if (prevUpper !== curUpper) altCount++;
+    }
+    if (altCount / letters.length > 0.45) return true;
+  }
+  return false;
+}
+
+// Free consumer email domains that bots use heavily
+const BLOCKED_DOMAINS = new Set([
+  "mailinator.com", "guerrillamail.com", "sharklasers.com", "guerrillamailblock.com",
+  "grr.la", "guerrillamail.info", "guerrillamail.biz", "guerrillamail.de",
+  "guerrillamail.net", "guerrillamail.org", "spam4.me", "yopmail.com",
+  "yopmail.fr", "cool.fr.nf", "jetable.fr.nf", "nospam.ze.tc", "nomail.xl.cx",
+  "mega.zik.dj", "speed.1s.fr", "courriel.fr.nf", "moncourrier.fr.nf",
+  "tempr.email", "discard.email", "fakeinbox.com", "tempmail.com",
+  "throwam.com", "trashmail.com", "trashmail.me", "trashmail.io",
+]);
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -24,6 +55,36 @@ export async function POST(req: Request) {
     if (!message || typeof message !== "string" || !message.trim()) {
       return NextResponse.json(
         { success: false, error: "Please write a brief message about your project." },
+        { status: 400 }
+      );
+    }
+
+    // 2. Server-side spam detection
+    if (isGibberish(name.trim())) {
+      return NextResponse.json(
+        { success: false, error: "Please enter your real name." },
+        { status: 400 }
+      );
+    }
+
+    if (company && typeof company === "string" && isGibberish(company.trim())) {
+      return NextResponse.json(
+        { success: false, error: "Please enter a valid company name." },
+        { status: 400 }
+      );
+    }
+
+    if (isGibberish(message.trim())) {
+      return NextResponse.json(
+        { success: false, error: "Your message appears to be invalid. Please describe your project in plain language." },
+        { status: 400 }
+      );
+    }
+
+    const emailDomain = email.trim().split("@")[1]?.toLowerCase();
+    if (emailDomain && BLOCKED_DOMAINS.has(emailDomain)) {
+      return NextResponse.json(
+        { success: false, error: "Please use a real business or personal email address." },
         { status: 400 }
       );
     }

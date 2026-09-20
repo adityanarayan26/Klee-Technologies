@@ -17,11 +17,36 @@ const SERVICE_OPTIONS = [
   "Other"
 ];
 
+// Spam detection helpers
+function isGibberish(str: string): boolean {
+  if (!str || str.length < 4) return false;
+  const s = str.trim();
+  // Too many consecutive consonants (5+ in a row) — bots love random strings
+  if (/[bcdfghjklmnpqrstvwxyz]{5,}/i.test(s)) return true;
+  
+  // No spaces in a very long string (> 15 chars) is usually spam
+  if (s.length > 15 && !s.includes(" ")) return true;
+
+  // Alternating upper/lower pattern like 'aMTgxeToB' — very common bot pattern
+  const altPattern = s.replace(/[^a-zA-Z]/g, "");
+  if (altPattern.length > 8) {
+    let altCount = 0;
+    for (let i = 1; i < altPattern.length; i++) {
+      const prevUpper = altPattern[i - 1] === altPattern[i - 1].toUpperCase();
+      const curUpper = altPattern[i] === altPattern[i].toUpperCase();
+      if (prevUpper !== curUpper) altCount++;
+    }
+    if (altCount / altPattern.length > 0.45) return true;
+  }
+  return false;
+}
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+  const formLoadTime = React.useRef(Date.now());
 
   const toggleService = (service: string) => {
     setSelectedServices(prev => 
@@ -39,13 +64,51 @@ export function ContactForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // --- Spam Guard 1: Honeypot check (bots fill hidden fields, humans don't) ---
+    const honeypot = formData.get("website_url") as string;
+    if (honeypot && honeypot.trim() !== "") {
+      // Silently succeed — don't tip off the bot
+      setIsSubmitting(false);
+      setSubmitted(true);
+      return;
+    }
+
+    // --- Spam Guard 2: Timing check (< 3 seconds = bot) ---
+    const elapsed = Date.now() - formLoadTime.current;
+    if (elapsed < 3000) {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      return;
+    }
+
+    const name = formData.get("name") as string;
+    const company = formData.get("company") as string;
+    const message = formData.get("message") as string;
+
+    // --- Spam Guard 3: Gibberish pattern detection ---
+    if (isGibberish(name)) {
+      setIsSubmitting(false);
+      setError("Please enter your real name.");
+      return;
+    }
+    if (company && isGibberish(company)) {
+      setIsSubmitting(false);
+      setError("Please enter a valid company name.");
+      return;
+    }
+    if (isGibberish(message)) {
+      setIsSubmitting(false);
+      setError("Your message appears to be invalid. Please describe your project in plain language.");
+      return;
+    }
+
     const payload = {
-      name: formData.get("name") as string,
-      company: formData.get("company") as string,
+      name,
+      company,
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
       services: selectedServices,
-      message: formData.get("message") as string,
+      message,
     };
 
     try {
@@ -93,6 +156,11 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3.5">
+      {/* Honeypot — hidden from real users, bots will fill it */}
+      <div style={{ position: "absolute", left: "-9999px", top: "-9999px", opacity: 0, height: 0, overflow: "hidden" }} aria-hidden="true">
+        <label htmlFor="website_url">Website URL (leave blank)</label>
+        <input type="text" id="website_url" name="website_url" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="space-y-1.5">
           <label htmlFor="name" className="text-sm font-medium text-[var(--color-foreground)] block">
