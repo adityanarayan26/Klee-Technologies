@@ -80,14 +80,9 @@ export const SERVICE_ASSETS: Record<string, ServiceAsset[]> = {
     { src: "/services/branding/MSAPPL LOGO INTRO4.MP4", type: "video", alt: "Branding & Logo - MSAPPL LOGO INTRO4.MP4" },
   ],
   "internship-projects": [
-    { src: "/services/internship/internship1.webp", type: "image", alt: "Internship Projects - internship1.webp" },
-    { src: "/services/internship/internship2.webp", type: "image", alt: "Internship Projects - internship2.webp" },
-    { src: "/services/internship/internship3.webp", type: "image", alt: "Internship Projects - internship3.webp" },
-    { src: "/services/internship/internship4.webp", type: "image", alt: "Internship Projects - internship4.webp" },
-    { src: "/services/internship/internship5.webp", type: "image", alt: "Internship Projects - internship5.webp" },
-    { src: "/services/internship/internship6.webp", type: "image", alt: "Internship Projects - internship6.webp" },
-    { src: "/services/internship/internship7.webp", type: "image", alt: "Internship Projects - internship7.webp" },
-    { src: "/services/internship/internship8.webp", type: "image", alt: "Internship Projects - internship8.webp" },
-    { src: "/services/internship/internship9.webp", type: "image", alt: "Internship Projects - internship9.webp" },
+    { src: "/services/internship/klee-internship-2.webp", type: "image", alt: "KLEE Technologies Live Internship - Hands-on Learning & Mentorship" },
+    { src: "/services/internship/klee-internship-3.webp", type: "image", alt: "KLEE Technologies Live Internship - Student Team Working on Real Projects" },
+    { src: "/services/internship/klee-internship-4.webp", type: "image", alt: "KLEE Technologies Live Internship - Learn, Grow, Belong Skill Development" },
+    { src: "/services/internship/klee-internship-5.webp", type: "image", alt: "KLEE Technologies Live Internship - Practical Software & Product Engineering" },
   ],
 };
