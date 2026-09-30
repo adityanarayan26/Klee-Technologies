@@ -75,12 +75,12 @@ export default function HomePage() {
               </div>
 
               {/* Centered Editorial Headline - Rock-Solid Zero-Shift with Flowing Gradient Glow */}
-              <h1 className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[2.15rem] xl:text-[2.6rem] 2xl:text-[3.45rem] font-medium tracking-tight leading-[1.12] mb-4 sm:mb-5 cursor-default text-center max-w-[680px] xl:max-w-[780px] 2xl:max-w-[920px]">
+              <h1 className="relative z-10 text-3xl sm:text-4xl md:text-5xl lg:text-[2.15rem] xl:text-[2.6rem] 2xl:text-[3.45rem] font-semibold tracking-tight leading-[1.12] mb-4 sm:mb-5 cursor-default text-center max-w-[680px] xl:max-w-[780px] 2xl:max-w-[920px]">
                 {/* Line 1 - Rock Solid Width (No Jitter) with Flowing Blue Gradient Wave */}
                 <span className="block">
                   <span className="inline-flex flex-wrap justify-center gap-x-[0.25em]">
                     <TextRoll className="text-gray-950">Building</TextRoll>
-                    <span className="inline-flex flex-wrap justify-center gap-x-[0.25em] bg-gradient-to-r from-[#13a89e] via-[#0284c7] via-[#0e76bc] to-[#13a89e] bg-[length:200%_auto] animate-gradient-text bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(14,118,188,0.18)] font-semibold">
+                    <span className="inline-flex flex-wrap justify-center gap-x-[0.25em] bg-gradient-to-r from-[#13a89e] via-[#0284c7] via-[#0e76bc] to-[#13a89e] bg-[length:200%_auto] animate-gradient-text bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(14,118,188,0.18)] font-bold">
                       {"intelligent digital products,".split(" ").map((word, i) => (
                         <span key={`blue-${i}`} className="inline-block">
                           {word}

@@ -61,15 +61,14 @@ export function SmoothScrollProvider({
       return;
     }
 
-    // Initialize Lenis with agency-grade smooth damping
+    // Initialize Lenis with optimized performance settings
     const instance = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.1, // Tighter and less "floaty" than duration based easing. Helps reduce lag.
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      touchMultiplier: 1.4,
-      wheelMultiplier: 0.9,
+      touchMultiplier: 1.5,
+      wheelMultiplier: 1,
     });
 
     currentLenis = instance;
