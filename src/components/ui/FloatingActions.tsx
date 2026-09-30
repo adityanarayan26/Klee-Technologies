@@ -11,15 +11,14 @@ export function FloatingActions() {
         href="/brochure.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center justify-center w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-200/50 hover:bg-white transition-all duration-300 hover:scale-110"
+        className="group relative flex items-center justify-center w-12 h-12 rounded-full shadow-[0_8px_20px_rgba(14,118,188,0.2)] hover:shadow-[0_8px_30px_rgba(14,118,188,0.4)] transition-all duration-300 hover:scale-110 before:absolute before:inset-0 before:bg-gradient-to-tr before:from-[#0e76bc] before:to-[#13a89e] before:rounded-full before:opacity-90 hover:before:opacity-100 before:transition-opacity"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-700">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <polyline points="14 2 14 8 20 8" />
-          <path d="M12 18v-6" />
-          <path d="M9 15l3 3 3-3" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-white relative z-10 drop-shadow-md">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
         </svg>
-        <span className="absolute right-full mr-4 px-3 py-1.5 bg-white text-gray-800 text-xs font-semibold rounded-lg shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 translate-x-2 group-hover:translate-x-0 whitespace-nowrap">
+        <span className="absolute right-full mr-4 px-3 py-1.5 bg-[#0e76bc] text-white text-xs font-semibold rounded-lg shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-300 translate-x-3 group-hover:translate-x-0 whitespace-nowrap border border-white/10">
           Download Brochure
         </span>
       </a>

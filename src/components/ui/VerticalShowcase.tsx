@@ -101,11 +101,11 @@ export function VerticalShowcase({ className }: { className?: string }) {
         <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-3 gap-[clamp(0.75rem,1.2vw,1.5rem)] px-[clamp(0.75rem,1.5vw,2rem)] pb-20 pt-10">
           
           {/* Column 1 - Continuous Pure CSS Infinite Scroll */}
-          <div className="flex flex-col gap-4 lg:gap-6 animate-showcase-col1">
+          <div className="flex flex-col gap-4 lg:gap-6 animate-showcase-col1 will-change-transform transform-gpu">
             {col1.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-gray-50 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
@@ -136,11 +136,11 @@ export function VerticalShowcase({ className }: { className?: string }) {
           </div>
 
           {/* Column 2 - Continuous Pure CSS Reverse Infinite Scroll */}
-          <div className="flex flex-col gap-4 lg:gap-6 -mt-32 animate-showcase-col2">
+          <div className="flex flex-col gap-4 lg:gap-6 -mt-32 animate-showcase-col2 will-change-transform transform-gpu">
             {col2.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i + 1))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-gray-50 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i + 1))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
@@ -171,11 +171,11 @@ export function VerticalShowcase({ className }: { className?: string }) {
           </div>
 
           {/* Column 3 - Continuous Pure CSS Infinite Scroll */}
-          <div className="hidden md:flex flex-col gap-4 lg:gap-6 mt-16 animate-showcase-col3">
+          <div className="hidden md:flex flex-col gap-4 lg:gap-6 mt-16 animate-showcase-col3 will-change-transform transform-gpu">
             {col3.map((src, i) => (
               <div 
                 key={i} 
-                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/15 backdrop-blur-xs transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i + 2))}
+                className={cn("relative w-full rounded-2xl overflow-hidden cursor-none shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-gray-50 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_40px_rgba(0,0,0,0.25)]", getAspectRatio(i + 2))}
                 data-cursor="expand"
                 onClick={() => setActiveAsset({ src, type: isVideo(src) ? 'video' : 'image' })}
               >
